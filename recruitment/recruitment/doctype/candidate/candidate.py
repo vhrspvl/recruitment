@@ -19,18 +19,18 @@ class Candidate(Document):
 		elif not self.india_experience and not self.gulf_experience:
 			self.total_experience = 0
 
-	def validate_passport(self):
-		"""Validates the Passport string"""
-		passport_str = (self.passport_no or "").strip()
-
-		if not passport_str:
-			return False
-
-		match = re.match("[a-z0-9]", passport_str)
-
-		if not match:
-			frappe.throw(frappe._("{0} is not a valid Passport No").format(passport_str),
-					frappe.InvalidEmailAddressError)
+#	#def validate_passport(self):
+#		"""Validates the Passport string"""
+#		passport_str = (self.passport_no or "").strip()
+#
+#		if not passport_str:
+#			return False
+#
+#		match = re.match("[a-z0-9]", passport_str)
+#
+#		if not match:
+#			frappe.throw(frappe._("{0} is not a valid Passport No").format(passport_str),
+#					frappe.InvalidEmailAddressError)
 
 @frappe.whitelist()
 def get_projects(doctype, txt, searchfield, start, page_len, filters):
