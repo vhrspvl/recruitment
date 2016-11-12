@@ -748,7 +748,11 @@
  "issingle": 0, 
  "istable": 0, 
  "max_attachments": 0, 
+<<<<<<< HEAD
  "modified": "2016-11-11 17:01:12.515853", 
+=======
+ "modified": "2016-11-10 15:11:56.385891", 
+>>>>>>> aab0cf98126a93a80527d0436b00cb510e2e57a0
  "modified_by": "Administrator", 
  "module": "Recruitment", 
  "name": "Associate", 
@@ -855,7 +859,8 @@
    "share": 1, 
    "submit": 0, 
    "write": 1
- }, 
+<<<<<<< HEAD
+  }, 
   {
    "amend": 0, 
    "apply_user_permissions": 1, 
@@ -876,7 +881,9 @@
    "submit": 0, 
    "user_permission_doctypes": "[\"User\"]", 
    "write": 1
-}
+=======
+>>>>>>> aab0cf98126a93a80527d0436b00cb510e2e57a0
+  }
  ], 
  "quick_entry": 0, 
  "read_only": 0, 
