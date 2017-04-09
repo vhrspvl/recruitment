@@ -12,15 +12,22 @@ def get_data():
 				{
 					"type": "doctype",
 					"name": "Candidate",
-                    "label": _("Candidate"),
+                    			"label": _("Candidate"),
 					"description": _("VHRS Candidate Database"),
 				},
+				{
+					"type": "doctype",
+					"name": "Interview",
+					"label": _("Interview"),
+					"description": _("Interviews for Projects"),
+				},		
+				
 				{
 					"type": "doctype",
 					"name": "Associate",
 					"label": _("Associate"),
 					"description": _("VHRS Associate Database"),
-					#"hide_count": True
+					"hide_count": False
 				}
 			]
 		}

@@ -1,4 +1,9 @@
 frappe.ui.form.on('Candidate', {
+refresh: function(frm) {
+  if(!frm.doc.user) {
+    frm.set_value('user', frappe.session.user);
+  }
+},
  onload:function(frm){
    frm.set_query("project", function() {
 	 return {
@@ -17,5 +22,8 @@ frappe.ui.form.on('Candidate', {
 		 }
 		 };
  });
+
+
 }
+
 });

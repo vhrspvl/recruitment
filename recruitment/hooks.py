@@ -69,7 +69,14 @@ app_license = "MIT"
 # Document Events
 # ---------------
 # Hook on document methods and events
-
+doc_events = {
+    "Candidate": {
+        "on_update": "recruitment.api.create_closure"
+    },
+    "Task Candidate": {
+        "on_update": "recruitment.api.create_closure"
+    }
+ }
 # doc_events = {
 # 	"*": {
 # 		"on_update": "method",
@@ -81,13 +88,13 @@ app_license = "MIT"
 # Scheduled Tasks
 # ---------------
 
-# scheduler_events = {
+scheduler_events = {
 # 	"all": [
 # 		"recruitment.tasks.all"
 # 	],
-# 	"daily": [
-# 		"recruitment.tasks.daily"
-# 	],
+	"daily": [
+		"recruitment.api.send_anniversary_reminders"
+ 	],
 # 	"hourly": [
 # 		"recruitment.tasks.hourly"
 # 	],
@@ -97,7 +104,7 @@ app_license = "MIT"
 # 	"monthly": [
 # 		"recruitment.tasks.monthly"
 # 	]
-# }
+ }
 
 # Testing
 # -------
@@ -110,4 +117,3 @@ app_license = "MIT"
 # override_whitelisted_methods = {
 # 	"frappe.desk.doctype.event.event.get_events": "recruitment.event.get_events"
 # }
-
