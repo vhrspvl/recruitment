@@ -1,6 +1,7 @@
 import frappe
 import shortuuid
 from frappe import _
+from frappe.utils.data import today
 from frappe.utils import nowdate, add_days
 
 @frappe.whitelist()
@@ -29,46 +30,48 @@ def fetch_candidate(project,payment_type):
 def create_closure(doc,method):
     if doc.pending_for == 'Proposed PSL':
         closure_id = frappe.db.get_value("Closure", {"candidate": doc.name})
+        project = frappe.get_doc("Project",doc.project)
+        task = frappe.db.get_value("Task",doc.task,"subject")
+        bde = frappe.db.get_value("Customer",doc.customer,"customer_owner")
+        territory = frappe.db.get_value("Customer",doc.customer,"territory")
+        payment_terms = project.payment_terms
+        dle = ''
+        atm = ''
+        tl = ''
+        stm = ''
+        if doc.user:
+            executive = frappe.db.get("Employee", {"user_id": doc.user})
+#                executive = frappe.get_doc("Employee",doc.executive)
+            dle = executive.user_id
+            stm = executive.department
+            atm = frappe.db.get_value("Employee",executive.department_head,"user_id")
+            tl = frappe.db.get_value("Employee",executive.reports_to,"user_id")
         if closure_id:
             closure = frappe.get_doc("Closure", closure_id)
         else:
-            project = frappe.get_doc("Project",doc.project)
-            task = frappe.db.get_value("Task",doc.task,"subject")
-            bde = frappe.db.get_value("Customer",doc.customer,"customer_owner")
-            territory = frappe.db.get_value("Customer",doc.customer,"territory")
-            payment_terms = project.payment_terms
-            dle = ''
-            atm = ''
-            tl = ''
-            stm = ''
-            if doc.user:
-                executive = frappe.db.get("Employee", {"user_id": doc.user})
-#                executive = frappe.get_doc("Employee",doc.executive)
-                dle = executive.user_id
-                stm = executive.department
-                atm = frappe.db.get_value("Employee",executive.department_head,"user_id")
-                tl = frappe.db.get_value("Employee",executive.reports_to,"user_id")
-
             closure = frappe.new_doc("Closure")
-            closure.update({
-                "customer":doc.customer,
-                "territory":territory,
-                "project":doc.project,
-                "payment_terms":payment_terms,
-                "task":doc.task,
-                "candidate":doc.name,
-                "name1":doc.given_name,
-                "designation":doc.task,
-                "contact_no":doc.mobile,
-                "cpc":project.cpc,
-                "dle":dle,
-                "tl":tl,
-                "bde":bde,
-                "atm":atm,
-                "stm":stm
+        closure.update({
+            "customer":doc.customer,
+            "territory":territory,
+            "project":doc.project,
+            "payment_terms":payment_terms,
+            "task":doc.task,
+            "candidate":doc.name,
+            "name1":doc.given_name,
+            "designation":task,
+            "contact_no":doc.mobile,
+            "passport_no":doc.passport_no,
+            "ecr_status":doc.ecr_status,
+            "associate_name":doc.associate_name,
+            "associate_contact_no":doc.contact_no,
+            "cpc":project.cpc,
+            "dle":dle,
+            "tl":tl,
+            "bde":bde,
+            "atm":atm,
+            "stm":stm
                 })
-
-            closure.save(ignore_permissions = True)
+        closure.save(ignore_permissions = True)
 
 
 @frappe.whitelist()

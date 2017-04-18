@@ -14,12 +14,12 @@ class Candidate(Document):
 		self.check_closure_exists()
 
 
-	def before_save(self):
-		self.check_project_details()
+	#def before_save(self):
+	#	self.check_project_details()
 
 	def check_project_details(self):
 		if self.pending_for != 'IDB' or self.pending_for != 'Do Not Disturb':
-			if not self.customer:
+			if self.project:
 				frappe.msgprint(_('Customer is mandatory'))
 			elif not self.project:
 				frappe.msgprint(_('Project is mandatory'))
@@ -43,21 +43,21 @@ def get_projects(doctype, txt, searchfield, start, page_len, filters):
 	if not filters.get("customer"):
 		frappe.throw(_("Please select Customer first."))
 
-	project_list = 	frappe.db.sql("""select project.name from tabProject project where project.customer = %s""", (filters.get("customer")))
+	project_list = 	frappe.db.sql("""select project.name from tabProject project where project.customer = %s order by creation desc""", (filters.get("customer")))
 	return project_list
 
 def get_tasks(doctype, txt, searchfield, start, page_len, filters):
 	if not filters.get("project"):
 		frappe.throw(_("Please select Project first."))
 
-	task_list = frappe.db.sql("""select task.name,task.subject from tabTask task where task.project = %s""", (filters.get("project")))
+	task_list = frappe.db.sql("""select task.name,task.subject from tabTask task where task.project = %s order by creation desc""", (filters.get("project")))
 	return task_list
 
 def get_candidates(doctype, txt, searchfield, start, page_len, filters):
 	if not filters.get("task"):
 		frappe.throw(_("Please select Position first."))
 
-	candidate_list = frappe.db.sql("""select candidate.name,candidate.given_name from tabCandidate candidate where candidate.task = %s""", (filters.get("task")))
+	candidate_list = frappe.db.sql("""select candidate.name,candidate.given_name from tabCandidate candidate where candidate.task = %s order by creation desc""", (filters.get("task")))
 	return candidate_list
 
 @frappe.whitelist()

@@ -4,6 +4,11 @@ refresh: function(frm) {
     frm.set_value('user', frappe.session.user);
   }
 },
+associate_name:function(frm){
+    if(!frm.doc.associate_name) {
+      frm.set_value('contact_no', '');
+    }
+},
  onload:function(frm){
    frm.set_query("project", function() {
 	 return {
@@ -26,4 +31,12 @@ refresh: function(frm) {
 
 }
 
+});
+
+frappe.ui.form.on('Task Candidate', {
+refresh: function(frm) {
+  if(!frm.doc.user) {
+    frm.set_value('user', frappe.session.user);
+  }
+},
 });
