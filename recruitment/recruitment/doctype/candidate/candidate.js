@@ -3,6 +3,7 @@ refresh: function(frm) {
   if(!frm.doc.user) {
     frm.set_value('user', frappe.session.user);
   }
+  
 },
 associate_name:function(frm){
     if(!frm.doc.associate_name) {

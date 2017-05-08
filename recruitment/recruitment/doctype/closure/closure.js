@@ -6,25 +6,26 @@ frappe.ui.form.on('Closure', {
     if(frm.perm[0].write) {
       if(frm.doc.status =="Pending for CSL") {
         frm.add_custom_button(__("Confirm CSL"), function() {
-          frm.set_value("status", "CSL Confirmed");
+          frm.set_value("csl_status", "CSL Confirmed");
           frm.save();
         });
       }
       else {
       if(frm.doc.status !="Pending for PSL") {
           frm.add_custom_button(__("revert to PSL"), function() {
-            frm.set_value("status", "Pending for CSL");
+            frm.set_value("csl_status", "Pending for CSL");
             frm.save();
               });
             }
           }
           }
+          
         client_pending = 0;
-        client_pending = frm.doc.client_sc - frm.doc.client_advance
+        client_pending = frm.doc.client_sc - frm.doc.client_advance;
         frm.set_value("client_pending", client_pending);
 
         candidate_pending = 0;
-        candidate_pending = frm.doc.candidate_sc - frm.doc.candidate_advance
+        candidate_pending = frm.doc.candidate_sc - frm.doc.candidate_advance;
         frm.set_value("candidate_pending", candidate_pending);
     },
 onload:function(frm){

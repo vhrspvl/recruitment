@@ -5,13 +5,14 @@ def get_data():
 		{
 			"module_name": "Recruitment",
 			"color": "grey",
-			"icon": "octicon octicon-organization",
+			"icon": "fa fa-star",
 			"type": "module",
 			"label": _("Recruitment"),
 			"items": [
 				{
 					"type": "doctype",
 					"name": "Candidate",
+					"icon": "fa fa-star",
                     			"label": _("Candidate"),
 					"description": _("VHRS Candidate Database"),
 				},
