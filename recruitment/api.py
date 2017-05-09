@@ -56,6 +56,7 @@ def fetch_candidate(project, payment_type):
 @frappe.whitelist()
 def create_closure(doc, method):
     if doc.pending_for == 'Proposed PSL':
+        frappe.errprint("doc.ecr")
         closure_id = frappe.db.get_value("Closure", {"candidate": doc.name})
         project = frappe.get_doc("Project", doc.project)
         task = frappe.db.get_value("Task", doc.task, "subject")
@@ -92,8 +93,10 @@ def create_closure(doc, method):
             "ecr_status": doc.ecr_status,
             "associate_name": doc.associate_name,
             "associate_contact_no": doc.contact_no,
+            "ecr":doc.ecr,
             "ecr_status": doc.ecr_status,
             "expiry_date": doc.expiry_date,
+            "date_of_issue": doc.issued_date,
             "place_of_issue": doc.place_of_issue,
             "cpc": project.cpc,
             "dle": dle,

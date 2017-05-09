@@ -12,6 +12,7 @@ class Candidate(Document):
 	def validate(self):
 		self.total_exp()
 		self.check_closure_exists()
+	#	self.check_mandatory()
 
 
 	#def before_save(self):
@@ -37,6 +38,11 @@ class Candidate(Document):
 		closure = frappe.db.get_value("Closure", {"candidate": self.name})
 		if closure:
 			self.pending_for = 'Proposed PSL'
+
+	def check_mandatory(self):
+    		if self.pending_for == 'Proposed PSL':
+    				self.given_name
+    				
 
 @frappe.whitelist()
 def get_projects(doctype, txt, searchfield, start, page_len, filters):
