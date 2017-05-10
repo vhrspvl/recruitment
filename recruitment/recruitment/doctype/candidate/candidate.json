@@ -1255,7 +1255,7 @@
    "read_only": 0, 
    "remember_last_selected_value": 0, 
    "report_hide": 0, 
-   "reqd": 1, 
+   "reqd": 0, 
    "search_index": 0, 
    "set_only_once": 0, 
    "unique": 0
@@ -2898,7 +2898,7 @@
  "issingle": 0, 
  "istable": 0, 
  "max_attachments": 0, 
- "modified": "2017-05-09 18:47:40.662524", 
+ "modified": "2017-05-10 16:23:41.464910", 
  "modified_by": "Administrator", 
  "module": "Recruitment", 
  "name": "Candidate", 
