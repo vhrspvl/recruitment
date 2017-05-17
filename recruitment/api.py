@@ -59,7 +59,7 @@ def create_closure(doc, method):
         closure_id = frappe.db.get_value("Closure", {"candidate": doc.name})
         project = frappe.get_doc("Project", doc.project)
         task = frappe.db.get_value("Task", doc.task, "subject")
-        bde = frappe.db.get_value("Customer", doc.customer, "customer_owner")
+        bde = frappe.db.get_value("Customer", doc.customer, "customer_owner__cpc")
         territory = frappe.db.get_value("Customer", doc.customer, "territory")
         payment_terms = project.payment_terms
         dle = ''
