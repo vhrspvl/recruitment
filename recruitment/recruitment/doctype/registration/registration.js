@@ -62,6 +62,3 @@ refresh: function(frm) {
 }
 
 });
-
-
-});

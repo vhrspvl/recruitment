@@ -4,7 +4,9 @@ cur_frm.add_fetch("customer", "customer_owner", "bde");
 frappe.ui.form.on('Closure', {
   'onload_post_render': function(frm) {
     //me = $(cur_frm.fields_dict.payment_terms);
-    $(frm.fields_dict.payment_terms).addClass('test');
+    //  frm.get_field("offer_letter").$input
+    //  .addClass('btn-primary')
+    //$(cur_frm.fields_dict.offer_letter).addClass('test');
   },
 
   refresh: function(frm) {
@@ -14,6 +16,13 @@ frappe.ui.form.on('Closure', {
           frm.set_value("csl_status", "CSL Confirmed");
           frm.save();
         });
+      } else {
+        if (frm.doc.status != "Pending for PSL") {
+          frm.add_custom_button(__("revert to PSL"), function() {
+            frm.set_value("csl_status", "Pending for CSL");
+            frm.save();
+          });
+        }
       }
     }
 
