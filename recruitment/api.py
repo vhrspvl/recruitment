@@ -104,6 +104,12 @@ def create_closure(doc, method):
             "atm": atm,
             "stm": stm
         })
+        if doc.irf:
+            closure.update({"irf": doc.irf})
+        if doc.candidate_image:
+            closure.update({"photo": doc.candidate_image})
+        if doc.passport:
+            closure.update({"passport": doc.passport})
         closure.save(ignore_permissions=True)
 
 
