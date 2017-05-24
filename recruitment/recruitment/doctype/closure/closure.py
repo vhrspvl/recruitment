@@ -32,7 +32,7 @@ class Closure(Document):
                     if self.csl_status == 'CSL Confirmed':
                         if self.premedical and self.offer_letter and self.mol:
                             if self.visa:
-                                if self.pcc and self.final_medical:
+                                if self.final_medical:
                                     if self.stamped_visa or self.poe or self.vhrs_affidavit:
                                         if self.payment_reciept:
                                             if self.ticket:
@@ -64,12 +64,12 @@ class Closure(Document):
                     self.csl_status = 'Pending for CSL'
                     self.status_updated_on = today()
 
-            elif self.territory == 'Dammam' or self.territory == 'Jeddah' or self.territory == 'Riyadh'or self.territory == 'Kuwait':
+            elif self.territory == 'Dammam' or self.territory == 'Jeddah' or self.territory == 'Riyadh':
                 if self.irf and self.passport and self.photo:
                     if self.csl_status == 'CSL Confirmed':
                         if self.offer_letter:
                             if self.visa:
-                                if self.pcc and self.final_medical:
+                                if self.final_medical:
                                     if self.stamped_visa or self.poe or self.vhrs_affidavit:
                                         if self.payment_reciept:
                                             if self.ticket:
@@ -101,13 +101,13 @@ class Closure(Document):
                     self.csl_status = 'Pending for CSL'
                     self.status_updated_on = today()
 
-            elif self.territory == 'Qatar' or self.territory == 'Oman':
+            elif self.territory == 'Qatar':
                 if self.irf and self.passport and self.photo:
                     if self.csl_status == 'CSL Confirmed':
                         if self.premedical and self.offer_letter:
                             if self.visa:
                                 if self.pcc:
-                                    if self.stamped_visa or self.poe or self.vhrs_affidavit:
+                                    if self.poe or self.vhrs_affidavit:
                                         if self.payment_reciept:
                                             if self.ticket:
                                                 self.status = 'Pending for Candidate Onboarding'
@@ -123,6 +123,39 @@ class Closure(Document):
                                         self.status_updated_on = today()
                                 else:
                                     self.status = 'Pending for PCC'
+                                    self.status_updated_on = today()
+                            else:
+                                self.status = 'Pending for Visa'
+                                self.status_updated_on = today()
+                        else:
+                            self.status = 'Pending for Premedical and offer Letter'
+                            self.status_updated_on = today()
+                    else:
+                        self.status = 'Pending for CSL'
+                        self.status_updated_on = today()
+                else:
+                    self.status = 'Pending for PSL'
+                    self.csl_status = 'Pending for CSL'
+                    self.status_updated_on = today()
+
+            elif self.territory == 'Oman':
+                if self.irf and self.passport and self.photo:
+                    if self.csl_status == 'CSL Confirmed':
+                        if self.premedical and self.offer_letter:
+                            if self.visa:
+                                if self.poe or self.vhrs_affidavit:
+                                    if self.payment_reciept:
+                                        if self.ticket:
+                                            self.status = 'Pending for Candidate Onboarding'
+                                            self.status_updated_on = today()
+                                        else:
+                                            self.status = 'Pending for Ticket Details'
+                                            self.status_updated_on = today()
+                                    else:
+                                        self.status = 'Pending for Payment Receipt'
+                                        self.status_updated_on = today()
+                                else:
+                                    self.status = 'Pending for Visa Stamping'
                                     self.status_updated_on = today()
                             else:
                                 self.status = 'Pending for Visa'
