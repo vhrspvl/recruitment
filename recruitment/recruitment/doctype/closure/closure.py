@@ -101,44 +101,7 @@ class Closure(Document):
                     self.csl_status = 'Pending for CSL'
                     self.status_updated_on = today()
 
-            elif self.territory == 'Qatar':
-                if self.irf and self.passport and self.photo:
-                    if self.csl_status == 'CSL Confirmed':
-                        if self.premedical and self.offer_letter:
-                            if self.visa:
-                                if self.pcc:
-                                    if self.poe or self.vhrs_affidavit:
-                                        if self.payment_reciept:
-                                            if self.ticket:
-                                                self.status = 'Pending for Candidate Onboarding'
-                                                self.status_updated_on = today()
-                                            else:
-                                                self.status = 'Pending for Ticket Details'
-                                                self.status_updated_on = today()
-                                        else:
-                                            self.status = 'Pending for Payment Receipt'
-                                            self.status_updated_on = today()
-                                    else:
-                                        self.status = 'Pending for Visa Stamping'
-                                        self.status_updated_on = today()
-                                else:
-                                    self.status = 'Pending for PCC'
-                                    self.status_updated_on = today()
-                            else:
-                                self.status = 'Pending for Visa'
-                                self.status_updated_on = today()
-                        else:
-                            self.status = 'Pending for Premedical and offer Letter'
-                            self.status_updated_on = today()
-                    else:
-                        self.status = 'Pending for CSL'
-                        self.status_updated_on = today()
-                else:
-                    self.status = 'Pending for PSL'
-                    self.csl_status = 'Pending for CSL'
-                    self.status_updated_on = today()
-
-            elif self.territory == 'Oman':
+            elif self.territory == 'Oman' or self.territory == 'Qatar':
                 if self.irf and self.passport and self.photo:
                     if self.csl_status == 'CSL Confirmed':
                         if self.premedical and self.offer_letter:
