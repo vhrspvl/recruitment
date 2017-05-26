@@ -59,7 +59,8 @@ def create_closure(doc, method):
         closure_id = frappe.db.get_value("Closure", {"candidate": doc.name})
         project = frappe.get_doc("Project", doc.project)
         task = frappe.db.get_value("Task", doc.task, "subject")
-        bde = frappe.db.get_value("Customer", doc.customer, "customer_owner__cpc")
+        bde = frappe.db.get_value(
+            "Customer", doc.customer, "customer_owner__cpc")
         territory = frappe.db.get_value("Customer", doc.customer, "territory")
         payment_terms = project.payment_terms
         dle = ''
@@ -111,13 +112,6 @@ def create_closure(doc, method):
         if doc.passport:
             closure.update({"passport": doc.passport})
         closure.save(ignore_permissions=True)
-
-
-@frappe.whitelist()
-def candidate_count(doc, method):
-    test = None
-#    for candidate in candidates:
-#        frappe.errprint(candidate.pending_for)
 
 
 @frappe.whitelist()
