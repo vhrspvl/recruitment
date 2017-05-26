@@ -76,10 +76,7 @@ doc_events = {
     "Task Candidate": {
         "on_update": "recruitment.api.create_closure"
     },
-    "Project": {
-        "on_update": "recruitment.api.candidate_count"
-    },
- }
+
 # doc_events = {
 # 	"*": {
 # 		"on_update": "method",
@@ -92,24 +89,24 @@ doc_events = {
 # ---------------
 
 scheduler_events = {
-# 	"all": [
-# 		"recruitment.tasks.all"
-# 	],
-	"daily": [
-		"recruitment.api.send_anniversary_reminders",
+    # 	"all": [
+    # 		"recruitment.tasks.all"
+    # 	],
+    "daily": [
+        "recruitment.api.send_anniversary_reminders",
         "recruitment.api.set_dow",
         "recruitment.api.set_project_as_overdue"
- 	],
-# 	"hourly": [
-# 		"recruitment.tasks.hourly"
-# 	],
-# 	"weekly": [
-# 		"recruitment.tasks.weekly"
-# 	]
-# 	"monthly": [
-# 		"recruitment.tasks.monthly"
-# 	]
- }
+    ],
+    # 	"hourly": [
+    # 		"recruitment.tasks.hourly"
+    # 	],
+    # 	"weekly": [
+    # 		"recruitment.tasks.weekly"
+    # 	]
+    # 	"monthly": [
+    # 		"recruitment.tasks.monthly"
+    # 	]
+}
 
 # Testing
 # -------

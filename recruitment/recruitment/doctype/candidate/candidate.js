@@ -3,7 +3,6 @@ frappe.ui.form.on('Candidate', {
     if (!frm.doc.user) {
       frm.set_value('user', frappe.session.user);
     }
-
   },
   validate: function(frm) {
     frm.toggle_reqd(["passport_no", "issued_date", "expiry_date", "place_of_issue", "ecr_status"],
@@ -38,19 +37,14 @@ frappe.ui.form.on('Candidate', {
       };
     });
 
-    frm.set_query("associate_name", function() {
-      return {
-        query: "recruitment.recruitment.doctype.candidate.candidate.get_associates",
-        filters: {}
-      };
-    });
 
   }
 
 });
 
+
 frappe.ui.form.on('Task Candidate', {
-  refresh: function(frm) {
+  user: function(frm) {
     if (!frm.doc.user) {
       frm.set_value('user', frappe.session.user);
     }
