@@ -1,0 +1,11 @@
+[
+ {
+  "docstatus": 0, 
+  "doctype": "Custom Script", 
+  "dt": "Task", 
+  "modified": "2017-05-27 10:40:04.660266", 
+  "name": "Task-Client", 
+  "script": "frappe.ui.form.on(\"Task\", {\n  validate: function(frm) {\n    var candidates = frm.doc.candidates\n    sourced = 0\n    shortlisted = 0\n    interviewed = 0\n    proposed_psl = 0\n\n    for (var i in candidates) {\n      if (candidates[i].pending_for === 'Sourced' || candidates[i].pending_for === 'Submitted') {\n        sourced = sourced + 1;\n      }\n      if (candidates[i].pending_for === 'Shortlisted') {\n        shortlisted = shortlisted + 1;\n      }\n      if (candidates[i].pending_for === 'Interviewed') {\n        interviewed = interviewed + 1;\n      }\n      if (candidates[i].pending_for === 'Proposed PSL') {\n        proposed_psl = proposed_psl + 1;\n      }\n    }\n    frm.set_value(\"r7_count\", sourced);\n    frm.set_value(\"r4_count\", shortlisted);\n    frm.set_value(\"r6_count\", interviewed);\n    frm.set_value(\"r3_count\", proposed_psl);\n\n  }\n})\n", 
+  "script_type": "Client"
+ }
+]
