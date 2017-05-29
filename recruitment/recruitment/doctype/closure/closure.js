@@ -3,10 +3,14 @@ cur_frm.add_fetch("customer", "customer_owner", "bde");
 
 frappe.ui.form.on('Closure', {
   'onload_post_render': function(frm) {
-    //me = $(cur_frm.fields_dict.payment_terms);
-    //  frm.get_field("offer_letter").$input
-    //  .addClass('btn-primary')
-    //$(cur_frm.fields_dict.offer_letter).addClass('test');
+    $(cur_frm.fields_dict.payment_terms.input).css({
+      "height": "100px"
+    });
+    if (frm.doc.ecr_status === 'ECNR') {
+      frm.add_custom_button(__("ECNR")).addClass('btn btn-success');
+    } else if (frm.doc.ecr_status === 'ECR') {
+      frm.add_custom_button(__("ECR")).addClass('btn btn-danger');
+    }
   },
 
   refresh: function(frm) {
@@ -61,24 +65,7 @@ frappe.ui.form.on('Closure', {
         }
       };
     });
-    /*
-     frm.set_query("dle", function() {
-     return {
-       query: "recruitment.recruitment.doctype.closure.closure.get_dle",
-       filters:{
-         candidate:frm.doc.candidate
-       }
-       }
-    });
 
-      frm.set_query("tl", function() {
-    return {
-     query: "recruitment.recruitment.doctype.closure.closure.get_tl",
-     filters:{
-       dle:frm.doc.dle
-     }
-     }
-    });*/
   }
 
 });
