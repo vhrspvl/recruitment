@@ -28,7 +28,7 @@ class Closure(Document):
 
         elif self.candidate_status == 'Selected':
             if self.territory == 'UAE':
-                if self.irf and self.passport and self.photo:
+                if self.irf and self.passport and self.photo and self.selection_date:
                     if self.csl_status == 'CSL Confirmed':
                         if self.offer_letter:
                             if self.premedical:
@@ -73,7 +73,7 @@ class Closure(Document):
                     self.status_updated_on = today()
 
         elif self.territory == 'Dammam' or self.territory == 'Jeddah' or self.territory == 'Riyadh':
-            if self.irf and self.passport and self.photo:
+            if self.irf and self.passport and self.photo and self.selection_date:
                 if self.csl_status == 'CSL Confirmed':
                     if self.offer_letter:
                         if self.visa:
@@ -110,7 +110,7 @@ class Closure(Document):
                 self.status_updated_on = today()
 
         elif self.territory == 'Oman' or self.territory == 'Qatar':
-            if self.irf and self.passport and self.photo:
+            if self.irf and self.passport and self.photo and self.selection_date:
                 if self.csl_status == 'CSL Confirmed':
                     if self.offer_letter:
                         if self.premedical:
@@ -147,7 +147,7 @@ class Closure(Document):
                 self.status_updated_on = today()
 
         elif self.territory == 'Kuwait':
-            if self.irf and self.passport and self.photo:
+            if self.irf and self.passport and self.photo and self.selection_date:
                 if self.csl_status == 'CSL Confirmed':
                     if self.premedical:
                         if self.offer_letter:
