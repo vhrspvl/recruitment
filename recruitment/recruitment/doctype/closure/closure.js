@@ -6,19 +6,30 @@ frappe.ui.form.on('Closure', {
     $(cur_frm.fields_dict.payment_terms.input).css({
       "height": "100px"
     });
+  },
+
+  refresh: function(frm) {
     if (frm.doc.ecr_status === 'ECNR') {
       frm.add_custom_button(__("ECNR")).addClass('btn btn-success');
     } else if (frm.doc.ecr_status === 'ECR') {
       frm.add_custom_button(__("ECR")).addClass('btn btn-danger');
     }
-  },
-
-  refresh: function(frm) {
     if (frm.perm[0].write) {
       if (frm.doc.status == "Pending for CSL") {
         frm.add_custom_button(__("Confirm CSL"), function() {
-          frm.set_value("csl_status", "CSL Confirmed");
-          frm.save();
+          if (frm.doc.client_payment_applicable && frm.doc.client_sc <= 0) {
+            msgprint("Please Enter Client Service Charge Value")
+          } else if (frm.doc.candidate_payment_applicable && frm.doc.candidate_sc <= 0) {
+            msgprint("Please Enter Candidate Service Charge Value")
+          } else {
+            frappe.confirm(
+              'Did you verified the payment terms?' + '\thi',
+              function() {
+                frm.set_value("csl_status", "CSL Confirmed");
+                frm.save();
+                window.close();
+              })
+          }
         });
       } else {
         if (frm.doc.status != "Pending for PSL") {
@@ -68,4 +79,4 @@ frappe.ui.form.on('Closure', {
 
   }
 
-});
+});;
