@@ -93,8 +93,6 @@ def create_closure(doc, method):
             "ecr_status": doc.ecr_status,
             "associate_name": doc.associate_name,
             "associate_contact_no": doc.contact_no,
-            "ecr": doc.ecr,
-            "ecr_status": doc.ecr_status,
             "expiry_date": doc.expiry_date,
             "date_of_issue": doc.issued_date,
             "place_of_issue": doc.place_of_issue,
