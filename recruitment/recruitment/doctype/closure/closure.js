@@ -3,9 +3,7 @@ cur_frm.add_fetch("customer", "customer_owner", "bde");
 
 frappe.ui.form.on('Closure', {
   'onload_post_render': function(frm) {
-    $(cur_frm.fields_dict.payment_terms.input).css({
-      "height": "100px"
-    });
+
   },
 
   refresh: function(frm) {
@@ -23,7 +21,7 @@ frappe.ui.form.on('Closure', {
             msgprint("Please Enter Candidate Service Charge Value")
           } else {
             frappe.confirm(
-              'Did you verified the payment terms?' + '\thi',
+              'Did you verified the payment terms?',
               function() {
                 frm.set_value("csl_status", "CSL Confirmed");
                 frm.save();
