@@ -25,6 +25,7 @@ frappe.ui.form.on('Closure', {
               function() {
                 frm.set_value("csl_status", "CSL Confirmed");
                 frm.save();
+
               })
           }
         });
