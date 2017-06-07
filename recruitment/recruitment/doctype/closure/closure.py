@@ -149,12 +149,12 @@ class Closure(Document):
             elif self.territory == 'Kuwait':
                 if self.irf and self.passport and self.photo and self.selection_date:
                     if self.csl_status == 'CSL Confirmed':
-                        if self.premedical:
-                            if self.offer_letter:
+                        if self.offer_letter:
+                            if self.premedical:
                                 if self.visa:
                                     if self.pcc:
                                         if self.final_medical:
-                                            if self.stamped_visa or self.poe or self.vhrs_affidavit:
+                                            if self.stamped_visa:
                                                 if self.payment_reciept:
                                                     if self.ticket:
                                                         self.status = 'Pending for Candidate Onboarding'
