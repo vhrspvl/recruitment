@@ -6,7 +6,7 @@ frappe.ui.form.on('Closure', {
 
   },
   validate: function(frm) {
-    frm.toggle_reqd(["poe"], frm.doc.ecr_status === 'ECR')
+
   },
 
   refresh: function(frm) {
