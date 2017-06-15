@@ -18,10 +18,7 @@ frappe.ui.form.on('Candidate', {
 
   issued_date: function(frm) {
     var me = new Date(frm.doc.issued_date);
-    var year = me.getFullYear()
-    var month = me.getMonth()
-    var day = me.getDate()
-    var expiry_date = new Date(year + 1, month, day)
+    var expiry_date = new Date(me.getFullYear() + 10, me.getMonth(), me.getDate())
     frm.set_value("expiry_date", expiry_date)
   },
   associate_name: function(frm) {
