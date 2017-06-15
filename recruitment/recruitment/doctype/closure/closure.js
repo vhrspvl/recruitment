@@ -6,10 +6,28 @@ frappe.ui.form.on('Closure', {
 
   },
   validate: function(frm) {
-
+    console.log(frm.doc.status)
+  },
+  candidate_boarded: function(frm) {
+    frm.set_value("status", "Candidate Onboarded");
+    frm.save();
   },
 
   refresh: function(frm) {
+    var wrapper = frm.get_field("offer_letter_html").$wrapper;
+    var is_viewable = frappe.utils.is_image_file(frm.doc.offer_letter);
+
+    frm.toggle_display("preview_html", is_viewable);
+
+    if (is_viewable) {
+      frm.toggle_display("offer_letter", !is_viewable);
+      wrapper.html('<div class="img_preview"><a href="' + frm.doc.offer_letter + '" target="\
+      _blank"><img class="img-responsive" src="' + frm.doc.offer_letter + '"></img></a></div>');
+    } else {
+      wrapper.empty();
+    }
+
+
     if (frm.doc.ecr_status === 'ECNR') {
       frm.add_custom_button(__("ECNR")).addClass('btn btn-success');
     } else if (frm.doc.ecr_status === 'ECR') {
@@ -80,4 +98,4 @@ frappe.ui.form.on('Closure', {
 
   }
 
-});;
+});

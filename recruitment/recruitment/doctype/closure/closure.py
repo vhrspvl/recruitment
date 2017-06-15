@@ -35,16 +35,20 @@ class Closure(Document):
                                 if self.mol:
                                     if self.visa:
                                         if self.final_medical:
-                                            if self.stamped_visa or self.poe or self.vhrs_affidavit:
-                                                if self.payment_reciept:
-                                                    if self.ticket:
-                                                        self.status = 'Pending for Candidate Onboarding'
-                                                        self.status_updated_on = today()
+                                            if self.stamped_visa:
+                                                if self.ecr_status != 'ECR' or self.poe:
+                                                    if self.payment_reciept:
+                                                        if self.ticket:
+                                                            self.status = 'Pending for Onboarding'
+                                                            self.status_updated_on = today()
+                                                        else:
+                                                            self.status = 'Pending for Ticket Details'
+                                                            self.status_updated_on = today()
                                                     else:
-                                                        self.status = 'Pending for Ticket Details'
+                                                        self.status = 'Pending for Payment Receipt'
                                                         self.status_updated_on = today()
                                                 else:
-                                                    self.status = 'Pending for Payment Receipt'
+                                                    self.status = 'Pending for PoE'
                                                     self.status_updated_on = today()
                                             else:
                                                 self.status = 'Pending for Visa Stamping'
@@ -78,16 +82,20 @@ class Closure(Document):
                         if self.offer_letter:
                             if self.visa:
                                 if self.final_medical:
-                                    if self.stamped_visa or self.poe or self.vhrs_affidavit:
-                                        if self.payment_reciept:
-                                            if self.ticket:
-                                                self.status = 'Pending for Candidate Onboarding'
-                                                self.status_updated_on = today()
+                                    if self.stamped_visa:
+                                        if self.ecr_status != 'ECR' or self.poe:
+                                            if self.payment_reciept:
+                                                if self.ticket:
+                                                    self.status = 'Pending for Onboarding'
+                                                    self.status_updated_on = today()
+                                                else:
+                                                    self.status = 'Pending for Ticket Details'
+                                                    self.status_updated_on = today()
                                             else:
-                                                self.status = 'Pending for Ticket Details'
+                                                self.status = 'Pending for Payment Receipt'
                                                 self.status_updated_on = today()
                                         else:
-                                            self.status = 'Pending for Payment Receipt'
+                                            self.status = 'Pending for PoE'
                                             self.status_updated_on = today()
                                     else:
                                         self.status = 'Pending for Visa Stamping'
@@ -115,10 +123,10 @@ class Closure(Document):
                         if self.offer_letter:
                             if self.premedical:
                                 if self.visa:
-                                    if self.poe or self.vhrs_affidavit:
+                                    if self.ecr_status != 'ECR' or self.poe:
                                         if self.payment_reciept:
                                             if self.ticket:
-                                                self.status = 'Pending for Candidate Onboarding'
+                                                self.status = 'Pending for Onboarding'
                                                 self.status_updated_on = today()
                                             else:
                                                 self.status = 'Pending for Ticket Details'
@@ -127,7 +135,7 @@ class Closure(Document):
                                             self.status = 'Pending for Payment Receipt'
                                             self.status_updated_on = today()
                                     else:
-                                        self.status = 'Pending for Visa Stamping'
+                                        self.status = 'Pending for PoE'
                                         self.status_updated_on = today()
                                 else:
                                     self.status = 'Pending for Visa'
@@ -155,15 +163,19 @@ class Closure(Document):
                                     if self.pcc:
                                         if self.final_medical:
                                             if self.stamped_visa:
-                                                if self.payment_reciept:
-                                                    if self.ticket:
-                                                        self.status = 'Pending for Candidate Onboarding'
-                                                        self.status_updated_on = today()
+                                                if self.ecr_status != 'ECR' or self.poe:
+                                                    if self.payment_reciept:
+                                                        if self.ticket:
+                                                            self.status = 'Pending for Onboarding'
+                                                            self.status_updated_on = today()
+                                                        else:
+                                                            self.status = 'Pending for Ticket Details'
+                                                            self.status_updated_on = today()
                                                     else:
-                                                        self.status = 'Pending for Ticket Details'
+                                                        self.status = 'Pending for Payment Receipt'
                                                         self.status_updated_on = today()
                                                 else:
-                                                    self.status = 'Pending for Payment Receipt'
+                                                    self.status = 'Pending for PoE'
                                                     self.status_updated_on = today()
                                             else:
                                                 self.status = 'Pending for Visa Stamping'
