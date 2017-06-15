@@ -75,7 +75,10 @@ doc_events = {
     },
     "Task Candidate": {
         "on_update": "recruitment.api.create_closure"
-    }
+    },
+    #"Project": {
+    #    "on_update": "recruitment.utils.apply_perm"
+    #}
 }
 # website
 fixtures = ["Custom Script"]
