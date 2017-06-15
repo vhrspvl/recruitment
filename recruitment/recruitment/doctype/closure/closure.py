@@ -38,7 +38,7 @@ class Closure(Document):
                                             if self.stamped_visa or self.poe or self.vhrs_affidavit:
                                                 if self.payment_reciept:
                                                     if self.ticket:
-                                                        self.status = 'Pending for Candidate Onboarding'
+                                                        self.status = 'Pending for Onboarding'
                                                         self.status_updated_on = today()
                                                     else:
                                                         self.status = 'Pending for Ticket Details'
@@ -81,7 +81,7 @@ class Closure(Document):
                                     if self.stamped_visa or self.poe or self.vhrs_affidavit:
                                         if self.payment_reciept:
                                             if self.ticket:
-                                                self.status = 'Pending for Candidate Onboarding'
+                                                self.status = 'Pending for Onboarding'
                                                 self.status_updated_on = today()
                                             else:
                                                 self.status = 'Pending for Ticket Details'
@@ -118,7 +118,7 @@ class Closure(Document):
                                     if self.poe or self.vhrs_affidavit:
                                         if self.payment_reciept:
                                             if self.ticket:
-                                                self.status = 'Pending for Candidate Onboarding'
+                                                self.status = 'Pending for Onboarding'
                                                 self.status_updated_on = today()
                                             else:
                                                 self.status = 'Pending for Ticket Details'
@@ -157,7 +157,7 @@ class Closure(Document):
                                             if self.stamped_visa:
                                                 if self.payment_reciept:
                                                     if self.ticket:
-                                                        self.status = 'Pending for Candidate Onboarding'
+                                                        self.status = 'Pending for Onboarding'
                                                         self.status_updated_on = today()
                                                     else:
                                                         self.status = 'Pending for Ticket Details'

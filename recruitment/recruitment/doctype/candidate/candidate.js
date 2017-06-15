@@ -5,11 +5,24 @@ frappe.ui.form.on('Candidate', {
     }
   },
   validate: function(frm) {
+    if (frm.doc.ecr == 1) {
+      frm.doc.ecr_status = 'ECR';
+    } else {
+      frm.doc.ecr_status = 'ECNR';
+    }
     if (!frm.doc.applied && !frm.doc.not_applicable) {
       frm.toggle_reqd(["passport_no", "expiry_date", "place_of_issue"],
         frm.doc.pending_for == 'Proposed PSL');
     }
+  },
 
+  issued_date: function(frm) {
+    var me = new Date(frm.doc.issued_date);
+    var year = me.getFullYear()
+    var month = me.getMonth()
+    var day = me.getDate()
+    var expiry_date = new Date(year + 1, month, day)
+    frm.set_value("expiry_date", expiry_date)
   },
   associate_name: function(frm) {
     if (!frm.doc.associate_name) {
@@ -27,12 +40,12 @@ frappe.ui.form.on('Candidate', {
 
   },
   onload: function(frm) {
-    if (frm.doc.ecr_status && frm.doc.ecr_status == 'ECR') {
-      frm.doc.ecr = 1;
-      frm.doc.ecr_status = 'ECR';
-    } else {
-      frm.doc.ecr = 0;
-      frm.doc.ecr_status = 'ECNR';
+    if (frm.doc.ecr_status) {
+      if (frm.doc.ecr_status == 'ECR') {
+        frm.doc.ecr = 1;
+      } else {
+        frm.doc.ecr = 0;
+      }
     }
     frm.set_query("project", function() {
       return {
@@ -58,10 +71,22 @@ frappe.ui.form.on('Candidate', {
 });
 
 
-frappe.ui.form.on('Task Candidate', {
+/*frappe.ui.form.on('Task Candidate', {
+  validate: function(frm) {
+    if (frm.doc.ecr == 1) {
+      frm.doc.ecr_status = 'ECR';
+    } else {
+      frm.doc.ecr_status = 'ECNR';
+    }
+    if (!frm.doc.applied && !frm.doc.not_applicable) {
+      frm.toggle_reqd(["passport_no", "expiry_date", "place_of_issue"],
+        frm.doc.pending_for == 'Proposed PSL');
+    }
+  },
+
   user: function(frm) {
     if (!frm.doc.user) {
       frm.set_value('user', frappe.session.user);
     }
   },
-});
+});*/
