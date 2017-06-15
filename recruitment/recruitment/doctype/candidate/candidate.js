@@ -21,7 +21,7 @@ frappe.ui.form.on('Candidate', {
     var year = me.getFullYear()
     var month = me.getMonth()
     var day = me.getDate()
-    var expiry_date = new Date(year + 1, month, day)
+    var expiry_date = new Date(year + 10, month, day)
     frm.set_value("expiry_date", expiry_date)
   },
   associate_name: function(frm) {
