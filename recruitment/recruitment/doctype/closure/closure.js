@@ -14,18 +14,18 @@ frappe.ui.form.on('Closure', {
   },
 
   refresh: function(frm) {
-    var wrapper = frm.get_field("offer_letter_html").$wrapper;
-    var is_viewable = frappe.utils.is_image_file(frm.doc.offer_letter);
+    /*  var wrapper = frm.get_field("offer_letter_html").$wrapper;
+      var is_viewable = frappe.utils.is_image_file(frm.doc.offer_letter);
 
-    frm.toggle_display("preview_html", is_viewable);
+      frm.toggle_display("preview_html", is_viewable);
 
-    if (is_viewable) {
-      frm.toggle_display("offer_letter", !is_viewable);
-      wrapper.html('<div class="img_preview"><a href="' + frm.doc.offer_letter + '" target="\
-      _blank"><img class="img-responsive" src="' + frm.doc.offer_letter + '"></img></a></div>');
-    } else {
-      wrapper.empty();
-    }
+      if (is_viewable) {
+        frm.toggle_display("offer_letter", !is_viewable);
+        wrapper.html('<div class="img_preview"><a href="' + frm.doc.offer_letter + '" target="\
+        _blank"><img class="img-responsive" src="' + frm.doc.offer_letter + '"></img></a></div>');
+      } else {
+        wrapper.empty();
+      }*/
 
 
     if (frm.doc.ecr_status === 'ECNR') {

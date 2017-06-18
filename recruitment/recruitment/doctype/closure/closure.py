@@ -159,8 +159,8 @@ class Closure(Document):
                     if self.csl_status == 'CSL Confirmed':
                         if self.offer_letter:
                             if self.premedical:
-                                if self.visa:
-                                    if self.pcc:
+                                if self.pcc:
+                                    if self.visa:
                                         if self.final_medical:
                                             if self.stamped_visa:
                                                 if self.ecr_status != 'ECR' or self.poe:
@@ -184,10 +184,10 @@ class Closure(Document):
                                             self.status = 'Pending for Final Medical'
                                             self.status_updated_on = today()
                                     else:
-                                        self.status = 'Pending for PCC'
+                                        self.status = 'Pending for Visa'
                                         self.status_updated_on = today()
                                 else:
-                                    self.status = 'Pending for Visa'
+                                    self.status = 'Pending for PCC'
                                     self.status_updated_on = today()
                             else:
                                 self.status = 'Pending for Premedical'
