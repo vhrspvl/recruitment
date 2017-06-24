@@ -69,12 +69,13 @@ def create_closure(doc, method):
         stm = ''
         if doc.user:
             executive = frappe.db.get("Employee", {"user_id": doc.user})
-            dle = executive.user_id
-            stm = executive.department
-            atm = frappe.db.get_value(
-                "Employee", executive.department_head, "user_id")
-            tl = frappe.db.get_value(
-                "Employee", executive.reports_to, "user_id")
+            if executive:
+                dle = executive.user_id
+                stm = executive.department
+                atm = frappe.db.get_value(
+                    "Employee", executive.department_head, "user_id")
+                tl = frappe.db.get_value(
+                    "Employee", executive.reports_to, "user_id")
         if closure_id:
             closure = frappe.get_doc("Closure", closure_id)
         else:

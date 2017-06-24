@@ -81,7 +81,7 @@ doc_events = {
     #}
 }
 # website
-fixtures = ["Custom Script"]
+fixtures = ["Custom Script", "Custom Field"]
 # doc_events = {
 # 	"*": {
 # 		"on_update": "method",

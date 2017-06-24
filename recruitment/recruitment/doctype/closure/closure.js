@@ -34,26 +34,31 @@ frappe.ui.form.on('Closure', {
       frm.add_custom_button(__("ECR")).addClass('btn btn-danger');
     }
     if (frm.perm[0].write) {
-      if (frm.doc.status == "Pending for CSL") {
-        frm.add_custom_button(__("Confirm CSL"), function() {
-          if (frm.doc.client_payment_applicable && frm.doc.client_sc <= 0) {
-            msgprint("Please Enter Client Service Charge Value")
-          } else if (frm.doc.candidate_payment_applicable && frm.doc.candidate_sc <= 0) {
-            msgprint("Please Enter Candidate Service Charge Value")
-          } else {
-            frappe.confirm(
-              'Did you verified the payment terms?',
-              function() {
-                frm.set_value("csl_status", "CSL Confirmed");
-                frm.save();
+      if (frm.doc.status == "Pending for Sales Order") {
+        frm.add_custom_button(__("Confirm Sales Order"), function() {
+          if (frm.doc.client_payment_applicable || frm.doc.candidate_payment_applicable) {
+            if (frm.doc.client_payment_applicable && frm.doc.client_sc <= 0) {
+              msgprint("Please Enter Client Service Charge Value")
+            } else if (frm.doc.candidate_payment_applicable && frm.doc.candidate_sc <= 0) {
+              msgprint("Please Enter Candidate Service Charge Value")
+            } else {
+              frappe.confirm(
+                'Did you verified the payment terms?',
+                function() {
+                  frm.set_value("csl_status", "Sales Order Confirmed");
+                  frm.set_value("sales_order_confirmed_date", frappe.datetime.get_today())
+                  frm.save();
 
-              })
+                })
+            }
+          } else {
+            msgprint("Please Select Applicable Service Charge Details !")
           }
         });
       } else {
         if (frm.doc.status != "Pending for PSL") {
           frm.add_custom_button(__("revert to PSL"), function() {
-            frm.set_value("csl_status", "Pending for CSL");
+            frm.set_value("csl_status", "Pending for Sales Order");
             frm.save();
           });
         }

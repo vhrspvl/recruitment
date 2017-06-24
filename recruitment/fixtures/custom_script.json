@@ -2,6 +2,60 @@
  {
   "docstatus": 0, 
   "doctype": "Custom Script", 
+  "dt": "Project", 
+  "modified": "2017-04-19 11:09:24.189279", 
+  "name": "Project-Client", 
+  "script": "cur_frm.add_fetch(\"customer\", \"payment_terms\", \"payment_terms\");\n\n\nfrappe.ui.form.on('Candidate', {\n onload:function(frm){\n   \n\n   frm.set_query(\"cpc\", function() {\n\t return {\n\t\t query: \"recruitment.recruitment.doctype.candidate.candidate.get_cpc\",\n\t\t\n\t\t };\n });\n}\n});\n", 
+  "script_type": "Client"
+ }, 
+ {
+  "docstatus": 0, 
+  "doctype": "Custom Script", 
+  "dt": "Sales Invoice", 
+  "modified": "2017-03-30 16:33:08.144649", 
+  "name": "Sales Invoice-Client", 
+  "script": "cur_frm.add_fetch(\"bank_name\", \"bank_details\", \"bank_details\");\ncur_frm.add_fetch(\"project\", \"cpc\", \"cpc\");\n\nfrappe.ui.form.on('Sales Invoice', {\n onload:function(frm){\n   frm.set_query(\"project\", function() {\n\t return {\n\t\t query: \"recruitment.api.get_projects\",\n\t\t filters:{\n       customer:frm.doc.customer\n\t\t }\n\t\t };\n });\n\n }\n\n});\n\n", 
+  "script_type": "Client"
+ }, 
+ {
+  "docstatus": 0, 
+  "doctype": "Custom Script", 
+  "dt": "Candidate", 
+  "modified": "2016-11-19 12:37:05.187317", 
+  "name": "Candidate-Client", 
+  "script": "frappe.ui.form.on(\"Candidate\", \"onload\", function(frm) {\n    if (user.role==\"Vendor\") {\n        frm.set_df_property(\"Customer\", \"read_only\");\n    }\n});\n\n\n// make a field read-only after saving\nfrappe.ui.form.on(\"Candidate\", {\n    refresh: function(frm) {\n         if (frm.doc.permanent_address_same_as_above == 0) {\n        frm.set_df_property(\"address_line_1_perm\", \"hidden\");\n    }\n    }\n});", 
+  "script_type": "Client"
+ }, 
+ {
+  "docstatus": 0, 
+  "doctype": "Custom Script", 
+  "dt": "Associate", 
+  "modified": "2016-11-10 15:41:49.435513", 
+  "name": "Associate-Client", 
+  "script": "frappe.ui.form.on(\"Associate\", {\n    city: function(frm) {\n      function init() {\n\n                var autocomplete = new google.maps.places.Autocomplete(frm);\n            }\n  \n            google.maps.event.addDomListener(window, 'load', init);\n    }\n});", 
+  "script_type": "Client"
+ }, 
+ {
+  "docstatus": 0, 
+  "doctype": "Custom Script", 
+  "dt": "Customer", 
+  "modified": "2017-03-01 20:13:26.977778", 
+  "name": "Customer-Client", 
+  "script": "// additional validation on dates\nfrappe.ui.form.on(\"Customer\", \"onload\", function(frm) {\n     frm.set_query(\"customer_owner\", function() {\n\t return {\n\t\t query: \"recruitment.api.get_bdm_users\"\n\t\t };\n});\n});", 
+  "script_type": "Client"
+ }, 
+ {
+  "docstatus": 0, 
+  "doctype": "Custom Script", 
+  "dt": "Candidate Invoice", 
+  "modified": "2017-03-30 19:08:07.757124", 
+  "name": "Candidate Invoice-Client", 
+  "script": "cur_frm.add_fetch(\"bank_name\", \"bank_details\", \"bank_details\");\ncur_frm.add_fetch(\"project\", \"cpc\", \"cpc\");\n\nfrappe.ui.form.on('Candidate Invoice', {\n onload:function(frm){\n   frm.set_query(\"project\", function() {\n\t return {\n\t\t query: \"recruitment.api.get_projects\",\n\t\t filters:{\n       customer:frm.doc.customer\n\t\t }\n\t\t };\n });\n\n }\n\n});\n\n", 
+  "script_type": "Client"
+ }, 
+ {
+  "docstatus": 0, 
+  "doctype": "Custom Script", 
   "dt": "Task", 
   "modified": "2017-05-27 10:40:04.660266", 
   "name": "Task-Client", 

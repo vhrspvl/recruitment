@@ -29,7 +29,7 @@ class Closure(Document):
         elif self.candidate_status == 'Selected':
             if self.territory == 'UAE':
                 if self.irf and self.passport and self.photo and self.selection_date:
-                    if self.csl_status == 'CSL Confirmed':
+                    if self.csl_status == 'Sales Order Confirmed':
                         if self.offer_letter:
                             if self.premedical:
                                 if self.mol:
@@ -69,16 +69,16 @@ class Closure(Document):
                             self.status = 'Pending for Offer Letter'
                             self.status_updated_on = today()
                     else:
-                        self.status = 'Pending for CSL'
+                        self.status = 'Pending for Sales Order'
                         self.status_updated_on = today()
                 else:
                     self.status = 'Pending for PSL'
-                    self.csl_status = 'Pending for CSL'
+                    self.csl_status = 'Pending for Sales Order'
                     self.status_updated_on = today()
 
             elif self.territory == 'Dammam' or self.territory == 'Jeddah' or self.territory == 'Riyadh':
                 if self.irf and self.passport and self.photo and self.selection_date:
-                    if self.csl_status == 'CSL Confirmed':
+                    if self.csl_status == 'Sales Order Confirmed':
                         if self.offer_letter:
                             if self.visa:
                                 if self.final_medical:
@@ -110,16 +110,16 @@ class Closure(Document):
                             self.status = 'Pending for Offer Letter'
                             self.status_updated_on = today()
                     else:
-                        self.status = 'Pending for CSL'
+                        self.status = 'Pending for Sales Order'
                         self.status_updated_on = today()
                 else:
                     self.status = 'Pending for PSL'
-                    self.csl_status = 'Pending for CSL'
+                    self.csl_status = 'Pending for Sales Order'
                     self.status_updated_on = today()
 
             elif self.territory == 'Oman' or self.territory == 'Qatar':
                 if self.irf and self.passport and self.photo and self.selection_date:
-                    if self.csl_status == 'CSL Confirmed':
+                    if self.csl_status == 'Sales Order Confirmed':
                         if self.offer_letter:
                             if self.premedical:
                                 if self.visa:
@@ -147,20 +147,20 @@ class Closure(Document):
                             self.status = 'Pending for Offer Letter'
                             self.status_updated_on = today()
                     else:
-                        self.status = 'Pending for CSL'
+                        self.status = 'Pending for Sales Order'
                         self.status_updated_on = today()
                 else:
                     self.status = 'Pending for PSL'
-                    self.csl_status = 'Pending for CSL'
+                    self.csl_status = 'Pending for Sales Order'
                     self.status_updated_on = today()
 
             elif self.territory == 'Kuwait':
                 if self.irf and self.passport and self.photo and self.selection_date:
-                    if self.csl_status == 'CSL Confirmed':
+                    if self.csl_status == 'Sales Order Confirmed':
                         if self.offer_letter:
                             if self.premedical:
-                                if self.pcc:
-                                    if self.visa:
+                                if self.visa:
+                                    if self.pcc:
                                         if self.final_medical:
                                             if self.stamped_visa:
                                                 if self.ecr_status != 'ECR' or self.poe:
@@ -184,10 +184,10 @@ class Closure(Document):
                                             self.status = 'Pending for Final Medical'
                                             self.status_updated_on = today()
                                     else:
-                                        self.status = 'Pending for Visa'
+                                        self.status = 'Pending for PCC'
                                         self.status_updated_on = today()
                                 else:
-                                    self.status = 'Pending for PCC'
+                                    self.status = 'Pending for Visa'
                                     self.status_updated_on = today()
                             else:
                                 self.status = 'Pending for Premedical'
@@ -196,11 +196,11 @@ class Closure(Document):
                             self.status = 'Pending for Offer Letter'
                             self.status_updated_on = today()
                     else:
-                        self.status = 'Pending for CSL'
+                        self.status = 'Pending for Sales Order'
                         self.status_updated_on = today()
                 else:
                     self.status = 'Pending for PSL'
-                    self.csl_status = 'Pending for CSL'
+                    self.csl_status = 'Pending for Sales Order'
                     self.status_updated_on = today()
 
 
