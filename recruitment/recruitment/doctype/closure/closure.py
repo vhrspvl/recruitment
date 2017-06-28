@@ -30,6 +30,7 @@ class Closure(Document):
             if self.territory == 'UAE':
                 if self.irf and self.passport and self.photo and self.selection_date:
                     if self.csl_status == 'Sales Order Confirmed':
+                        self.sales_order_confirmed_date =  today()
                         if self.offer_letter:
                             if self.premedical:
                                 if self.mol:
@@ -79,6 +80,7 @@ class Closure(Document):
             elif self.territory == 'Dammam' or self.territory == 'Jeddah' or self.territory == 'Riyadh':
                 if self.irf and self.passport and self.photo and self.selection_date:
                     if self.csl_status == 'Sales Order Confirmed':
+                        self.sales_order_confirmed_date =  today()
                         if self.offer_letter:
                             if self.visa:
                                 if self.final_medical:
@@ -120,6 +122,7 @@ class Closure(Document):
             elif self.territory == 'Oman' or self.territory == 'Qatar':
                 if self.irf and self.passport and self.photo and self.selection_date:
                     if self.csl_status == 'Sales Order Confirmed':
+                        self.sales_order_confirmed_date =  today()
                         if self.offer_letter:
                             if self.premedical:
                                 if self.visa:
@@ -157,6 +160,7 @@ class Closure(Document):
             elif self.territory == 'Kuwait':
                 if self.irf and self.passport and self.photo and self.selection_date:
                     if self.csl_status == 'Sales Order Confirmed':
+                        self.sales_order_confirmed_date =  today()
                         if self.offer_letter:
                             if self.premedical:
                                 if self.visa:
