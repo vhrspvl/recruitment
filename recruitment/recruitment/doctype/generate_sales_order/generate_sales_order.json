@@ -4,7 +4,7 @@
  "allow_import": 0, 
  "allow_rename": 0, 
  "beta": 0, 
- "creation": "2017-06-28 15:37:17.653286", 
+ "creation": "2017-06-28 12:32:48.983212", 
  "custom": 0, 
  "docstatus": 0, 
  "doctype": "DocType", 
@@ -84,7 +84,7 @@
  "issingle": 1, 
  "istable": 0, 
  "max_attachments": 0, 
- "modified": "2017-06-28 15:37:21.415971", 
+ "modified": "2017-06-28 15:16:19.047498", 
  "modified_by": "Administrator", 
  "module": "Recruitment", 
  "name": "Generate Sales Order", 
@@ -112,7 +112,7 @@
    "write": 1
   }
  ], 
- "quick_entry": 1, 
+ "quick_entry": 0, 
  "read_only": 0, 
  "read_only_onload": 0, 
  "show_name_in_global_search": 0, 
