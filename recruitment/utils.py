@@ -16,6 +16,7 @@ def apply_perm(doc, method):
 
 @frappe.whitelist()
 def generate_so(so_date):
+    frappe.errprint(so_date)
     closure_list = frappe.db.get_list("Closure", filters={"sales_order_confirmed_date": formatdate(
         so_date)}, fields=("name", "candidate", "name1", "candidate_sc", "client_sc"))
     return closure_list
