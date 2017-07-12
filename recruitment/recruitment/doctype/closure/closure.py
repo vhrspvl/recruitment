@@ -30,7 +30,7 @@ class Closure(Document):
             if self.territory == 'UAE':
                 if self.irf and self.passport and self.photo and self.selection_date:
                     if self.csl_status == 'Sales Order Confirmed':
-                        self.sales_order_confirmed_date =  today()
+                        self.sales_order_confirmed_date = today()
                         if self.offer_letter:
                             if self.premedical:
                                 if self.mol:
@@ -40,8 +40,12 @@ class Closure(Document):
                                                 if self.ecr_status != 'ECR' or self.poe:
                                                     if self.payment_reciept:
                                                         if self.ticket:
-                                                            self.status = 'Pending for Onboarding'
-                                                            self.status_updated_on = today()
+                                                            if self.status == 'Candidate Onboarded':
+                                                                self.status = 'Candidate Onboarded'
+                                                                self.status_updated_on = today()
+                                                            else:
+                                                                self.status = 'Pending for Onboarding'
+                                                                self.status_updated_on = today()
                                                         else:
                                                             self.status = 'Pending for Ticket Details'
                                                             self.status_updated_on = today()
@@ -80,7 +84,7 @@ class Closure(Document):
             elif self.territory == 'Dammam' or self.territory == 'Jeddah' or self.territory == 'Riyadh':
                 if self.irf and self.passport and self.photo and self.selection_date:
                     if self.csl_status == 'Sales Order Confirmed':
-                        self.sales_order_confirmed_date =  today()
+                        self.sales_order_confirmed_date = today()
                         if self.offer_letter:
                             if self.visa:
                                 if self.final_medical:
@@ -88,8 +92,12 @@ class Closure(Document):
                                         if self.ecr_status != 'ECR' or self.poe:
                                             if self.payment_reciept:
                                                 if self.ticket:
-                                                    self.status = 'Pending for Onboarding'
-                                                    self.status_updated_on = today()
+                                                    if self.status == 'Candidate Onboarded':
+                                                        self.status = 'Candidate Onboarded'
+                                                        self.status_updated_on = today()
+                                                    else:
+                                                        self.status = 'Pending for Onboarding'
+                                                        self.status_updated_on = today()
                                                 else:
                                                     self.status = 'Pending for Ticket Details'
                                                     self.status_updated_on = today()
@@ -122,15 +130,19 @@ class Closure(Document):
             elif self.territory == 'Oman' or self.territory == 'Qatar':
                 if self.irf and self.passport and self.photo and self.selection_date:
                     if self.csl_status == 'Sales Order Confirmed':
-                        self.sales_order_confirmed_date =  today()
+                        self.sales_order_confirmed_date = today()
                         if self.offer_letter:
                             if self.premedical:
                                 if self.visa:
                                     if self.ecr_status != 'ECR' or self.poe:
                                         if self.payment_reciept:
                                             if self.ticket:
-                                                self.status = 'Pending for Onboarding'
-                                                self.status_updated_on = today()
+                                                if self.status == 'Candidate Onboarded':
+                                                    self.status = 'Candidate Onboarded'
+                                                    self.status_updated_on = today()
+                                                else:
+                                                    self.status = 'Pending for Onboarding'
+                                                    self.status_updated_on = today()
                                             else:
                                                 self.status = 'Pending for Ticket Details'
                                                 self.status_updated_on = today()
@@ -160,7 +172,7 @@ class Closure(Document):
             elif self.territory == 'Kuwait':
                 if self.irf and self.passport and self.photo and self.selection_date:
                     if self.csl_status == 'Sales Order Confirmed':
-                        self.sales_order_confirmed_date =  today()
+                        self.sales_order_confirmed_date = today()
                         if self.offer_letter:
                             if self.premedical:
                                 if self.visa:
@@ -170,8 +182,12 @@ class Closure(Document):
                                                 if self.ecr_status != 'ECR' or self.poe:
                                                     if self.payment_reciept:
                                                         if self.ticket:
-                                                            self.status = 'Pending for Onboarding'
-                                                            self.status_updated_on = today()
+                                                            if self.status == 'Candidate Onboarded':
+                                                                self.status = 'Candidate Onboarded'
+                                                                self.status_updated_on = today()
+                                                            else:
+                                                                self.status = 'Pending for Onboarding'
+                                                                self.status_updated_on = today()
                                                         else:
                                                             self.status = 'Pending for Ticket Details'
                                                             self.status_updated_on = today()
