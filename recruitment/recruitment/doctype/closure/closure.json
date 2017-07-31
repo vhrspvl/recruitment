@@ -2844,11 +2844,11 @@
  "issingle": 0, 
  "istable": 0, 
  "max_attachments": 0, 
- "modified": "2017-07-11 10:50:35.925338", 
+ "modified": "2017-07-13 18:16:22.256741", 
  "modified_by": "Administrator", 
  "module": "Recruitment", 
  "name": "Closure", 
- "name_case": "", 
+ "name_case": "Title Case", 
  "owner": "Administrator", 
  "permissions": [
   {
