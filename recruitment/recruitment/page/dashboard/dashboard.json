@@ -1,0 +1,19 @@
+{
+ "content": null, 
+ "creation": "2017-08-18 20:21:47.246908", 
+ "docstatus": 0, 
+ "doctype": "Page", 
+ "idx": 0, 
+ "modified": "2017-08-18 21:04:32.617282", 
+ "modified_by": "Administrator", 
+ "module": "Recruitment", 
+ "name": "dashboard", 
+ "owner": "Administrator", 
+ "page_name": "dashboard", 
+ "roles": [], 
+ "script": null, 
+ "standard": "Yes", 
+ "style": null, 
+ "system_page": 0, 
+ "title": "Dashboard"
+}
