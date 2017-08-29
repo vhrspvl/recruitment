@@ -7,17 +7,22 @@ from frappe.utils import datetime, nowdate, add_days
 
 @frappe.whitelist()
 def confirm_register(name, testid):
-    candidate = frappe.db.get_value("Registration", name, "name")
-    get_candidate = frappe.get_doc("Registration", candidate)
+    candidate = frappe.db.get_value("Candidate", name, "name")
+    get_candidate = frappe.get_doc("Candidate", candidate)
     token = frappe.db.get("Token Summary", {"token": testid})
     if testid == token.token and token.validity == 'Valid':
-        frappe.db.set_value("Registration", candidate, "test_id", testid)
-        frappe.db.set_value("Registration", candidate, "status", "Registered")
-        frappe.db.set_value("Token Summary", token.name, "validity", "Invalid")
+        frappe.db.set_value("Candidate", candidate, "registration_no", testid)
+        frappe.db.set_value("Candidate", candidate, "status", "Registered")
+    #    frappe.db.set_value("Token Summary", token.name, "validity", "Invalid")
         return testid
     else:
         frappe.msgprint("Invalid or Expired Token.")
         return 'invalid'
+
+
+def get_candidate(candidate_id):
+    candidate = frappe.get_doc("Candidate", candidate_id)
+    return candidate
 
 
 @frappe.whitelist()
@@ -56,6 +61,10 @@ def fetch_candidate(project, payment_type):
 @frappe.whitelist()
 def create_closure(doc, method):
     if doc.pending_for == 'Proposed PSL':
+        if doc.original_documents:
+            for docs in doc.original_documents:
+                docslist = frappe.db.get_value(
+                    "Original Documents", {"name": docs.name})
         closure_id = frappe.db.get_value("Closure", {"candidate": doc.name})
         project = frappe.get_doc("Project", doc.project)
         task = frappe.db.get_value("Task", doc.task, "subject")

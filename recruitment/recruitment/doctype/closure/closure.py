@@ -40,47 +40,47 @@ class Closure(Document):
                                                     if self.ecr_status != 'ECR' or self.poe:
                                                         if self.payment_reciept:
                                                             if self.ticket:
-                                                                if self.status == 'Candidate Onboarded':
-                                                                    self.status = 'Candidate Onboarded'
+                                                                if self.status == 'Onboarded':
+                                                                    self.status = 'Onboarded'
                                                                     self.status_updated_on = today()
                                                                 else:
-                                                                    self.status = 'Pending for Onboarding'
+                                                                    self.status = 'Onboarding'
                                                                     self.status_updated_on = today()
                                                             else:
-                                                                self.status = 'Pending for Ticket Details'
+                                                                self.status = 'Ticket Details'
                                                                 self.status_updated_on = today()
                                                         else:
-                                                            self.status = 'Pending for Payment Receipt'
+                                                            self.status = 'Payment Receipt'
                                                             self.status_updated_on = today()
                                                     else:
-                                                        self.status = 'Pending for PoE'
+                                                        self.status = 'PoE'
                                                         self.status_updated_on = today()
                                                 else:
-                                                    self.status = 'Pending for Visa Stamping'
+                                                    self.status = 'Visa Stamping'
                                                     self.status_updated_on = today()
                                             else:
-                                                self.status = 'Pending for Final Medical'
+                                                self.status = 'Final Medical'
                                                 self.status_updated_on = today()
                                         else:
-                                            self.status = 'Pending for Visa'
+                                            self.status = 'Visa'
                                             self.status_updated_on = today()
                                     else:
-                                        self.status = 'Pending for PCC'
+                                        self.status = 'PCC'
                                         self.status_updated_on = today()
                                 else:
-                                    self.status = 'Pending for MOL'
+                                    self.status = 'MOL'
                                     self.status_updated_on = today()
                             else:
-                                self.status = 'Pending for Premedical'
+                                self.status = 'Premedical'
                                 self.status_updated_on = today()
                         else:
-                            self.status = 'Pending for Offer Letter'
+                            self.status = 'Offer Letter'
                             self.status_updated_on = today()
                     else:
                         self.status = 'Pending for Sales Order'
                         self.status_updated_on = today()
                 else:
-                    self.status = 'Pending for PSL'
+                    self.status = 'PSL'
                     self.csl_status = 'Pending for Sales Order'
                     self.status_updated_on = today()
 
@@ -94,38 +94,38 @@ class Closure(Document):
                                         if self.ecr_status != 'ECR' or self.poe:
                                             if self.payment_reciept:
                                                 if self.ticket:
-                                                    if self.status == 'Candidate Onboarded':
-                                                        self.status = 'Candidate Onboarded'
+                                                    if self.status == 'Onboarded':
+                                                        self.status = 'Onboarded'
                                                         self.status_updated_on = today()
                                                     else:
-                                                        self.status = 'Pending for Onboarding'
+                                                        self.status = 'Onboarding'
                                                         self.status_updated_on = today()
                                                 else:
-                                                    self.status = 'Pending for Ticket Details'
+                                                    self.status = 'Ticket Details'
                                                     self.status_updated_on = today()
                                             else:
-                                                self.status = 'Pending for Payment Receipt'
+                                                self.status = 'Payment Receipt'
                                                 self.status_updated_on = today()
                                         else:
-                                            self.status = 'Pending for PoE'
+                                            self.status = 'PoE'
                                             self.status_updated_on = today()
                                     else:
-                                        self.status = 'Pending for Visa Stamping'
+                                        self.status = 'Visa Stamping'
                                         self.status_updated_on = today()
                                 else:
-                                    self.status = 'Pending for Final Medical'
+                                    self.status = 'Final Medical'
                                     self.status_updated_on = today()
                             else:
-                                self.status = 'Pending for Visa'
+                                self.status = 'Visa'
                                 self.status_updated_on = today()
                         else:
-                            self.status = 'Pending for Offer Letter'
+                            self.status = 'Offer Letter'
                             self.status_updated_on = today()
                     else:
                         self.status = 'Pending for Sales Order'
                         self.status_updated_on = today()
                 else:
-                    self.status = 'Pending for PSL'
+                    self.status = 'PSL'
                     self.csl_status = 'Pending for Sales Order'
                     self.status_updated_on = today()
 
@@ -138,35 +138,35 @@ class Closure(Document):
                                     if self.ecr_status != 'ECR' or self.poe:
                                         if self.payment_reciept:
                                             if self.ticket:
-                                                if self.status == 'Candidate Onboarded':
-                                                    self.status = 'Candidate Onboarded'
+                                                if self.status == 'Onboarded':
+                                                    self.status = 'Onboarded'
                                                     self.status_updated_on = today()
                                                 else:
-                                                    self.status = 'Pending for Onboarding'
+                                                    self.status = 'Onboarding'
                                                     self.status_updated_on = today()
                                             else:
-                                                self.status = 'Pending for Ticket Details'
+                                                self.status = 'Ticket Details'
                                                 self.status_updated_on = today()
                                         else:
-                                            self.status = 'Pending for Payment Receipt'
+                                            self.status = 'Payment Receipt'
                                             self.status_updated_on = today()
                                     else:
-                                        self.status = 'Pending for PoE'
+                                        self.status = 'PoE'
                                         self.status_updated_on = today()
                                 else:
-                                    self.status = 'Pending for Visa'
+                                    self.status = 'Visa'
                                     self.status_updated_on = today()
                             else:
-                                self.status = 'Pending for Premedical'
+                                self.status = 'Premedical'
                                 self.status_updated_on = today()
                         else:
-                            self.status = 'Pending for Offer Letter'
+                            self.status = 'Offer Letter'
                             self.status_updated_on = today()
                     else:
                         self.status = 'Pending for Sales Order'
                         self.status_updated_on = today()
                 else:
-                    self.status = 'Pending for PSL'
+                    self.status = 'PSL'
                     self.csl_status = 'Pending for Sales Order'
                     self.status_updated_on = today()
 
@@ -182,44 +182,44 @@ class Closure(Document):
                                                 if self.ecr_status != 'ECR' or self.poe:
                                                     if self.payment_reciept:
                                                         if self.ticket:
-                                                            if self.status == 'Candidate Onboarded':
-                                                                self.status = 'Candidate Onboarded'
+                                                            if self.status == 'Onboarded':
+                                                                self.status = 'Onboarded'
                                                                 self.status_updated_on = today()
                                                             else:
-                                                                self.status = 'Pending for Onboarding'
+                                                                self.status = 'Onboarding'
                                                                 self.status_updated_on = today()
                                                         else:
-                                                            self.status = 'Pending for Ticket Details'
+                                                            self.status = 'Ticket Details'
                                                             self.status_updated_on = today()
                                                     else:
-                                                        self.status = 'Pending for Payment Receipt'
+                                                        self.status = 'Payment Receipt'
                                                         self.status_updated_on = today()
                                                 else:
-                                                    self.status = 'Pending for PoE'
+                                                    self.status = 'PoE'
                                                     self.status_updated_on = today()
                                             else:
-                                                self.status = 'Pending for Visa Stamping'
+                                                self.status = 'Visa Stamping'
                                                 self.status_updated_on = today()
                                         else:
-                                            self.status = 'Pending for Final Medical'
+                                            self.status = 'Final Medical'
                                             self.status_updated_on = today()
                                     else:
-                                        self.status = 'Pending for PCC'
+                                        self.status = 'PCC'
                                         self.status_updated_on = today()
                                 else:
-                                    self.status = 'Pending for Visa'
+                                    self.status = 'Visa'
                                     self.status_updated_on = today()
                             else:
-                                self.status = 'Pending for Premedical'
+                                self.status = 'Premedical'
                                 self.status_updated_on = today()
                         else:
-                            self.status = 'Pending for Offer Letter'
+                            self.status = 'Offer Letter'
                             self.status_updated_on = today()
                     else:
                         self.status = 'Pending for Sales Order'
                         self.status_updated_on = today()
                 else:
-                    self.status = 'Pending for PSL'
+                    self.status = 'PSL'
                     self.csl_status = 'Pending for Sales Order'
                     self.status_updated_on = today()
 

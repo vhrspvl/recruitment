@@ -10,5 +10,14 @@ def get_data():
 			"reverse": 1,
 			"icon": "octicon octicon-calendar",
 			"type": "module"
+		},
+		{
+			"module_name": "Recruitment",
+			"color": "#589494",
+			"icon": "fa fa-th",
+			"icon": "octicon octicon dashboard",
+			"type": "page",
+			"link": "dashboard",
+			"label": _("Dashboard")
 		}
 	]
