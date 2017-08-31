@@ -1,4 +1,4 @@
-import frappe
+import frappe,json
 import shortuuid
 from frappe import _
 from frappe.utils.data import today
@@ -6,17 +6,30 @@ from frappe.utils import datetime, nowdate, add_days
 
 
 @frappe.whitelist()
-def confirm_register(name, testid):
-    candidate = frappe.db.get_value("Candidate", name, "name")
-    get_candidate = frappe.get_doc("Candidate", candidate)
-    token = frappe.db.get("Token Summary", {"token": testid})
-    if testid == token.token and token.validity == 'Valid':
-        frappe.db.set_value("Candidate", candidate, "registration_no", testid)
-        frappe.db.set_value("Candidate", candidate, "status", "Registered")
-    #    frappe.db.set_value("Token Summary", token.name, "validity", "Invalid")
-        return testid
+def confirm_register(testid,doc):
+    candid = {}
+    candid = json.loads(doc)
+    if testid:
+        token = frappe.db.get("Token Summary", {"token": testid})
+        if token and testid == token.token and token.validity == 'Valid':
+            candidate = frappe.new_doc("Candidate")
+            candidate.update({
+                "given_name": candid.get("name1"),
+                "mobile": candid.get("mobile"),
+                "gender": candid.get("gender"),
+                "father_name": candid.get("father_name"),
+                "date_of_birth": candid.get("date_of_birth"),
+                "experience":candid.get("experience")
+            })
+            candidate.save(ignore_permissions=True)
+
+        #    frappe.db.set_value("Candidate", candidate, "registration_no", testid)
+        #.    frappe.db.set_value("Candidate", candidate, "status", "Registered")
+        #    frappe.db.set_value("Token Summary", token.name, "validity", "Invalid")
+            return testid
+        else:
+            return 'invalid'
     else:
-        frappe.msgprint("Invalid or Expired Token.")
         return 'invalid'
 
 
