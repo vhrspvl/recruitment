@@ -1,4 +1,5 @@
-import frappe,json
+import frappe
+import json
 import shortuuid
 from frappe import _
 from frappe.utils.data import today
@@ -6,7 +7,11 @@ from frappe.utils import datetime, nowdate, add_days
 
 
 @frappe.whitelist()
-def confirm_register(testid,doc):
+def add_customer():
+    frappe.errprint('test')
+
+
+def confirm_register(testid, doc):
     candid = {}
     candid = json.loads(doc)
     if testid:
@@ -19,7 +24,7 @@ def confirm_register(testid,doc):
                 "gender": candid.get("gender"),
                 "father_name": candid.get("father_name"),
                 "date_of_birth": candid.get("date_of_birth"),
-                "experience":candid.get("experience")
+                "experience": candid.get("experience")
             })
             candidate.save(ignore_permissions=True)
 
