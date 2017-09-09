@@ -6,6 +6,9 @@ frappe.ui.form.on('Candidate', {
     }
   },
   pending_for: function(frm) {
+
+  },
+  validate: function(frm) {
     frappe.call({
       method: "recruitment.recruitment.doctype.candidate.candidate.get_parent_territory",
       args: {
@@ -13,13 +16,11 @@ frappe.ui.form.on('Candidate', {
       },
       callback: function(r) {
         if (!frm.doc.applied && !frm.doc.not_applicable && r.message != 'India') {
-          frm.toggle_reqd(["passport_no", "expiry_date", "place_of_issue"],
+          frm.toggle_reqd(["passport_no", "issued_date", "expiry_date", "place_of_issue"],
             frm.doc.pending_for == 'Proposed PSL');
         }
       }
     })
-  },
-  validate: function(frm) {
 
     if (frm.doc.ecr == 1) {
       frm.doc.ecr_status = 'ECR';
@@ -33,7 +34,7 @@ frappe.ui.form.on('Candidate', {
 
   issued_date: function(frm) {
     var me = new Date(frm.doc.issued_date);
-    var expiry_date = new Date(me.getFullYear() + 10, me.getMonth(), me.getDate())
+    var expiry_date = new Date(me.getFullYear() + 10, me.getMonth(), me.getDate() - 1)
     frm.set_value("expiry_date", expiry_date)
   },
   associate_name: function(frm) {

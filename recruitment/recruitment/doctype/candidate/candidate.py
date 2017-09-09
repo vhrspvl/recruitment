@@ -53,9 +53,7 @@ class Candidate(Document):
 @frappe.whitelist()
 def get_parent_territory(customer):
     territory = frappe.db.get_value("Customer", customer, "territory")
-    parent_territory = frappe.db.get_value(
-        "Territory", territory, "parent_territory")
-    return parent_territory
+    return territory
 
 
 def get_projects(doctype, txt, searchfield, start, page_len, filters):

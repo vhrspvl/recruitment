@@ -1,15 +1,10 @@
-cur_frm.add_fetch("project", "cpc", "cpc");
 cur_frm.add_fetch("customer", "customer_owner", "bde");
 
 frappe.ui.form.on('Closure', {
   'onload_post_render': function(frm) {
 
   },
-  validate: function(frm) {
-    if (!frm.doc.selection_date) {
-      alert('Please Enter Selection Date')
-    }
-  },
+
   candidate_boarded: function(frm) {
     frm.set_value("status", "Onboarded");
     frm.save();
@@ -17,6 +12,7 @@ frappe.ui.form.on('Closure', {
   },
 
   refresh: function(frm) {
+    frm.toggle_display("poe", frm.doc.ecr_status === 'ECR');
     /*  var wrapper = frm.get_field("offer_letter_html").$wrapper;
       var is_viewable = frappe.utils.is_image_file(frm.doc.offer_letter);
 
@@ -30,7 +26,7 @@ frappe.ui.form.on('Closure', {
         wrapper.empty();
       }*/
 
-    if (frm.doc.status == 'Onboarded') {
+    if (frm.doc.status == 'Onboarded' && frm.doc.territory != 'India') {
       frm.add_custom_button(__("Revert to Pending"), function() {
         frm.set_value("status", "Onboarding");
         frm.save();
@@ -42,7 +38,7 @@ frappe.ui.form.on('Closure', {
       frm.add_custom_button(__("ECR")).addClass('btn btn-danger');
     }
     if (frm.perm[0].write) {
-      if (frm.doc.status == "Pending for Sales Order") {
+      if (frm.doc.status == "Sales Order") {
         if (!frm.doc.sales_order_confirmed_date && frappe.user.has_role("Project Leader")) {
           frm.add_custom_button(__("Confirm Sales Order"), function() {
             if (frm.doc.client_payment_applicable || frm.doc.candidate_payment_applicable) {
@@ -55,9 +51,9 @@ frappe.ui.form.on('Closure', {
                   'Did you verified the payment terms?',
                   function() {
                     frm.set_value("csl_status", "Sales Order Confirmed");
+                    frm.set_value("status", "Onboarded")
                     frm.set_value("sales_order_confirmed_date", frappe.datetime.get_today())
                     frm.save();
-
                   })
               }
             } else {

@@ -27,45 +27,91 @@ class Closure(Document):
             self.status = 'Waitlisted'
 
         elif self.candidate_status == 'Selected':
-            if self.territory == 'UAE':
+            if self.territory == 'India':
+                if self.csl_status == 'Sales Order Confirmed' or self.sales_order_confirmed_date:
+                    self.status = 'Onboarded'
+                    self.status_updated_on = today()
+                else:
+                    self.status = 'Sales Order'
+                    self.status_updated_on = today()
+
+
+            elif self.territory == 'Abudhabi':
+                if self.irf and self.passport and self.photo:
+                    if self.csl_status == 'Sales Order Confirmed' or self.sales_order_confirmed_date:
+                        if self.offer_letter:
+                            if self.mol:
+                                if self.visa:
+                                    if self.final_medical:
+                                        if self.stamped_visa:
+                                            if self.ecr_status != 'ECR' or self.poe:
+                                                if self.payment_reciept:
+                                                    if self.ticket:
+                                                        if self.status == 'Onboarded':
+                                                            self.status = 'Onboarded'
+                                                            self.status_updated_on = today()
+                                                        else:
+                                                            self.status = 'Onboarding'
+                                                            self.status_updated_on = today()
+                                                    else:
+                                                        self.status = 'Ticket Details'
+                                                        self.status_updated_on = today()
+                                                else:
+                                                    self.status = 'Payment Receipt'
+                                                    self.status_updated_on = today()
+                                            else:
+                                                self.status = 'PoE'
+                                                self.status_updated_on = today()
+                                        else:
+                                            self.status = 'Visa Stamping'
+                                            self.status_updated_on = today()
+                                    else:
+                                        self.status = 'Final Medical'
+                                        self.status_updated_on = today()
+                                else:
+                                    self.status = 'Visa'
+                                    self.status_updated_on = today()
+                            else:
+                                self.status = 'MOL'
+                                self.status_updated_on = today()
+                        else:
+                            self.status = 'Offer Letter'
+                            self.status_updated_on = today()
+                    else:
+                        self.status = 'Sales Order'
+                        self.status_updated_on = today()
+                else:
+                    self.status = 'PSL'
+                    self.csl_status = 'Sales Order'
+                    self.status_updated_on = today()
+
+            elif self.territory == 'UAE' or self.territory == 'Dubai':
                 if self.irf and self.passport and self.photo:
                     if self.csl_status == 'Sales Order Confirmed' or self.sales_order_confirmed_date:
                         if self.offer_letter:
                             if self.premedical:
                                 if self.mol:
-                                    if self.pcc:
-                                        if self.visa:
-                                            if self.final_medical:
-                                                if self.stamped_visa:
-                                                    if self.ecr_status != 'ECR' or self.poe:
-                                                        if self.payment_reciept:
-                                                            if self.ticket:
-                                                                if self.status == 'Onboarded':
-                                                                    self.status = 'Onboarded'
-                                                                    self.status_updated_on = today()
-                                                                else:
-                                                                    self.status = 'Onboarding'
-                                                                    self.status_updated_on = today()
-                                                            else:
-                                                                self.status = 'Ticket Details'
-                                                                self.status_updated_on = today()
-                                                        else:
-                                                            self.status = 'Payment Receipt'
-                                                            self.status_updated_on = today()
+                                    if self.visa:
+                                        if self.ecr_status != 'ECR' or self.poe:
+                                            if self.payment_reciept:
+                                                if self.ticket:
+                                                    if self.status == 'Onboarded':
+                                                        self.status = 'Onboarded'
+                                                        self.status_updated_on = today()
                                                     else:
-                                                        self.status = 'PoE'
+                                                        self.status = 'Onboarding'
                                                         self.status_updated_on = today()
                                                 else:
-                                                    self.status = 'Visa Stamping'
+                                                    self.status = 'Ticket Details'
                                                     self.status_updated_on = today()
                                             else:
-                                                self.status = 'Final Medical'
+                                                self.status = 'Payment Receipt'
                                                 self.status_updated_on = today()
                                         else:
-                                            self.status = 'Visa'
+                                            self.status = 'PoE'
                                             self.status_updated_on = today()
                                     else:
-                                        self.status = 'PCC'
+                                        self.status = 'Visa'
                                         self.status_updated_on = today()
                                 else:
                                     self.status = 'MOL'
@@ -77,11 +123,11 @@ class Closure(Document):
                             self.status = 'Offer Letter'
                             self.status_updated_on = today()
                     else:
-                        self.status = 'Pending for Sales Order'
+                        self.status = 'Sales Order'
                         self.status_updated_on = today()
                 else:
                     self.status = 'PSL'
-                    self.csl_status = 'Pending for Sales Order'
+                    self.csl_status = 'Sales Order'
                     self.status_updated_on = today()
 
             elif self.territory == 'Dammam' or self.territory == 'Jeddah' or self.territory == 'Riyadh':
@@ -122,11 +168,11 @@ class Closure(Document):
                             self.status = 'Offer Letter'
                             self.status_updated_on = today()
                     else:
-                        self.status = 'Pending for Sales Order'
+                        self.status = 'Sales Order'
                         self.status_updated_on = today()
                 else:
                     self.status = 'PSL'
-                    self.csl_status = 'Pending for Sales Order'
+                    self.csl_status = 'Sales Order'
                     self.status_updated_on = today()
 
             elif self.territory == 'Oman' or self.territory == 'Qatar':
@@ -163,11 +209,11 @@ class Closure(Document):
                             self.status = 'Offer Letter'
                             self.status_updated_on = today()
                     else:
-                        self.status = 'Pending for Sales Order'
+                        self.status = 'Sales Order'
                         self.status_updated_on = today()
                 else:
                     self.status = 'PSL'
-                    self.csl_status = 'Pending for Sales Order'
+                    self.csl_status = 'Sales Order'
                     self.status_updated_on = today()
 
             elif self.territory == 'Kuwait':
@@ -216,11 +262,11 @@ class Closure(Document):
                             self.status = 'Offer Letter'
                             self.status_updated_on = today()
                     else:
-                        self.status = 'Pending for Sales Order'
+                        self.status = 'Sales Order'
                         self.status_updated_on = today()
                 else:
                     self.status = 'PSL'
-                    self.csl_status = 'Pending for Sales Order'
+                    self.csl_status = 'Sales Order'
                     self.status_updated_on = today()
 
 
