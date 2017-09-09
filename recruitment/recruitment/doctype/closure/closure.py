@@ -77,11 +77,11 @@ class Closure(Document):
                             self.status = 'Offer Letter'
                             self.status_updated_on = today()
                     else:
-                        self.status = 'Pending for Sales Order'
+                        self.status = 'Sales Order'
                         self.status_updated_on = today()
                 else:
                     self.status = 'PSL'
-                    self.csl_status = 'Pending for Sales Order'
+                    self.csl_status = 'Sales Order'
                     self.status_updated_on = today()
 
             elif self.territory == 'Dammam' or self.territory == 'Jeddah' or self.territory == 'Riyadh':
@@ -122,11 +122,11 @@ class Closure(Document):
                             self.status = 'Offer Letter'
                             self.status_updated_on = today()
                     else:
-                        self.status = 'Pending for Sales Order'
+                        self.status = 'Sales Order'
                         self.status_updated_on = today()
                 else:
                     self.status = 'PSL'
-                    self.csl_status = 'Pending for Sales Order'
+                    self.csl_status = 'Sales Order'
                     self.status_updated_on = today()
 
             elif self.territory == 'Oman' or self.territory == 'Qatar':
@@ -163,11 +163,11 @@ class Closure(Document):
                             self.status = 'Offer Letter'
                             self.status_updated_on = today()
                     else:
-                        self.status = 'Pending for Sales Order'
+                        self.status = 'Sales Order'
                         self.status_updated_on = today()
                 else:
                     self.status = 'PSL'
-                    self.csl_status = 'Pending for Sales Order'
+                    self.csl_status = 'Sales Order'
                     self.status_updated_on = today()
 
             elif self.territory == 'Kuwait':
@@ -216,11 +216,11 @@ class Closure(Document):
                             self.status = 'Offer Letter'
                             self.status_updated_on = today()
                     else:
-                        self.status = 'Pending for Sales Order'
+                        self.status = 'Sales Order'
                         self.status_updated_on = today()
                 else:
                     self.status = 'PSL'
-                    self.csl_status = 'Pending for Sales Order'
+                    self.csl_status = 'Sales Order'
                     self.status_updated_on = today()
 
 
