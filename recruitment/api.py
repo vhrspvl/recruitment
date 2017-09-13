@@ -7,10 +7,6 @@ from frappe.utils import datetime, nowdate, add_days
 
 
 @frappe.whitelist()
-def add_customer():
-    frappe.errprint('test')
-
-
 def confirm_register(testid, doc):
     candid = {}
     candid = json.loads(doc)
