@@ -62,7 +62,7 @@ frappe.ui.form.on('Closure', {
           });
         }
       }
-      if (frm.doc.csl_status == 'Sales Order Confirmed') {
+      if (frm.doc.csl_status == 'Sales Order Confirmed' && frm.doc.candidate_status == 'Selected') {
         me = frm.add_custom_button(__("Confirm Sales Invoice"), function () {
           frappe.confirm(
             'Confirm Sales Invoice?',
