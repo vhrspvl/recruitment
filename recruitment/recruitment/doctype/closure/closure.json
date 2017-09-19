@@ -2237,7 +2237,7 @@
    "bold": 0, 
    "collapsible": 0, 
    "columns": 0, 
-   "depends_on": "eval:in_list([\"UAE\",\"Kuwait\",\"Riyadh\",\"Jeddah\",\"Dammam\",\"KSA\"], doc.territory)", 
+   "depends_on": "eval:in_list([\"UAE\",\"Kuwait\",\"Riyadh\",\"Jeddah\",\"Dammam\",\"KSA\",\"Abudhabi\"], doc.territory)", 
    "fieldname": "final_medical", 
    "fieldtype": "Attach", 
    "hidden": 0, 
@@ -2966,11 +2966,11 @@
  "issingle": 0, 
  "istable": 0, 
  "max_attachments": 0, 
- "modified": "2017-09-13 20:15:12.695683", 
+ "modified": "2017-09-19 11:03:31.690317", 
  "modified_by": "Administrator", 
  "module": "Recruitment", 
  "name": "Closure", 
- "name_case": "Title Case", 
+ "name_case": "", 
  "owner": "Administrator", 
  "permissions": [
   {
