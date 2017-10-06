@@ -4,6 +4,7 @@ import shortuuid
 from frappe import _
 from frappe.utils.data import today
 from frappe.utils import datetime, nowdate, add_days
+from frappe.utils.print_format import download_pdf
 
 
 @frappe.whitelist()
@@ -20,7 +21,8 @@ def confirm_register(testid, doc):
                 "gender": candid.get("gender"),
                 "father_name": candid.get("father_name"),
                 "date_of_birth": candid.get("date_of_birth"),
-                "experience": candid.get("experience")
+                "experience": candid.get("experience"),
+                "type": "IDB"
             })
             candidate.save(ignore_permissions=True)
 
@@ -37,6 +39,11 @@ def confirm_register(testid, doc):
 def get_candidate(candidate_id):
     candidate = frappe.get_doc("Candidate", candidate_id)
     return candidate
+
+
+@frappe.whitelist()
+def send_pdf(doc, method):
+    download_pdf(doc.doctype, doc.name, format="Registration Form", doc=doc)
 
 
 @frappe.whitelist()
