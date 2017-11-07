@@ -18,5 +18,5 @@ def get_context(context):
     context.show_sidebar = True
 
     customer = frappe.db.get_value("User", frappe.session.user, "customer")
-    context.closure = frappe.db.sql(
-        """select a.* from `tabClosure` as a where a.customer=%s""", (frappe.session.user))[0][0]
+    context.closures = frappe.get_all("Closure", fields=["name", "name1", "status", "remarks"],
+                                      filters={"customer": customer})

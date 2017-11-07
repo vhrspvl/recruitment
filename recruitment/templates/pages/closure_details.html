@@ -1,19 +1,20 @@
-<div class="panel panel-default">
-    <div class="panel-body">
-        <div class="row">
-            <div class="col-lg-2 text-danger">
-                <h5>Personal Details</h5>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-lg-3">
-                <label>Name:</label> {{ closure.candidate_name }} </div>
-            <div class="col-lg-2">
-                <label>Gender:</label>'+ candid.gender +'</div>
-            <div class="col-lg-3">
-                <label>DOB:</label>'+candid.date_of_birth +'</div>
-            <div class="col-lg-2">
-                <label>Contact No.:</label>'+ candid.mobile +'</div>
-        </div>
-    </div>
-</div>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Candidate </th>
+            <th>Status </th>
+            <th> Remarks</th>
+        </tr>
+    </thead>
+    <tbody>
+        {%- for closure in closures -%}
+        <tr>
+            <td>{{ closure.name1}}</td>
+            <td> Pending For {{ closure.status }}</td>
+            <td>{{ closure.remarks }}</td>
+        </tr>
+
+        {%- endfor -%}
+
+    </tbody>
+</table>
