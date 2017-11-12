@@ -221,8 +221,8 @@ class Closure(Document):
                     if self.csl_status == 'Sales Order Confirmed' or self.sales_order_confirmed_date:
                         if self.offer_letter:
                             if self.premedical:
-                                if self.visa:
-                                    if self.pcc:
+                                if self.pcc:
+                                    if self.visa:
                                         if self.final_medical:
                                             if self.stamped_visa:
                                                 if self.ecr_status != 'ECR' or self.poe:
@@ -250,10 +250,10 @@ class Closure(Document):
                                             self.status = 'Final Medical'
                                             self.status_updated_on = today()
                                     else:
-                                        self.status = 'PCC'
+                                        self.status = 'Visa'
                                         self.status_updated_on = today()
                                 else:
-                                    self.status = 'Visa'
+                                    self.status = 'PCC'
                                     self.status_updated_on = today()
                             else:
                                 self.status = 'Premedical'

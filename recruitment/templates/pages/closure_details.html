@@ -1,7 +1,11 @@
 <table class="table table-bordered">
     <thead>
         <tr>
+
+            <th>Project </th>
+            <th>Position</th>
             <th>Candidate </th>
+            <th>Passport No</th>
             <th>Status </th>
             <th> Remarks</th>
         </tr>
@@ -9,8 +13,15 @@
     <tbody>
         {%- for closure in closures -%}
         <tr>
-            <td>{{ closure.name1}}</td>
+            <td>{{ closure.project }}</td>
+            <td>{{ closure.designation }}</td>
+            <td>{{ closure.name1 }}</td>
+            <td>{{ closure.passport_no }}</td>
+            {% if closure.status != 'Dropped' %}
             <td> Pending For {{ closure.status }}</td>
+            {% else %}
+            <td>{{ closure.status }}</td>
+            {% endif %}
             <td>{{ closure.remarks }}</td>
         </tr>
 
