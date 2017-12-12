@@ -12,21 +12,22 @@ frappe.ui.form.on('Closure', {
 
   },
 
+  generate_sales_order: function (frm) {
+    if (frm.doc.sales_order_confirmed_date) {
+      frappe.call({
+        method: "vhrs.custom.create_sales_order",
+        args: {
+          "closure": frm.doc.name,
+        },
+        callback: function (r) {
+
+        }
+      })
+    }
+  },
+
   refresh: function (frm) {
     frm.toggle_display("poe", frm.doc.ecr_status === 'ECR');
-    /*  var wrapper = frm.get_field("offer_letter_html").$wrapper;
-      var is_viewable = frappe.utils.is_image_file(frm.doc.offer_letter);
-
-      frm.toggle_display("preview_html", is_viewable);
-
-      if (is_viewable) {
-        frm.toggle_display("offer_letter", !is_viewable);
-        wrapper.html('<div class="img_preview"><a href="' + frm.doc.offer_letter + '" target="\
-        _blank"><img class="img-responsive" src="' + frm.doc.offer_letter + '"></img></a></div>');
-      } else {
-        wrapper.empty();
-      }*/
-
     if (frm.doc.status == 'Onboarded' && frm.doc.territory != 'India') {
       frm.add_custom_button(__("Revert to Pending"), function () {
         frm.set_value("status", "Onboarding");
@@ -61,19 +62,6 @@ frappe.ui.form.on('Closure', {
             }
           });
         }
-      }
-      if (frm.doc.csl_status == 'Sales Order Confirmed' && frm.doc.candidate_status == 'Selected') {
-        me = frm.add_custom_button(__("Confirm Sales Invoice"), function () {
-          frappe.confirm(
-            'Confirm Sales Invoice?',
-            function () {
-              frm.set_value("csl_status", "Sales Invoice Confirmed");
-              frm.set_value("sales_invoice_confirmed_date", frappe.datetime.get_today())
-              frm.save();
-            })
-        });
-        me.addClass('btn btn-primary');
-
       }
     }
 
