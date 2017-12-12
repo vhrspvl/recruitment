@@ -3,7 +3,7 @@ import json
 import shortuuid
 from frappe import _
 from frappe.utils.data import today
-from frappe.utils import datetime, nowdate, add_days
+from frappe.utils import datetime, nowdate, add_days,flt
 from frappe.utils.print_format import download_pdf
 
 
@@ -141,6 +141,11 @@ def create_closure(doc, method):
             closure.update({"photo": doc.candidate_image})
         if doc.passport:
             closure.update({"passport": doc.passport})
+        if doc.candidate_payment_applicable and flt(doc.candidate_sc) > 0: 
+            closure.update({
+                "candidate_payment_applicable": 1,
+                "candidate_sc":doc.candidate_sc
+            })
         closure.save(ignore_permissions=True)
 
 

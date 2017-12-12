@@ -10,8 +10,14 @@ frappe.ui.form.on('Candidate', {
     frm.toggle_reqd(["customer", "project", "task"],
       frm.doc.pending_for == 'Proposed PSL')
   },
-  validate: function (frm) {
 
+  validate: function (frm) {
+    if (frm.doc.candidate_payment_applicable) {
+      if (frm.doc.candidate_payment_applicable && frm.doc.candidate_sc <= 0) {
+        msgprint("Please Enter Candidate Service Charge Value");
+        return False;
+      }
+    }
     if (frm.doc.pending_for == 'Proposed PSL' && frm.doc.customer && frm.doc.project && frm.doc.task) {
       frappe.call({
         method: "recruitment.recruitment.doctype.candidate.candidate.get_parent_territory",
