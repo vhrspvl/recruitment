@@ -48,7 +48,8 @@ def send_pdf(doc, method):
 
 @frappe.whitelist()
 def generate_token(token_type, no_of_tokens):
-    for tokens in no_of_tokens:
+    tokens = int(no_of_tokens)
+    for token in range(tokens):
         new_token = frappe.new_doc("Token Summary")
         new_token.token = shortuuid.ShortUUID().random(length=10)
         if token_type == 'Domestic':

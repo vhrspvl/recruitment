@@ -49,34 +49,34 @@ class Closure(Document):
                                                     if self.ticket:
                                                         if self.status == 'Onboarded':
                                                             self.status = 'Onboarded'
-                                                            self.status_updated_on = today()
+                                                            self.boarded_date = today()
                                                         else:
                                                             self.status = 'Onboarding'
                                                             self.status_updated_on = today()
                                                     else:
                                                         self.status = 'Ticket Details'
-                                                        self.status_updated_on = today()
+                                                        self.ticket_date = today()
                                                 else:
                                                     self.status = 'Payment Receipt'
-                                                    self.status_updated_on = today()
+                                                    self.payment_receipt_date = today()
                                             else:
                                                 self.status = 'PoE'
-                                                self.status_updated_on = today()
+                                                self.poe_date = today()
                                         else:
                                             self.status = 'Visa Stamping'
-                                            self.status_updated_on = today()
+                                            self.stamped_visa_date = today()
                                     else:
                                         self.status = 'Final Medical'
-                                        self.status_updated_on = today()
+                                        self.visa_date = today()
                                 else:
                                     self.status = 'Visa'
-                                    self.status_updated_on = today()
+                                    self.visa_date = today()
                             else:
                                 self.status = 'MOL'
-                                self.status_updated_on = today()
+                                self.mol_date = today()
                         else:
                             self.status = 'Offer Letter'
-                            self.status_updated_on = today()
+                            self.offer_letter_date = today()
                     else:
                         self.status = 'Sales Order'
                         self.status_updated_on = today()
@@ -97,31 +97,31 @@ class Closure(Document):
                                                 if self.ticket:
                                                     if self.status == 'Onboarded':
                                                         self.status = 'Onboarded'
-                                                        self.status_updated_on = today()
+                                                        self.boarded_date = today()
                                                     else:
                                                         self.status = 'Onboarding'
                                                         self.status_updated_on = today()
                                                 else:
                                                     self.status = 'Ticket Details'
-                                                    self.status_updated_on = today()
+                                                    self.ticket_date = today()
                                             else:
                                                 self.status = 'Payment Receipt'
-                                                self.status_updated_on = today()
+                                                self.payment_receipt_date = today()
                                         else:
                                             self.status = 'PoE'
-                                            self.status_updated_on = today()
+                                            self.poe_date = today()
                                     else:
                                         self.status = 'Visa'
-                                        self.status_updated_on = today()
+                                        self.visa_date = today()
                                 else:
                                     self.status = 'MOL'
-                                    self.status_updated_on = today()
+                                    self.mol_date = today()
                             else:
                                 self.status = 'Premedical'
-                                self.status_updated_on = today()
+                                self.premedical_date = today()
                         else:
                             self.status = 'Offer Letter'
-                            self.status_updated_on = today()
+                            self.offer_letter_date = today()
                     else:
                         self.status = 'Sales Order'
                         self.status_updated_on = today()
@@ -142,31 +142,31 @@ class Closure(Document):
                                                 if self.ticket:
                                                     if self.status == 'Onboarded':
                                                         self.status = 'Onboarded'
-                                                        self.status_updated_on = today()
+                                                        self.boarded_date = today()
                                                     else:
                                                         self.status = 'Onboarding'
                                                         self.status_updated_on = today()
                                                 else:
                                                     self.status = 'Ticket Details'
-                                                    self.status_updated_on = today()
+                                                    self.ticket_date = today()
                                             else:
                                                 self.status = 'Payment Receipt'
-                                                self.status_updated_on = today()
+                                                self.payment_receipt_date = today()
                                         else:
                                             self.status = 'PoE'
-                                            self.status_updated_on = today()
+                                            self.poe_date = today()
                                     else:
                                         self.status = 'Visa Stamping'
-                                        self.status_updated_on = today()
+                                        self.stamped_visa_date = today()
                                 else:
                                     self.status = 'Final Medical'
-                                    self.status_updated_on = today()
+                                    self.final_medical_date = today()
                             else:
                                 self.status = 'Visa'
-                                self.status_updated_on = today()
+                                self.visa_date = today()
                         else:
                             self.status = 'Offer Letter'
-                            self.status_updated_on = today()
+                            self.offer_letter_date = today()
                     else:
                         self.status = 'Sales Order'
                         self.status_updated_on = today()
@@ -186,28 +186,28 @@ class Closure(Document):
                                             if self.ticket:
                                                 if self.status == 'Onboarded':
                                                     self.status = 'Onboarded'
-                                                    self.status_updated_on = today()
+                                                    self.boarded_date = today()
                                                 else:
                                                     self.status = 'Onboarding'
                                                     self.status_updated_on = today()
                                             else:
                                                 self.status = 'Ticket Details'
-                                                self.status_updated_on = today()
+                                                self.ticket_date = today()
                                         else:
                                             self.status = 'Payment Receipt'
-                                            self.status_updated_on = today()
+                                            self.payment_receipt_date = today()
                                     else:
                                         self.status = 'PoE'
-                                        self.status_updated_on = today()
+                                        self.poe_date = today()
                                 else:
                                     self.status = 'Visa'
-                                    self.status_updated_on = today()
+                                    self.visa_date = today()
                             else:
                                 self.status = 'Premedical'
-                                self.status_updated_on = today()
+                                self.premedical_date = today()
                         else:
                             self.status = 'Offer Letter'
-                            self.status_updated_on = today()
+                            self.offer_letter_date = today()
                     else:
                         self.status = 'Sales Order'
                         self.status_updated_on = today()
@@ -230,37 +230,37 @@ class Closure(Document):
                                                         if self.ticket:
                                                             if self.status == 'Onboarded':
                                                                 self.status = 'Onboarded'
-                                                                self.status_updated_on = today()
+                                                                self.boarded_date = today()
                                                             else:
                                                                 self.status = 'Onboarding'
                                                                 self.status_updated_on = today()
                                                         else:
                                                             self.status = 'Ticket Details'
-                                                            self.status_updated_on = today()
+                                                            self.ticket_date = today()
                                                     else:
                                                         self.status = 'Payment Receipt'
-                                                        self.status_updated_on = today()
+                                                        self.payment_receipt_date = today()
                                                 else:
                                                     self.status = 'PoE'
-                                                    self.status_updated_on = today()
+                                                    self.poe_date = today()
                                             else:
                                                 self.status = 'Visa Stamping'
-                                                self.status_updated_on = today()
+                                                self.stamped_visa_date = today()
                                         else:
                                             self.status = 'Final Medical'
-                                            self.status_updated_on = today()
+                                            self.final_medical_date = today()
                                     else:
                                         self.status = 'Visa'
-                                        self.status_updated_on = today()
+                                        self.visa_date = today()
                                 else:
                                     self.status = 'PCC'
-                                    self.status_updated_on = today()
+                                    self.pcc_date = today()
                             else:
                                 self.status = 'Premedical'
-                                self.status_updated_on = today()
+                                self.premedical_date = today()
                         else:
                             self.status = 'Offer Letter'
-                            self.status_updated_on = today()
+                            self.offer_letter_date = today()
                     else:
                         self.status = 'Sales Order'
                         self.status_updated_on = today()
