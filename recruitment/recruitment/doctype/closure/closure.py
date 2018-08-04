@@ -12,10 +12,12 @@ class Closure(Document):
     def validate(self):
         # self.tcrdetails()
         self.validate_psl()
-        # self.calculate_service_charge()
+        self.calculate_service_charge()
 
     def calculate_service_charge(self):
-        self.pending_payment = self.as_on_date_collection - self.collected
+        if self.candidate_status == 'Dropped':
+            self.dropped_date = today()
+        # self.pending_payment = self.as_on_date_collection - self.collected
 
     def validate_psl(self):
         if self.candidate_status == 'Dropped':

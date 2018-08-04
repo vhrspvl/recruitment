@@ -4,13 +4,20 @@
  "docstatus": 0, 
  "doctype": "Page", 
  "idx": 0, 
- "modified": "2017-08-18 21:04:32.617282", 
+ "modified": "2018-05-17 14:24:23.726994", 
  "modified_by": "Administrator", 
  "module": "Recruitment", 
  "name": "dashboard", 
  "owner": "Administrator", 
  "page_name": "dashboard", 
- "roles": [], 
+ "roles": [
+  {
+   "role": "System Manager"
+  }, 
+  {
+   "role": "BVS Customer"
+  }
+ ], 
  "script": null, 
  "standard": "Yes", 
  "style": null, 

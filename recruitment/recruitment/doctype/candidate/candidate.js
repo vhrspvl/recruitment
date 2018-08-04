@@ -6,6 +6,14 @@ frappe.ui.form.on('Candidate', {
         }
 
     },
+    ecr_status: function (frm) {
+        frappe.confirm(
+            'Are you confirm with the selection? -> ' + frm.doc.ecr_status,
+            function () {
+
+            }
+        );
+    },
     pending_for: function (frm) {
         frm.toggle_reqd(["customer", "project", "task"],
             frm.doc.pending_for == 'Proposed PSL')

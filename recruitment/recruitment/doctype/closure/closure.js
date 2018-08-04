@@ -67,27 +67,23 @@ frappe.ui.form.on('Closure', {
                                         frappe.call({
                                             method: "vhrs.custom.create_sales_order",
                                             args: {
-                                                "name":frm.doc.name,
-                                                "customer":frm.doc.customer,
-                                                "project":frm.doc.project,
-                                                "name1":frm.doc.name1,
-                                                "passport_no":frm.doc.passport_no || " ",
+                                                "name": frm.doc.name,
+                                                "customer": frm.doc.customer,
+                                                "project": frm.doc.project,
+                                                "name1": frm.doc.name1,
+                                                "passport_no": frm.doc.passport_no || " ",
                                                 "client_sc": frm.doc.client_sc,
-                                                "candidate_sc":frm.doc.candidate_sc,
-                                                "is_candidate":frm.doc.candidate_payment_applicable,
-                                                "is_client":frm.doc.client_payment_applicable
+                                                "candidate_sc": frm.doc.candidate_sc,
+                                                "is_candidate": frm.doc.candidate_payment_applicable,
+                                                "is_client": frm.doc.client_payment_applicable
                                             },
                                             callback: function (r) {
-                                                msgprint(r.message)   
-                                                frm.set_df_property("candidate_payment_applicable", "read_only", frm.doc.__islocal ? 0:1);
-                                                frm.set_df_property("client_payment_applicable", "read_only", frm.doc.__islocal ? 0:1);
-                                                frm.set_df_property("candidate_sc", "read_only", frm.doc.__islocal ? 0:1);
                                                 frm.set_value("csl_status", "Sales Order Confirmed");
                                                 frm.set_value("sales_order_confirmed_date", frappe.datetime.get_today())
                                                 frm.save();
-                                                 }
+                                            }
                                         })
-                                        
+
                                     })
                             }
                         } else {
@@ -96,6 +92,47 @@ frappe.ui.form.on('Closure', {
                     });
                 }
             }
+
+            if (frm.doc.status == "Onboarded") {
+                if (!frm.doc.resales_order_confirmed_date && frappe.user.has_role("Project Leader")) {
+                    frm.add_custom_button(__("Redepute"), function () {
+                        frappe.confirm(
+                            'Are you confirm with the selection?',
+                            function () {
+                                if (frm.doc.client_payment_applicable || frm.doc.candidate_payment_applicable) {
+                                    if (frm.doc.redeputation_cost <= 0) {
+                                        msgprint("Please Enter Redeputation Cost")
+                                    } else {
+                                        frappe.confirm(
+                                            'Did you verified the payment terms?',
+                                            function () {
+                                                frappe.call({
+                                                    method: "vhrs.custom.recreate_sales_order",
+                                                    args: {
+                                                        "name": frm.doc.name,
+                                                        "customer": frm.doc.customer,
+                                                        "project": frm.doc.project,
+                                                        "name1": frm.doc.name1,
+                                                        "passport_no": frm.doc.passport_no || " ",
+                                                        "redeputation_cost": frm.doc.redeputation_cost,
+                                                    },
+                                                    callback: function (r) {
+                                                        frm.set_value("resales_order_confirmed_date", frappe.datetime.get_today())
+                                                        frm.save();
+                                                    }
+                                                })
+
+                                            })
+                                    }
+                                } else {
+                                    msgprint("Please Select Applicable Service Charge Details !")
+                                }
+                            });
+                    });
+
+                }
+            }
+
             // if (frm.doc.csl_status == 'Sales Order Confirmed' && frm.doc.candidate_status == 'Selected') {
             //     me = frm.add_custom_button(__("Confirm Sales Invoice"), function () {
             //         frappe.confirm(
@@ -109,15 +146,16 @@ frappe.ui.form.on('Closure', {
             //     me.addClass('btn btn-primary');
 
             // }
+
+
+            client_pending = 0;
+            client_pending = frm.doc.client_sc - frm.doc.client_advance;
+            frm.set_value("client_pending", client_pending);
+
+            candidate_pending = 0;
+            candidate_pending = frm.doc.candidate_sc - frm.doc.candidate_advance;
+            frm.set_value("candidate_pending", candidate_pending);
         }
-
-        client_pending = 0;
-        client_pending = frm.doc.client_sc - frm.doc.client_advance;
-        frm.set_value("client_pending", client_pending);
-
-        candidate_pending = 0;
-        candidate_pending = frm.doc.candidate_sc - frm.doc.candidate_advance;
-        frm.set_value("candidate_pending", candidate_pending);
     },
     associate_name: function (frm) {
         if (!frm.doc.associate_name) {
