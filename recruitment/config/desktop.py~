@@ -14,10 +14,9 @@ def get_data():
 		{
 			"module_name": "Recruitment",
 			"color": "#589494",
-			"icon": "fa fa-th",
-			"icon": "octicon octicon dashboard",
+			"icon": "octicon octicon-graph",
 			"type": "page",
-			"link": "dashboard.html",
+			"link": "dashboard",
 			"label": _("Dashboard")
-		}
+		},
 	]
