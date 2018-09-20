@@ -1,7 +1,22 @@
 frappe.ui.form.on('Candidate', {
+    capture: function (frm) {
+        // capture: (context) => {
+        // var ui = $.summernote.ui;
+        const capture = new frappe.ui.Capture();
+        capture.open();
 
+        capture.click((data) => {
+            frm.set_value("photo", data)
+            // context.invoke('editor.insertImage', data);
+        });
+        // },
+    },
     refresh: function (frm) {
         if (!frm.doc.user) {
+
+            // business_unit = frappe.db.get_value('Employee', user, 'business_unit')
+            // console.log(business_unit)
+            // frm.set_value("business_unit", business_unit);
             frm.set_value('user', frappe.session.user);
         }
 
@@ -34,7 +49,7 @@ frappe.ui.form.on('Candidate', {
                 },
                 callback: function (r) {
                     if (!frm.doc.applied && !frm.doc.not_applicable && r.message != 'India') {
-                        frm.toggle_reqd(["passport_no", "issued_date", "expiry_date", "place_of_issue"],
+                        frm.toggle_reqd(["passport_no", "issued_date", "expiry_date", "place_of_issue", "interview_date", "interview_location"],
                             frm.doc.pending_for == 'Proposed PSL');
                     }
                 }

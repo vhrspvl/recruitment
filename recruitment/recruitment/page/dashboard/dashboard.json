@@ -4,7 +4,7 @@
  "docstatus": 0, 
  "doctype": "Page", 
  "idx": 0, 
- "modified": "2018-05-17 14:24:23.726994", 
+ "modified": "2018-08-06 18:39:32.867518", 
  "modified_by": "Administrator", 
  "module": "Recruitment", 
  "name": "dashboard", 
@@ -15,7 +15,7 @@
    "role": "System Manager"
   }, 
   {
-   "role": "BVS Customer"
+   "role": "BVS Customer User"
   }
  ], 
  "script": null, 

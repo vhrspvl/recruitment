@@ -88,6 +88,9 @@ def create_closure(doc, method):
                 docslist = frappe.db.get_value(
                     "Original Documents", {"name": docs.name})
         closure_id = frappe.db.get_value("Closure", {"candidate": doc.name})
+        # interview = frappe.db.get("Candidate", docs.candidate)
+        # if interview:
+        #     interview_date = interview.interview_date
         project = frappe.get_doc("Project", doc.project)
         task = frappe.db.get_value("Task", doc.task, "subject")
         bde = frappe.db.get_value(

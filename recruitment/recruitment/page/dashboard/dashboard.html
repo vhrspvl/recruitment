@@ -1,4 +1,4 @@
-{% if (frappe.user.name == "13839@manappuram.com") { %} dfsfsdff
+{% if (frappe.user.name == "13839@manappuram.com") { %}
 <iframe src="http://182.73.2.232:3000/public/dashboard/98e78e5a-3e1d-4c35-b7ad-3f84dabcc328" frameborder="0" width="1200"
     height="800" allowtransparency>
 </iframe>
@@ -6,7 +6,7 @@
 <iframe src="http://192.168.3.44:3000/public/dashboard/a55be1fe-73a7-456b-8c98-8875fc6b09bb" frameborder="0" width="1200"
     height="800" allowtransparency>
 </iframe>
-{% } %} {% if (frappe.user.has_role("Employee")) { %}
+{% } %} {% if (frappe.user.has_role("Director") || frappe.user.has_role("Accounts Manager")) { %}
 <iframe src="http://192.168.3.44:3000/public/dashboard/db21da8a-6fcd-4cb9-ac0b-18aee55d0667" frameborder="0" width="1200"
     height="800" allowtransparency>
 </iframe>
