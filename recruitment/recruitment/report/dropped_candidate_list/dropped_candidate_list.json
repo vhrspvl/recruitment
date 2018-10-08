@@ -1,0 +1,64 @@
+{
+ "add_total_row": 0, 
+ "apply_user_permissions": 1, 
+ "creation": "2018-09-20 15:58:09.317994", 
+ "disabled": 0, 
+ "docstatus": 0, 
+ "doctype": "Report", 
+ "idx": 0, 
+ "is_standard": "Yes", 
+ "letter_head": "VHRS", 
+ "modified": "2018-09-20 16:43:30.510884", 
+ "modified_by": "Administrator", 
+ "module": "Recruitment", 
+ "name": "Dropped Candidate List", 
+ "owner": "Administrator", 
+ "query": "SELECT \n`tabClosure`.`name` as \"ID::90\",\n`tabClosure`.`candidate_status` as \"Candidate Status::90\",\n`tabClosure`.`sales_order_confirmed_date` as \"Sales Order Confirmed Date:Date:90\",\n`tabClosure`.`territory` as \"Territory::70\",\n`tabClosure`.`customer` as \"Customer:Link/Customer:300\",\n`tabClosure`.`project` AS \"Project:Link/Project:200\",\n`tabClosure`.`name1` as \"Candidate Name::100\",\n`tabClosure`.`passport_no` as \"Passport Number::90\",\n`tabClosure`.`client_sc` as \"Service Charge (Client)::80\",\n`tabClosure`.`candidate_sc` as \"Service Charge (Candidate)::80\",\n`tabClosure`.`candidate_pending` as \"Pending Payment (Candidate)::80\",\n`tabClosure`.`dle` as \"Executive::100\",\n`tabClosure`.`bde` as \"BDE::100\",\n`tabClosure`.`dropped_date` as \"Dropped Date:Date:90\"\nFROM \n`tabClosure`\nWHERE\ncandidate_status = 'Dropped'", 
+ "ref_doctype": "Closure", 
+ "report_name": "Dropped Candidate List", 
+ "report_type": "Query Report", 
+ "roles": [
+  {
+   "role": "System Manager"
+  }, 
+  {
+   "role": "Project Allocater"
+  }, 
+  {
+   "role": "RCS User"
+  }, 
+  {
+   "role": "Projects Master Manager"
+  }, 
+  {
+   "role": "DnD Executive"
+  }, 
+  {
+   "role": "DnD Manager"
+  }, 
+  {
+   "role": "Project Leader"
+  }, 
+  {
+   "role": "DnD Master Manager"
+  }, 
+  {
+   "role": "Projects Manager"
+  }, 
+  {
+   "role": "Customer"
+  }, 
+  {
+   "role": "Closure User"
+  }, 
+  {
+   "role": "Sales User"
+  }, 
+  {
+   "role": "Accounts User"
+  }, 
+  {
+   "role": "Accounts Executive"
+  }
+ ]
+}

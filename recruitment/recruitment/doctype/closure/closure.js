@@ -19,6 +19,7 @@ frappe.ui.form.on('Closure', {
     },
     verify: function (frm) {
         frappe.call({
+
             method: "vhrs.custom.verify_fp",
             args: {
                 "fp": frm.doc.fp_template
