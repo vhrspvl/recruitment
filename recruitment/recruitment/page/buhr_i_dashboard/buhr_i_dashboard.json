@@ -1,0 +1,27 @@
+{
+ "content": null, 
+ "creation": "2019-02-20 11:59:20.136148", 
+ "docstatus": 0, 
+ "doctype": "Page", 
+ "icon": "", 
+ "idx": 0, 
+ "modified": "2019-02-20 13:24:51.000794", 
+ "modified_by": "Administrator", 
+ "module": "Recruitment", 
+ "name": "buhr-i-dashboard", 
+ "owner": "Administrator", 
+ "page_name": "BUHR I Dashboard", 
+ "roles": [
+  {
+   "role": "Projects Manager"
+  }, 
+  {
+   "role": "Project Leader"
+  }
+ ], 
+ "script": null, 
+ "standard": "Yes", 
+ "style": null, 
+ "system_page": 0, 
+ "title": "BUHR I Dashboard"
+}

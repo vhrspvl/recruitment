@@ -86,7 +86,7 @@ class Closure(Document):
                     self.csl_status = 'Sales Order'
                     self.status_updated_on = today()
 
-            elif self.territory == 'UAE' or self.territory == 'Dubai':
+            elif self.territory == 'UAE' or self.territory == 'Dubai' or self.territory == 'Nigeria':
                 if self.irf and self.passport and self.photo:
                     if self.csl_status == 'Sales Order Confirmed' or self.sales_order_confirmed_date:
                         if self.offer_letter:

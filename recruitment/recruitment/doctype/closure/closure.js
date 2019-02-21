@@ -7,6 +7,47 @@ frappe.ui.form.on('Closure', {
         frm.toggle_display("fingerprint_verification", frm.doc.fp_template);
     },
 
+    onload: function (frm) {
+        frm.set_query("project", function () {
+            return {
+                query: "recruitment.recruitment.doctype.candidate.candidate.get_projects",
+                filters: {
+                    customer: frm.doc.customer
+                }
+            };
+        });
+
+        frm.set_query("task", function () {
+            return {
+                query: "recruitment.recruitment.doctype.candidate.candidate.get_tasks",
+                filters: {
+                    project: frm.doc.project
+                }
+            };
+        });
+
+        frm.set_query("candidate", function () {
+            return {
+                query: "recruitment.recruitment.doctype.candidate.candidate.get_candidates",
+                filters: {
+                    task: frm.doc.task
+                }
+            };
+        });
+
+        var template = `<img width="200px" height="200px" alt="Finger Image" src="/files/fp.gif">`;
+        cur_frm.fields_dict.fp_image.$wrapper.html(template);
+        frm.toggle_display("fingerprint_verification", frm.doc.fp_template);
+        frm.toggle_display("capture_fingerprint", !frm.doc.fp_template);
+        $(cur_frm.fields_dict.passport_no.input).attr("maxlength", "8");
+
+    },
+
+    validate: function (frm) {
+        var template = `<img width="145px" height="188px" alt="Finger Image" src="/files/fp.gif">`;
+        cur_frm.fields_dict.fp_image.$wrapper.html(template)
+    },
+
     candidate_boarded: function (frm) {
         frm.set_value("status", "Onboarded");
         frm.save();
@@ -17,53 +58,64 @@ frappe.ui.form.on('Closure', {
         var expiry_date = new Date(me.getFullYear() + 10, me.getMonth(), me.getDate() - 1)
         frm.set_value("expiry_date", expiry_date)
     },
-    verify: function (frm) {
-        frappe.call({
 
-            method: "vhrs.custom.verify_fp",
-            args: {
-                "fp": frm.doc.fp_template
-            },
-            callback: function (r) {
-                if (r.message == 'MFS 100 Not Found') {
-                    frappe.msgprint(__("Machine Not Connected"))
+    verify: function (frm) {
+        jsondata = { 'BioType': 'FMR', 'GalleryTemplate': frm.doc.fp_template }
+        $.ajax({
+            type: "POST",
+            url: "http://localhost:8004/mfs100/match",
+            data: jsondata,
+            dataType: "json",
+            success: function (data) {
+                if (data.Status) {
+                    frappe.msgprint(
+                        "<img src=http://192.168.3.44:8080/files/verified%202018-09-06%2000:31:39.gif>" +
+                        __("Finger Matched"))
                 }
                 else {
-                    if (r.message === 'Verified') {
-                        frappe.msgprint(
-                            "<img src=http://192.168.3.44:8080/files/verified%202018-09-06%2000:31:39.gif>" +
-                            __(r.message))
+                    if (data.ErrorCode != "0") {
+                        if (data.ErrorCode === "-1307") {
+                            frappe.msgprint(__("Machine Not Connected"))
+                        }
+                        else {
+                            frappe.msgprint(__(data.ErrorDescription))
+                        }
+
                     }
                     else {
                         frappe.msgprint(
                             "<img src=http://192.168.3.44:8080/files/rubber_stamp_rejected_md_wm%202018-09-06%2000:48:08.gif>" +
-                            __(r.message))
+                            __("Finger Not Matched"))
                     }
+                }
+            },
+            error: function (jqXHR, ajaxOptions, thrownError) {
+                if (jqXHR.status === 0) {
+                    frappe.msgprint(__("Service Unavailable,Check drivers installed correcty"))
                 }
             }
         })
     },
 
     capture: function (frm) {
-        frappe.call({
-            method: "vhrs.custom.capture_fp",
-            args: {
-                "name": frm.doc.name,
-            },
-            callback: function (r) {
-                if (r.message == 'MFS 100 Not Found') {
-                    frappe.msgprint(__("Machine Not Connected"))
-                }
-                else {
-                    frm.set_value("fp_template", r.message[0])
-                    const test = r.message[1]
-                    var template = `<img width="145px" height="188px" alt="Finger Image" src="data:image/bmp;base64,${test}">`;
-                    cur_frm.fields_dict.fp_image.$wrapper.html(template);
-                    frm.save()
-                }
+        jsondata = { 'Quality': '', 'Timeout': '' }
+        $.ajax({
+            type: "POST",
+            url: "http://localhost:8004/mfs100/capture",
+            data: jsondata,
+            dataType: "json",
+            success: function (data) {
+                frm.set_value("fp_template", data.AnsiTemplate)
+                var test = data.BitmapData
+                var template = `<img width="145px" height="188px" alt="Finger Image" src="data:image/bmp;base64,${test}">`;
+                cur_frm.fields_dict.fp_image.$wrapper.html(template);
+                console.log(data)
+                httpStaus = true;
+                res = { httpStaus: httpStaus, data: data };
             }
         })
     },
+
     // generate_sales_order: function (frm) {
     //     if (frm.doc.client_payment_applicable || frm.doc.candidate_payment_applicable) {
     //         if (frm.doc.client_payment_applicable && frm.doc.client_sc <= 0) {
@@ -128,8 +180,11 @@ frappe.ui.form.on('Closure', {
                                                 "passport_no": frm.doc.passport_no || " ",
                                                 "client_sc": frm.doc.client_sc,
                                                 "candidate_sc": frm.doc.candidate_sc,
+                                                "business_unit": frm.doc.business_unit || " ",
+                                                "source_executive": frm.doc.source_executive || " ",
+                                                "ca_executive": frm.doc.ca_executive || " ",
                                                 "is_candidate": frm.doc.candidate_payment_applicable,
-                                                "is_client": frm.doc.client_payment_applicable
+                                                "is_client": frm.doc.client_payment_applicable,
                                             },
                                             callback: function (r) {
                                                 frm.set_value("csl_status", "Sales Order Confirmed");
@@ -218,34 +273,6 @@ frappe.ui.form.on('Closure', {
             frm.set_value('associate', '');
         }
     },
-    onload: function (frm) {
-        frm.set_query("project", function () {
-            return {
-                query: "recruitment.recruitment.doctype.candidate.candidate.get_projects",
-                filters: {
-                    customer: frm.doc.customer
-                }
-            };
-        });
 
-        frm.set_query("task", function () {
-            return {
-                query: "recruitment.recruitment.doctype.candidate.candidate.get_tasks",
-                filters: {
-                    project: frm.doc.project
-                }
-            };
-        });
-
-        frm.set_query("candidate", function () {
-            return {
-                query: "recruitment.recruitment.doctype.candidate.candidate.get_candidates",
-                filters: {
-                    task: frm.doc.task
-                }
-            };
-        });
-
-    }
 
 });

@@ -11,13 +11,6 @@ def get_data():
                     "label": _("Recruitment"),
                     "items": [
                         {
-                            "type": "page",
-                            "name": "dashboard",
-                            "icon": "fa fa-dashboard",
-                            "label": _("Dashboard"),
-                            "description": _("VHRS Candidate Database"),
-                        },
-                        {
                             "type": "doctype",
                             "name": "Candidate",
                             "icon": "fa fa-star",
@@ -37,7 +30,18 @@ def get_data():
                             "label": _("Interview"),
                             "description": _("Interviews for Projects"),
                         },
-
+                        {
+                            "type": "page",
+                            "name": "dkb-dashboard",
+                            "label": _("DKB Dashboard"),
+                            "description": _("VHRS Candidate Database"),
+                        },
+                        {
+                            "type": "page",
+                            "name": "buhr-i-dashboard",
+                            "label": _("BUHR-I Dashboard"),
+                            "description": _("VHRS Candidate Database"),
+                        },
                         {
                             "type": "doctype",
                             "name": "Associate",

@@ -5,6 +5,7 @@ from frappe import _
 from frappe.utils.data import today
 from frappe.utils import datetime, nowdate, add_days, flt
 from frappe.utils.print_format import download_pdf
+from datetime import date
 
 
 @frappe.whitelist()
@@ -27,7 +28,7 @@ def confirm_register(testid, doc):
             candidate.save(ignore_permissions=True)
 
         #    frappe.db.set_value("Candidate", candidate, "registration_no", testid)
-        #.    frappe.db.set_value("Candidate", candidate, "status", "Registered")
+        # .    frappe.db.set_value("Candidate", candidate, "status", "Registered")
         #    frappe.db.set_value("Token Summary", token.name, "validity", "Invalid")
             return testid
         else:
@@ -159,26 +160,36 @@ def send_anniversary_reminders():
     users = None
 
     work_anniversary = get_employees_who_have_anniversary_today()
-
     if work_anniversary:
         if not users:
             users = [u.email_id or u.name for u in get_enabled_system_users()]
 
         for e in work_anniversary:
+            exp = calculate_exp(e.date_of_joining)
+            experience = exp + 1
+            wish = """We are Proud to have an Employee like you as a part of VHRS Family,
+                    We wish you Heartfelt Congratulations and Best Wishes on your %sth anniversary""" % (exp)
+            args = dict(employee=e.employee_name, experience=experience,
+                        wish=wish, company=frappe.defaults.get_defaults().company)
             frappe.sendmail(recipients=filter(lambda u: u not in (e.company_email, e.personal_email, e.user_id), users),
                             subject=_("Work Anniversary Reminder for {0}").format(
                                 e.employee_name),
-                            message=_("""Today is {0}'s Work Anniversary!""").format(
-                                e.employee_name),
-                            reply_to=e.company_email or e.personal_email or e.user_id)
+                            template='work_anniversary',
+                            args=args)
+
+
+def calculate_exp(dtob):
+    today = date.today()
+    return today.year - dtob.year - ((today.month, today.day) < (dtob.month, dtob.day))
 
 
 def get_employees_who_have_anniversary_today():
     """Get Employee properties whose work Anniversary is today."""
-    return frappe.db.sql("""select name, personal_email, company_email, user_id, employee_name
-		from tabEmployee where day(date_of_joining) = day(%(date)s)
-		and month(date_of_joining) = month(%(date)s)
-		and status = 'Active'""", {"date": today()}, as_dict=True)
+    return frappe.db.sql("""select name, personal_email, company_email, user_id, employee_name,
+        date_of_joining from tabEmployee where day(date_of_joining) = day(%(date)s)
+        and month(date_of_joining) = month(%(date)s)
+        and employment_type != 'Contract'
+        and status = 'Active'""", {"date": today()}, as_dict=True)
 
 
 def get_bdm_users(doctype, txt, searchfield, start, page_len, filters):
@@ -239,11 +250,11 @@ def get_tl(doctype, txt, searchfield, start, page_len, filters):
 @frappe.whitelist()
 def set_dow():
     frappe.db.sql("""update tabTask set `date_of_working`=%s
-		where `status`='Working'""", today())
+        where `status`='Working'""", today())
 
 
 def set_project_as_overdue():
     frappe.db.sql("""update tabProject set `status`='Overdue'
-		where expected_end_date is not null
-		and expected_end_date < CURDATE()
-		and `status` not in ('Completed', 'Cancelled', 'Hold','DnD','PSL')""")
+        where expected_end_date is not null
+        and expected_end_date < CURDATE()
+        and `status` not in ('Completed', 'Cancelled', 'Hold','DnD','PSL')""")
