@@ -9,6 +9,28 @@ from datetime import date
 
 
 @frappe.whitelist()
+def lead_mark_comment(lead, appointment_on, appointment_by):
+    l = frappe.get_doc("Lead", lead)
+    frappe.errprint(l)
+    l.add_comment("Appointment Taken on", _(
+        "{0} taken appointment on {1}").format(appointment_by, appointment_on))
+    # l.add_comment(
+    #     doctype: "Communication",
+    #     communication_type: "Comment",
+    #     comment_type: "Comment",
+    #     text: appointment_on,
+    # )
+
+
+@frappe.whitelist()
+def customer_mark_comment(customer, appointment_on, appointment_by):
+    l = frappe.get_doc("Customer", customer)
+    frappe.errprint(l)
+    l.add_comment("Appointment Taken on", _(
+        "{0} taken appointment on {1}").format(appointment_by, appointment_on))
+
+
+@frappe.whitelist()
 def confirm_register(testid, doc):
     candid = {}
     candid = json.loads(doc)
