@@ -49,7 +49,7 @@ frappe.ui.form.on('Candidate', {
                 },
                 callback: function (r) {
                     if (!frm.doc.applied && !frm.doc.not_applicable && r.message != 'India') {
-                        frm.toggle_reqd(["passport_no", "issued_date", "expiry_date", "place_of_issue", "interview_date", "interview_location"],
+                        frm.toggle_reqd(["ecr_status", "passport_no", "issued_date", "expiry_date", "place_of_issue", "interview_date", "interview_location"],
                             frm.doc.pending_for == 'Proposed PSL');
                     }
                 }

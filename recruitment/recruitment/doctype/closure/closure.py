@@ -217,7 +217,7 @@ class Closure(Document):
                     self.csl_status = 'Sales Order'
                     self.status_updated_on = today()
 
-            elif self.territory == 'Kuwait':
+            elif self.territory == 'Kuwait' or self.territory == 'Singapore':
                 if self.irf and self.passport and self.photo:
                     if self.csl_status == 'Sales Order Confirmed' or self.sales_order_confirmed_date:
                         if self.offer_letter:
@@ -291,3 +291,16 @@ def get_tl(doctype, txt, searchfield, start, page_len, filters):
     tl_user = frappe.db.sql(
         """select employee.user_id from tabEmployee employee where employee.name=%s""", tl)
     return tl_user
+
+
+@frappe.whitelist()
+def update_dnd_incharge(project, dnd):
+    if dnd:
+        p = frappe.get_doc("Project", project)
+        if not p.dnd_incharge:
+            p.update({
+                "dnd_incharge": dnd
+            })
+            p.save(ignore_permissions=True)
+            frappe.db.commit()
+            return True

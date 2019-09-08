@@ -46,6 +46,20 @@ frappe.ui.form.on('Closure', {
     validate: function (frm) {
         var template = `<img width="145px" height="188px" alt="Finger Image" src="/files/fp.gif">`;
         cur_frm.fields_dict.fp_image.$wrapper.html(template)
+        if (frm.doc.dnd_incharge) {
+            frappe.call({
+                "method": "recruitment.recruitment.doctype.closure.closure.update_dnd_incharge",
+                args: {
+                    "project": frm.doc.project,
+                    "dnd": frm.doc.dnd_incharge
+                },
+                callback: function (r) {
+                    if (r.message) {
+                        frm.set_df_property('dnd_incharge', 'read_only', 1);
+                    }
+                }
+            })
+        }
     },
 
     candidate_boarded: function (frm) {
@@ -96,9 +110,19 @@ frappe.ui.form.on('Closure', {
             }
         })
     },
-
+    create_qr: function (frm) {
+        frappe.call({
+            method: "vhrs.custom.generate_qr",
+            args: {
+                "closure": frm.doc.name
+            },
+            callback: function (r) {
+                refresh_field("qr_code");
+            }
+        })
+    },
     capture: function (frm) {
-        jsondata = { 'Quality': '', 'Timeout': '' }
+        var jsondata = { 'Quality': '', 'Timeout': '' }
         $.ajax({
             type: "POST",
             url: "http://localhost:8004/mfs100/capture",
@@ -138,6 +162,9 @@ frappe.ui.form.on('Closure', {
     // },
 
     refresh: function (frm) {
+        if (frm.doc.dnd_incharge) {
+            frm.set_df_property('dnd_incharge', 'read_only', 1);
+        }
         if (frm.doc.fp_template) {
             frm.add_custom_button(__("FP Attached"), function () {
             }).addClass('btn btn-success')
@@ -179,6 +206,7 @@ frappe.ui.form.on('Closure', {
                                                 "name1": frm.doc.name1,
                                                 "passport_no": frm.doc.passport_no || " ",
                                                 "client_sc": frm.doc.client_sc,
+                                                "designation": frm.doc.designation,
                                                 "candidate_sc": frm.doc.candidate_sc,
                                                 "business_unit": frm.doc.business_unit || " ",
                                                 "source_executive": frm.doc.source_executive || " ",

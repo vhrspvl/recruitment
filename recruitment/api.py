@@ -116,21 +116,20 @@ def create_closure(doc, method):
         #     interview_date = interview.interview_date
         project = frappe.get_doc("Project", doc.project)
         task = frappe.db.get_value("Task", doc.task, "subject")
-        bde = frappe.db.get_value(
+        ca_executive = frappe.db.get_value(
             "Customer", doc.customer, "customer_owner__cpc")
         territory = frappe.db.get_value("Customer", doc.customer, "territory")
         payment_terms = project.payment_terms
-        dle = ''
-        atm = ''
+        dle = ca_executive = source_executive = ''
         tl = ''
-        stm = ''
+        bu = ''
+        department = ''
         if doc.user:
             executive = frappe.db.get("Employee", {"user_id": doc.user})
             if executive:
-                dle = executive.user_id
-                stm = executive.department
-                atm = frappe.db.get_value(
-                    "Employee", executive.department_head, "user_id")
+                source_executive = executive.user_id
+                department = executive.department
+                bu = frappe.get_value("Employee", executive, 'business_unit')
                 tl = frappe.db.get_value(
                     "Employee", executive.reports_to, "user_id")
         if closure_id:
@@ -151,16 +150,17 @@ def create_closure(doc, method):
             "passport_no": doc.passport_no,
             "ecr_status": doc.ecr_status,
             "associate_name": doc.associate_name,
+            "associate": doc.associate,
             "associate_contact_no": doc.contact_no,
             "expiry_date": doc.expiry_date,
             "date_of_issue": doc.issued_date,
             "place_of_issue": doc.place_of_issue,
-            "cpc": project.cpc,
-            "dle": dle,
-            "tl": tl,
-            "bde": bde,
-            "atm": atm,
-            "stm": stm
+            "cr_executive": project.cpc,
+            "ca_executive": ca_executive,
+            "business_unit": bu,
+            "department": department,
+            "source_executive": source_executive,
+            "tl": tl
         })
         if doc.irf:
             closure.update({"irf": doc.irf})
@@ -188,12 +188,18 @@ def send_anniversary_reminders():
 
         for e in work_anniversary:
             exp = calculate_exp(e.date_of_joining)
+
+            def ordinal(n): return "%d%s" % (
+                n, "tsnrhtdd"[(n/10 % 10 != 1)*(n % 10 < 4)*n % 10::4])
+            print ordinal(exp)
             experience = exp + 1
+
             wish = """We are Proud to have an Employee like you as a part of VHRS Family,
-                    We wish you Heartfelt Congratulations and Best Wishes on your %sth anniversary""" % (exp)
-            args = dict(employee=e.employee_name, experience=experience,
+                    We wish you Heartfelt Congratulations and Best Wishes on your %s anniversary""" % (ordinal(exp))
+            args = dict(employee=e.employee_name, experience=ordinal(experience),
                         wish=wish, company=frappe.defaults.get_defaults().company)
             frappe.sendmail(recipients=filter(lambda u: u not in (e.company_email, e.personal_email, e.user_id), users),
+                            # frappe.sendmail(recipients='abdulla.pi@voltechgroup.com',
                             subject=_("Work Anniversary Reminder for {0}").format(
                                 e.employee_name),
                             template='work_anniversary',
