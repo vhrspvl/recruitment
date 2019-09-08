@@ -17,7 +17,7 @@ setup(
 	version=version,
 	description='VHRS Custom for Recruitment',
 	author='VHRS',
-	author_email='hr@voltechgroup.com',
+	author_email='erp@voltechgroup.com',
 	packages=find_packages(),
 	zip_safe=False,
 	include_package_data=True,
