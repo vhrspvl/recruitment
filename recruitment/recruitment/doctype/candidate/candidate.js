@@ -33,7 +33,6 @@ frappe.ui.form.on('Candidate', {
         frm.toggle_reqd(["customer", "project", "task"],
             frm.doc.pending_for == 'Proposed PSL')
     },
-
     validate: function (frm) {
         if (frm.doc.candidate_payment_applicable) {
             if (frm.doc.candidate_payment_applicable && frm.doc.candidate_sc <= 0) {
@@ -55,9 +54,11 @@ frappe.ui.form.on('Candidate', {
                 }
             })
         }
-
-
-
+        // if (frm.doc.passport_no) {
+        //     if (frappe.db.exists('candidate', { 'passport_no': frm.doc.passport_no })) {
+        //         frappe.throw('Passport Number is not Unique')
+        //     }
+        // }
     },
 
     issued_date: function (frm) {
@@ -88,14 +89,14 @@ frappe.ui.form.on('Candidate', {
                 frm.doc.ecr = 0;
             }
         }
-        frm.set_query("project", function () {
-            return {
-                query: "recruitment.recruitment.doctype.candidate.candidate.get_projects",
-                filters: {
-                    customer: frm.doc.customer
-                }
-            };
-        });
+        // frm.set_query("project", function () {
+        //     return {
+        //         query: "recruitment.recruitment.doctype.candidate.candidate.get_projects",
+        //         filters: {
+        //             customer: frm.doc.customer
+        //         }
+        //     };
+        // });
 
         frm.set_query("task", function () {
             return {

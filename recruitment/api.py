@@ -1,6 +1,10 @@
 import frappe
 import json
 import shortuuid
+import qrcode
+import base64
+from PIL import Image
+from io import BytesIO
 from frappe import _
 from frappe.utils.data import today
 from frappe.utils import datetime, nowdate, add_days, flt
@@ -12,21 +16,17 @@ from datetime import date
 def lead_mark_comment(lead, appointment_on, appointment_by):
     l = frappe.get_doc("Lead", lead)
     frappe.errprint(l)
-    l.add_comment("Appointment Taken on", _(
-        "{0} taken appointment on {1}").format(appointment_by, appointment_on))
-    # l.add_comment(
-    #     doctype: "Communication",
-    #     communication_type: "Comment",
-    #     comment_type: "Comment",
-    #     text: appointment_on,
-    # )
+    l.add_comment("Info", _("{0} taken appointment on {1}").format(
+        appointment_by, appointment_on))
+    # l.add_comment(doctype: "Communication", communication_type: "Comment", comment_type: "Comment", text: appointment_on)
+    # l.add_comment('Info', frappe.bold(_( "{0} taken appointment on {1}").format(appointment_by, appointment_on))) + '<br><br>' + summary)
 
 
 @frappe.whitelist()
 def customer_mark_comment(customer, appointment_on, appointment_by):
     l = frappe.get_doc("Customer", customer)
     frappe.errprint(l)
-    l.add_comment("Appointment Taken on", _(
+    l.add_comment("Info", _(
         "{0} taken appointment on {1}").format(appointment_by, appointment_on))
 
 
@@ -286,3 +286,13 @@ def set_project_as_overdue():
         where expected_end_date is not null
         and expected_end_date < CURDATE()
         and `status` not in ('Completed', 'Cancelled', 'Hold','DnD','PSL')""")
+
+
+@frappe.whitelist()
+def get_qrcode(input_str):
+    qr = qrcode.make(input_str)
+    temp = BytesIO()
+    qr.save(temp, "PNG")
+    temp.seek(0)
+    b64 = base64.b64encode(temp.read())
+    return "data:image/png;base64,{0}".format(b64.decode("utf-8"))

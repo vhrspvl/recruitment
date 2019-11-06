@@ -21,7 +21,7 @@ def get_data():
                             "type": "doctype",
                             "name": "Closure",
                             "icon": "fa fa-star",
-                            "label": _("closure"),
+                            "label": _("Closure"),
                             "description": _("Recruitment Documentation"),
                         },
                         {

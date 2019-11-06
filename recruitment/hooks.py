@@ -76,9 +76,17 @@ doc_events = {
     "Task Candidate": {
         "on_update": "recruitment.api.create_closure"
     },
-    #"Project": {
+    # "Project": {
     #    "on_update": "recruitment.utils.apply_perm"
-    #}
+    # }
+}
+# Jinja Filters
+# ---------------
+# Methods accessible to print template
+jenv = {
+    "methods": [
+        'get_qrcode:recruitment.api.get_qrcode'
+    ]
 }
 # website
 fixtures = ["Custom Script", "Custom Field"]

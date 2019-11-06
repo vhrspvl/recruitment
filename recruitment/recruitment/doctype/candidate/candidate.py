@@ -56,13 +56,13 @@ def get_parent_territory(customer):
     return territory
 
 
-def get_projects(doctype, txt, searchfield, start, page_len, filters):
-    if not filters.get("customer"):
-        frappe.throw(_("Please select Customer first."))
+# def get_projects(doctype, txt, searchfield, start, page_len, filters):
+#     if not filters.get("customer"):
+#         frappe.throw(_("Please select Customer first."))
 
-    project_list = frappe.db.sql(
-        """select project.name from tabProject project where project.customer = %s order by creation desc""", (filters.get("customer")))
-    return project_list
+#     project_list = frappe.db.sql(
+#         """select project.name from tabProject project where project.customer = %s order by creation desc""", (filters.get("customer")))
+#     return project_list
 
 
 def get_tasks(doctype, txt, searchfield, start, page_len, filters):

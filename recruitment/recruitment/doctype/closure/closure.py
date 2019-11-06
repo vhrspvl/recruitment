@@ -46,20 +46,20 @@ class Closure(Document):
                                     if self.final_medical:
                                         if self.stamped_visa:
                                             if self.ecr_status != 'ECR' or self.poe:
-                                                if self.payment_reciept:
-                                                    if self.ticket:
-                                                        if self.status == 'Onboarded':
-                                                            self.status = 'Onboarded'
-                                                            self.boarded_date = today()
-                                                        else:
-                                                            self.status = 'Onboarding'
-                                                            self.status_updated_on = today()
+                                                # if self.payment_reciept:
+                                                if self.ticket:
+                                                    if self.status == 'Onboarded':
+                                                        self.status = 'Onboarded'
+                                                        self.boarded_date = today()
                                                     else:
-                                                        self.status = 'Ticket Details'
-                                                        self.ticket_date = today()
+                                                        self.status = 'Onboarding'
+                                                        self.status_updated_on = today()
                                                 else:
-                                                    self.status = 'Payment Receipt'
-                                                    self.payment_receipt_date = today()
+                                                    self.status = 'Ticket Details'
+                                                    self.ticket_date = today()
+                                                # else:
+                                                #     self.status = 'Payment Receipt'
+                                                #     self.payment_receipt_date = today()
                                             else:
                                                 self.status = 'PoE'
                                                 self.poe_date = today()
@@ -94,20 +94,20 @@ class Closure(Document):
                                 if self.mol:
                                     if self.visa:
                                         if self.ecr_status != 'ECR' or self.poe:
-                                            if self.payment_reciept:
-                                                if self.ticket:
-                                                    if self.status == 'Onboarded':
-                                                        self.status = 'Onboarded'
-                                                        self.boarded_date = today()
-                                                    else:
-                                                        self.status = 'Onboarding'
-                                                        self.status_updated_on = today()
+                                            # if self.payment_reciept:
+                                            if self.ticket:
+                                                if self.status == 'Onboarded':
+                                                    self.status = 'Onboarded'
+                                                    self.boarded_date = today()
                                                 else:
-                                                    self.status = 'Ticket Details'
-                                                    self.ticket_date = today()
+                                                    self.status = 'Onboarding'
+                                                    self.status_updated_on = today()
                                             else:
-                                                self.status = 'Payment Receipt'
-                                                self.payment_receipt_date = today()
+                                                self.status = 'Ticket Details'
+                                                self.ticket_date = today()
+                                            # else:
+                                            #     self.status = 'Payment Receipt'
+                                            #     self.payment_receipt_date = today()
                                         else:
                                             self.status = 'PoE'
                                             self.poe_date = today()
@@ -139,20 +139,20 @@ class Closure(Document):
                                 if self.final_medical:
                                     if self.stamped_visa:
                                         if self.ecr_status != 'ECR' or self.poe:
-                                            if self.payment_reciept:
-                                                if self.ticket:
-                                                    if self.status == 'Onboarded':
-                                                        self.status = 'Onboarded'
-                                                        self.boarded_date = today()
-                                                    else:
-                                                        self.status = 'Onboarding'
-                                                        self.status_updated_on = today()
+                                            # if self.payment_reciept:
+                                            if self.ticket:
+                                                if self.status == 'Onboarded':
+                                                    self.status = 'Onboarded'
+                                                    self.boarded_date = today()
                                                 else:
-                                                    self.status = 'Ticket Details'
-                                                    self.ticket_date = today()
+                                                    self.status = 'Onboarding'
+                                                    self.status_updated_on = today()
                                             else:
-                                                self.status = 'Payment Receipt'
-                                                self.payment_receipt_date = today()
+                                                self.status = 'Ticket Details'
+                                                self.ticket_date = today()
+                                            # else:
+                                            #     self.status = 'Payment Receipt'
+                                            #     self.payment_receipt_date = today()
                                         else:
                                             self.status = 'PoE'
                                             self.poe_date = today()
@@ -183,20 +183,20 @@ class Closure(Document):
                             if self.premedical:
                                 if self.visa:
                                     if self.ecr_status != 'ECR' or self.poe:
-                                        if self.payment_reciept:
-                                            if self.ticket:
-                                                if self.status == 'Onboarded':
-                                                    self.status = 'Onboarded'
-                                                    self.boarded_date = today()
-                                                else:
-                                                    self.status = 'Onboarding'
-                                                    self.status_updated_on = today()
+                                        # if self.payment_reciept:
+                                        if self.ticket:
+                                            if self.status == 'Onboarded':
+                                                self.status = 'Onboarded'
+                                                self.boarded_date = today()
                                             else:
-                                                self.status = 'Ticket Details'
-                                                self.ticket_date = today()
+                                                self.status = 'Onboarding'
+                                                self.status_updated_on = today()
                                         else:
-                                            self.status = 'Payment Receipt'
-                                            self.payment_receipt_date = today()
+                                            self.status = 'Ticket Details'
+                                            self.ticket_date = today()
+                                        # else:
+                                        #     self.status = 'Payment Receipt'
+                                        #     self.payment_receipt_date = today()
                                     else:
                                         self.status = 'PoE'
                                         self.poe_date = today()
@@ -227,20 +227,20 @@ class Closure(Document):
                                         if self.final_medical:
                                             if self.stamped_visa:
                                                 if self.ecr_status != 'ECR' or self.poe:
-                                                    if self.payment_reciept:
-                                                        if self.ticket:
-                                                            if self.status == 'Onboarded':
-                                                                self.status = 'Onboarded'
-                                                                self.boarded_date = today()
-                                                            else:
-                                                                self.status = 'Onboarding'
-                                                                self.status_updated_on = today()
+                                                    # if self.payment_reciept:
+                                                    if self.ticket:
+                                                        if self.status == 'Onboarded':
+                                                            self.status = 'Onboarded'
+                                                            self.boarded_date = today()
                                                         else:
-                                                            self.status = 'Ticket Details'
-                                                            self.ticket_date = today()
+                                                            self.status = 'Onboarding'
+                                                            self.status_updated_on = today()
                                                     else:
-                                                        self.status = 'Payment Receipt'
-                                                        self.payment_receipt_date = today()
+                                                        self.status = 'Ticket Details'
+                                                        self.ticket_date = today()
+                                                # else:
+                                                #     self.status = 'Payment Receipt'
+                                                #     self.payment_receipt_date = today()
                                                 else:
                                                     self.status = 'PoE'
                                                     self.poe_date = today()

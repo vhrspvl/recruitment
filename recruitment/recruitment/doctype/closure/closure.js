@@ -63,8 +63,13 @@ frappe.ui.form.on('Closure', {
     },
 
     candidate_boarded: function (frm) {
-        frm.set_value("status", "Onboarded");
-        frm.save();
+        if (frm.doc.candidate_pending > 0) {
+            frappe.msgprint("Pending Payment is greater than 0, So you cannot Onboard the Candidate")
+        } else {
+            frm.set_value("status", "Onboarded");
+            frm.save();
+        }
+
 
     },
     date_of_issue: function (frm) {
@@ -110,17 +115,17 @@ frappe.ui.form.on('Closure', {
             }
         })
     },
-    create_qr: function (frm) {
-        frappe.call({
-            method: "vhrs.custom.generate_qr",
-            args: {
-                "closure": frm.doc.name
-            },
-            callback: function (r) {
-                refresh_field("qr_code");
-            }
-        })
-    },
+    // create_qr: function (frm) {
+    //     frappe.call({
+    //         method: "vhrs.custom.generate_qr",
+    //         args: {
+    //             "closure": frm.doc.name
+    //         },
+    //         callback: function (r) {
+    //             refresh_field("qr_code");
+    //         }
+    //     })
+    // },
     capture: function (frm) {
         var jsondata = { 'Quality': '', 'Timeout': '' }
         $.ajax({
@@ -162,6 +167,22 @@ frappe.ui.form.on('Closure', {
     // },
 
     refresh: function (frm) {
+
+        frm.add_custom_button(__("Print ODR"), function () {
+            frappe.ui.form.qz_connect()
+                .then(function () {
+                    var config = qz.configs.create("QL800"); // Exact printer name from OS
+                    var data = [
+                        'Abdulla'
+                    ];
+                    return qz.print(config, data);
+                })
+                .then(frappe.ui.form.qz_success)
+                .catch(err => {
+                    console.log("jo")
+                    frappe.ui.form.qz_fail(err);
+                })
+        });
         if (frm.doc.dnd_incharge) {
             frm.set_df_property('dnd_incharge', 'read_only', 1);
         }
@@ -286,13 +307,13 @@ frappe.ui.form.on('Closure', {
             // }
 
 
-            client_pending = 0;
-            client_pending = frm.doc.client_sc - frm.doc.client_advance;
-            frm.set_value("client_pending", client_pending);
+            // client_pending = 0;
+            // client_pending = frm.doc.client_sc - frm.doc.client_advance;
+            // frm.set_value("client_pending", client_pending);
 
-            candidate_pending = 0;
-            candidate_pending = frm.doc.candidate_sc - frm.doc.candidate_advance;
-            frm.set_value("candidate_pending", candidate_pending);
+            // candidate_pending = 0;
+            // candidate_pending = frm.doc.candidate_sc - frm.doc.candidate_advance;
+            // frm.set_value("candidate_pending", candidate_pending);
         }
     },
     associate_name: function (frm) {
