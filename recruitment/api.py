@@ -159,8 +159,17 @@ def create_closure(doc, method):
             "ca_executive": ca_executive,
             "business_unit": bu,
             "department": department,
+            "division": doc.division,
             "source_executive": source_executive,
-            "tl": tl
+            "selection_date": doc.interview_date,
+            "tl": tl,
+            "degree": doc.degree,
+            "specialization": doc.specialization,
+            "yop": doc.yop,
+            "basic": doc.basic,
+            "food": doc.food,
+            "other_allowances": doc.other_allowances,
+            "dob": doc.dob
         })
         if doc.irf:
             closure.update({"irf": doc.irf})

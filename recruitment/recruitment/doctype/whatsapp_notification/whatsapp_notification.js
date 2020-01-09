@@ -8,12 +8,17 @@ frappe.ui.form.on('Whatsapp Notification', {
     send: function (frm) {
         frappe.call({
             method: "vhrs.custom.send_whatsapp_notification",
+            freeze: 'true',
+            freeze_message: __("Sending"),
             args: {
                 "message": frm.doc.message,
-                "recipient": frm.doc.recipient
+                "filename": frm.doc.file,
+                "recipient": frm.doc.recipient,
+                "lat": frm.doc.lat,
+                "lng": frm.doc.lng,
+                "address": frm.doc.address
             },
             callback: function (r) {
-                console.log(r.message)
                 frappe.msgprint(__('Sent'))
             }
         })

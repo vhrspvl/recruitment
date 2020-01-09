@@ -1,0 +1,47 @@
+{
+ "add_total_row": 0,
+ "creation": "2019-11-22 23:13:32.355076",
+ "disable_prepared_report": 0,
+ "disabled": 0,
+ "docstatus": 0,
+ "doctype": "Report",
+ "idx": 0,
+ "is_standard": "Yes",
+ "letter_head": "VHRS",
+ "modified": "2019-11-23 00:13:42.090697",
+ "modified_by": "Administrator",
+ "module": "Recruitment",
+ "name": "Pending Payment Report",
+ "owner": "Administrator",
+ "prepared_report": 0,
+ "query": "SELECT\n`tabClosure`.`name` AS \"Closure ID::80\",\n`tabClosure`.`name1` AS \"Candidate Name::150\",\nDATE(`tabClosure`.`boarding_time`) As \"Date of Journey::140\",\n`tabClosure`.`candidate_pending` AS \"Candidate Pending ::140\",\n`tabClosure`.`client_pending` AS \"Client Pending ID::140\",\n`tabClosure`.`associate` AS \"Associate::100\",\n`tabClosure`.`customer` AS \"Customer::200\"\nFROM\n`tabClosure`\nWHERE\n`tabClosure`.`ticket_booked` = 1\nAND\n`tabClosure`.`candidate_pending` > 0\nOR\n`tabClosure`.`client_pending` > 0\n",
+ "ref_doctype": "Closure",
+ "report_name": "Pending Payment Report",
+ "report_type": "Query Report",
+ "roles": [
+  {
+   "role": "DnD Executive"
+  },
+  {
+   "role": "RCS User"
+  },
+  {
+   "role": "System Manager"
+  },
+  {
+   "role": "Project Allocater"
+  },
+  {
+   "role": "Projects Master Manager"
+  },
+  {
+   "role": "DnD Master Manager"
+  },
+  {
+   "role": "Sales User"
+  },
+  {
+   "role": "Project Leader"
+  }
+ ]
+}

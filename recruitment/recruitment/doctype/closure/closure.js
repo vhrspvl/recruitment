@@ -8,6 +8,10 @@ frappe.ui.form.on('Closure', {
     },
 
     onload: function (frm) {
+        var t = ['Oman', 'Dubai', 'Bahrain']
+        if (t.includes(frm.doc.territory)) {
+            hide_field("section_break_60")
+        }
         frm.set_query("project", function () {
             return {
                 query: "recruitment.recruitment.doctype.candidate.candidate.get_projects",
@@ -60,6 +64,11 @@ frappe.ui.form.on('Closure', {
                 }
             })
         }
+    },
+    document_type: function (frm) {
+        frm.toggle_reqd("degree_certificate_no", frm.doc.document_type == "Degree Certificate");
+        frm.toggle_reqd("custodian_type", frm.doc.document_type);
+        frm.toggle_reqd("custodian", frm.doc.document_type);
     },
 
     candidate_boarded: function (frm) {
@@ -167,22 +176,14 @@ frappe.ui.form.on('Closure', {
     // },
 
     refresh: function (frm) {
+        frm.trigger("qr_code")
 
-        frm.add_custom_button(__("Print ODR"), function () {
-            frappe.ui.form.qz_connect()
-                .then(function () {
-                    var config = qz.configs.create("QL800"); // Exact printer name from OS
-                    var data = [
-                        'Abdulla'
-                    ];
-                    return qz.print(config, data);
-                })
-                .then(frappe.ui.form.qz_success)
-                .catch(err => {
-                    console.log("jo")
-                    frappe.ui.form.qz_fail(err);
-                })
-        });
+        frm.add_custom_button(__("Edit"), function () {
+            if (frm.doc.edit === 0) {
+                frm.set_value('edit', 1)
+            }
+        })
+
         if (frm.doc.dnd_incharge) {
             frm.set_df_property('dnd_incharge', 'read_only', 1);
         }
@@ -190,10 +191,10 @@ frappe.ui.form.on('Closure', {
             frm.add_custom_button(__("FP Attached"), function () {
             }).addClass('btn btn-success')
         }
-        frm.add_custom_button(__("View ODR"), function () {
-            frappe.set_route('List', 'Original Document Management', { candidate: frm.doc.name });
-        }).addClass('btn btn-primary'),
-            frm.toggle_display("poe", frm.doc.ecr_status === 'ECR');
+        // frm.add_custom_button(__("View ODR"), function () {
+        //     frappe.set_route('List', 'Original Document Management', { candidate: frm.doc.name });
+        // }).addClass('btn btn-primary'),
+        frm.toggle_display("poe", frm.doc.ecr_status === 'ECR');
         if (frm.doc.status == 'Onboarded' && frm.doc.territory != 'India') {
             frm.add_custom_button(__("Revert to Pending"), function () {
                 frm.set_value("status", "Onboarding");
@@ -271,6 +272,7 @@ frappe.ui.form.on('Closure', {
                                                         "customer": frm.doc.customer,
                                                         "project": frm.doc.project,
                                                         "name1": frm.doc.name1,
+                                                        "designation": frm.doc.designation,
                                                         "passport_no": frm.doc.passport_no || " ",
                                                         "redeputation_cost": frm.doc.redeputation_cost,
                                                     },
@@ -322,6 +324,126 @@ frappe.ui.form.on('Closure', {
             frm.set_value('associate', '');
         }
     },
+    qr_code: function (frm) {
+        // frm.add_custom_button(__("Edit"), function () {
+        //     if(frm.doc.edit===0){
+        //         frm.set_value('edit',1)
+        //     }
+        // })
 
+        // frm.add_custom_button(__("Generate QR"), function () {
+        //     frappe.call('vhrs.custom.generate_qr', {
+        //         closure: frm.doc.name
+        //     }).then(r => {
+        //         console.log(r.message)
+        //     })
+        // });
+
+        if (frm.doc.qr_code) {
+            frm.add_custom_button(__("Print ODR"), function () {
+                var doc_no = ""
+                if (frm.doc.document_type == 'Passport') {
+                    doc_no = frm.doc.passport_no
+                }
+                else if (frm.doc.document_type == 'Degree Certificate') {
+                    doc_no = frm.doc.degree_certificate_no
+                }
+                frappe.ui.form.qz_connect({ "host": "192.168.2.47" })
+                    .then(function () {
+                        var options = {
+                            colorType: 'blackwhite',
+                            units: 'mm',
+                            // orientation:'landscape',
+                            size: { width: 62, height: 90 }
+
+                        }
+                        var config = qz.configs.create("QL-800", options);
+                        var data = [{
+                            type: 'html',
+                            format: 'plain',
+                            data: `<html>
+                                        <head>
+                                            <style>
+                                                p {
+                                                    font-size: 12;
+                                                }
+
+                                                table,
+                                                th,
+                                                td {
+                                                    border: 1px solid black;
+                                                    border-collapse: collapse;
+                                                }
+                                            </style>
+                                        </head>
+
+                                        <body>
+                                            <table>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>
+                                                            <img src="http://erp.voltechgroup.com${frm.doc.qr_code}" width='100' />
+                                                        </td>
+                                                        <td>
+                                                            <p>
+                                                                &nbsp;Voltech HR Services Pvt Ltd<br />
+                                                                &nbsp;+91 95000 06906 / +91 4397 8090<br />
+                                                                &nbsp;http://hr.voltechgroup.com<br />
+                                                                &nbsp;Project: <b>${frm.doc.project}</b><br />
+                                                                &nbsp;Candidate: <b>${frm.doc.name1}</b> / Doc.No:<b>${doc_no}</b><br />
+                                                                &nbsp;TCR No: <b>${frm.doc.name}</b> / Doc.Type:<b>${frm.doc.document_type}</b>
+                                                                </p>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <img src="http://erp.voltechgroup.com${frm.doc.qr_code}" width='100' />
+                                                        </td>
+                                                        <td>
+                                                            <p>
+                                                                &nbsp;Voltech HR Services Pvt Ltd<br />
+                                                                &nbsp;+91 95000 06906 / +91 4397 8090<br />
+                                                                &nbsp;http://hr.voltechgroup.com<br />
+                                                                &nbsp;Project: <b>${frm.doc.project}</b><br />
+                                                                &nbsp;Candidate: <b>${frm.doc.name1}</b> / Doc.No:<b>${doc_no}</b><br />
+                                                                &nbsp;TCR No: <b>${frm.doc.name}</b> / Doc.Type:<b>${frm.doc.document_type}</b>
+                                                                </p>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+
+                                        </body>
+
+                                        </html>`
+                        }]
+                        return qz.print(config, data);
+                    })
+                    .then(frappe.ui.form.qz_success)
+                    .catch(err => {
+                        frappe.ui.form.qz_fail(err);
+                    })
+            });
+
+        }
+
+    },
+    return_needed: function (frm) {
+        frm.save()
+    },
+    custodian_type: function (frm) {
+        if (frm.doc.custodian_type == "Branch") {
+            frappe.dynamic_link = { doc: frm.doc, fieldname: 'custodian', doctype: 'Branch' }
+        }
+        else if (frm.doc.custodian_type == "Associate") {
+            frappe.dynamic_link = { doc: frm.doc, fieldname: 'custodian', doctype: 'Associate' }
+        }
+        else if (frm.doc.custodian_type == "Supplier") {
+            frappe.dynamic_link = { doc: frm.doc, fieldname: 'custodian', doctype: 'Supplier' }
+        }
+        else if (frm.doc.custodian_type == "Candidate") {
+            frappe.dynamic_link = { doc: frm.doc, fieldname: 'custodian', doctype: 'Candidate' }
+        }
+    }
 
 });

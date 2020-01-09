@@ -19,8 +19,88 @@ frappe.ui.form.on('Candidate', {
             // frm.set_value("business_unit", business_unit);
             frm.set_value('user', frappe.session.user);
         }
+        // if (frm.doc.qr_code) {
+        //     frm.add_custom_button(__("Print ODR"), function () {
+        //         frappe.ui.form.qz_connect({ "host": "192.168.2.47" })
+        //             .then(function () {
+        //                 var options = {
+        //                     colorType: 'blackwhite',
+        //                     units: 'mm',
+        //                     // orientation:'landscape',
+        //                     size: { width: 62, height: 90 }
 
+        //                 }
+        //                 var config = qz.configs.create("QL-800", options);
+        //                 var data = [{
+        //                     type: 'html',
+        //                     format: 'plain',
+        //                     data: `<html>
+        //                                 <head>
+        //                                     <style>
+        //                                         p {
+        //                                             font-size: 12;
+        //                                         }
+
+        //                                         table,
+        //                                         th,
+        //                                         td {
+        //                                             border: 1px solid black;
+        //                                             border-collapse: collapse;
+        //                                         }
+        //                                     </style>
+        //                                 </head>
+
+        //                                 <body>
+        //                                     <table>
+        //                                         <tbody>
+        //                                             <tr>
+        //                                                 <td>
+        //                                                     <img src="http://erp.voltechgroup.com${frm.doc.qr_code}" width='100' />
+        //                                                 </td>
+        //                                                 <td>
+        //                                                     <p>
+        //                                                         &nbsp;Voltech HR Services<br />
+        //                                                         &nbsp;+91 95000 06906 / +91 4397 8090<br />
+        //                                                         &nbsp;http://hr.voltechgroup.com<br />
+        //                                                         Project: <b>${frm.doc.project}</b><br />
+        //                                                         &nbsp;Candidate: <b>${frm.doc.given_name}</b> / PP No.:<b>${frm.doc.passport_no}</b><br />
+        //                                                         &nbsp;TCR No: <b>${frm.doc.name}</b> / Doc.Type:<b>Passport</b>
+        //                                                         </p>
+        //                                                 </td>
+        //                                             </tr>
+        //                                             <tr>
+        //                                                 <td>
+        //                                                     <img src="http://erp.voltechgroup.com${frm.doc.qr_code}" width='100' />
+        //                                                 </td>
+        //                                                 <td>
+        //                                                     <p>
+        //                                                         &nbsp;Voltech HR Services<br />
+        //                                                         &nbsp;+91 95000 06906 / +91 4397 8090<br />
+        //                                                         &nbsp;http://hr.voltechgroup.com<br />
+        //                                                         Project: <b>${frm.doc.project}</b><br />
+        //                                                         &nbsp;Candidate: <b>${frm.doc.given_name}</b> / PP No.:<b>${frm.doc.passport_no}</b><br />
+        //                                                         &nbsp;TCR No: <b>${frm.doc.name}</b> / Doc.Type:<b>Passport</b>
+        //                                                         </p>
+        //                                                 </td>
+        //                                             </tr>
+        //                                         </tbody>
+        //                                     </table>
+
+        //                                 </body>
+
+        //                                 </html>`
+        //                 }]
+        //                 return qz.print(config, data);
+        //             })
+        //             .then(frappe.ui.form.qz_success)
+        //             .catch(err => {
+        //                 frappe.ui.form.qz_fail(err);
+        //             })
+        //     });
+
+        // }
     },
+
     ecr_status: function (frm) {
         frappe.confirm(
             'Are you confirm with the selection? -> ' + frm.doc.ecr_status,
@@ -33,7 +113,19 @@ frappe.ui.form.on('Candidate', {
         frm.toggle_reqd(["customer", "project", "task"],
             frm.doc.pending_for == 'Proposed PSL')
     },
+    after_save: function (frm) {
+        if (frm.doc.pending_for == 'Proposed PSL') {
+            frappe.call('vhrs.custom.generate_qr', {
+                candidate: frm.doc.name
+            }).then(r => {
+                console.log(r.message)
+                frm.reload_doc();
+            })
+
+        }
+    },
     validate: function (frm) {
+
         if (frm.doc.candidate_payment_applicable) {
             if (frm.doc.candidate_payment_applicable && frm.doc.candidate_sc <= 0) {
                 msgprint("Please Enter Candidate Service Charge Value");
@@ -60,6 +152,7 @@ frappe.ui.form.on('Candidate', {
         //     }
         // }
     },
+
 
     issued_date: function (frm) {
         var me = new Date(frm.doc.issued_date);

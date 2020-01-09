@@ -8,12 +8,14 @@
   "project",
   "customer",
   "task",
+  "qr_code",
   "column_break_3",
   "candidate_image",
   "status",
   "pending_for",
   "position",
   "territory",
+  "division",
   "interview_date",
   "interview_location",
   "offered_salary",
@@ -36,9 +38,11 @@
   "not_applicable",
   "ecr",
   "ecr_status",
+  "dob",
   "column_break_28",
   "passport_no",
   "place_of_issue",
+  "boarding_point",
   "column_break_19",
   "issued_date",
   "expiry_date",
@@ -55,6 +59,8 @@
   "column_break_48",
   "specialization",
   "column_break_50",
+  "state_of_university",
+  "column_break_55",
   "yop",
   "original_documents_holded",
   "original_documents",
@@ -213,13 +219,6 @@
    "label": "Position"
   },
   {
-   "fetch_from": "customer.territory",
-   "fieldname": "territory",
-   "fieldtype": "Data",
-   "label": "Territory",
-   "options": "customer.territory"
-  },
-  {
    "depends_on": "eval:doc.pending_for == \"Proposed PSL\"",
    "fieldname": "interview_date",
    "fieldtype": "Date",
@@ -354,8 +353,7 @@
    "fieldname": "passport_no",
    "fieldtype": "Data",
    "in_standard_filter": 1,
-   "label": "Passport No",
-   "unique": 1
+   "label": "Passport No"
   },
   {
    "fieldname": "place_of_issue",
@@ -443,8 +441,9 @@
   },
   {
    "fieldname": "yop",
-   "fieldtype": "Data",
-   "label": "YoP"
+   "fieldtype": "Link",
+   "label": "YoP",
+   "options": "Year"
   },
   {
    "fieldname": "original_documents_holded",
@@ -944,10 +943,48 @@
    "fieldname": "driving_details_section",
    "fieldtype": "Section Break",
    "label": "Driving Details"
+  },
+  {
+   "fetch_from": "customer.division",
+   "fieldname": "division",
+   "fieldtype": "Link",
+   "label": "Division",
+   "options": "Division"
+  },
+  {
+   "fieldname": "dob",
+   "fieldtype": "Date",
+   "label": "Date of Birth"
+  },
+  {
+   "fieldname": "qr_code",
+   "fieldtype": "Attach",
+   "label": "QR Code"
+  },
+  {
+   "fetch_from": "project.territory",
+   "fieldname": "territory",
+   "fieldtype": "Read Only",
+   "label": "Territory"
+  },
+  {
+   "fieldname": "state_of_university",
+   "fieldtype": "Link",
+   "label": "State of University",
+   "options": "State"
+  },
+  {
+   "fieldname": "column_break_55",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "boarding_point",
+   "fieldtype": "Data",
+   "label": "Boarding Point"
   }
  ],
  "image_field": "candidate_image",
- "modified": "2019-10-31 15:47:40.518806",
+ "modified": "2019-12-02 11:50:43.832626",
  "modified_by": "Administrator",
  "module": "Recruitment",
  "name": "Candidate",

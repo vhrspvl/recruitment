@@ -8,13 +8,15 @@ from frappe.utils import flt, getdate, get_url
 from frappe.model.mapper import get_mapped_doc
 from frappe import _
 from frappe.model.document import Document
+from frappe.utils.data import today
+from frappe.utils import add_months
 
 
 class Candidate(Document):
     def validate(self):
         self.total_exp()
         self.check_closure_exists()
-        self.validate_passport()
+        # self.validate_passport()
 
     def validate_passport(self):
         if(self.passport_no):
