@@ -1,5 +1,5 @@
 {
- "creation": "2018-11-28 20:46:19.309066",
+ "creation": "2020-02-19 12:07:58.758810",
  "doctype": "DocType",
  "editable_grid": 1,
  "engine": "InnoDB",
@@ -8,11 +8,11 @@
   "recipient",
   "file",
   "section_break_4",
-  "lat",
+  "latitude",
   "address",
-  "column_break_6",
-  "lng",
-  "column_break_8",
+  "column_break_7",
+  "longitude",
+  "section_break_9",
   "send"
  ],
  "fields": [
@@ -27,21 +27,18 @@
    "label": "Recipient"
   },
   {
-   "fieldname": "send",
-   "fieldtype": "Button",
-   "label": "Send"
-  },
-  {
    "fieldname": "file",
    "fieldtype": "Attach",
+   "hidden": 1,
    "label": "File"
   },
   {
    "fieldname": "section_break_4",
-   "fieldtype": "Section Break"
+   "fieldtype": "Section Break",
+   "hidden": 1
   },
   {
-   "fieldname": "lat",
+   "fieldname": "latitude",
    "fieldtype": "Data",
    "label": "Latitude"
   },
@@ -51,22 +48,25 @@
    "label": "Address"
   },
   {
-   "fieldname": "column_break_6",
+   "fieldname": "column_break_7",
    "fieldtype": "Column Break"
   },
   {
-   "fieldname": "column_break_8",
+   "fieldname": "longitude",
+   "fieldtype": "Data",
+   "label": "Longitude"
+  },
+  {
+   "fieldname": "section_break_9",
    "fieldtype": "Section Break"
   },
   {
-   "fieldname": "lng",
-   "fieldtype": "Data",
-   "label": "Longitude"
+   "fieldname": "send",
+   "fieldtype": "Button",
+   "label": "Send"
   }
  ],
- "hide_toolbar": 1,
- "issingle": 1,
- "modified": "2019-12-10 20:20:20.438624",
+ "modified": "2020-02-19 13:25:58.953255",
  "modified_by": "Administrator",
  "module": "Recruitment",
  "name": "Whatsapp Notification",
@@ -76,8 +76,10 @@
    "create": 1,
    "delete": 1,
    "email": 1,
+   "export": 1,
    "print": 1,
    "read": 1,
+   "report": 1,
    "role": "System Manager",
    "share": 1,
    "write": 1

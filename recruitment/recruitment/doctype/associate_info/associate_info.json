@@ -1,5 +1,5 @@
 {
- "creation": "2019-09-16 23:55:51.769429",
+ "creation": "2020-02-05 15:28:23.380312",
  "doctype": "DocType",
  "editable_grid": 1,
  "engine": "InnoDB",
@@ -13,38 +13,33 @@
   {
    "fieldname": "associate",
    "fieldtype": "Link",
-   "in_list_view": 1,
    "label": "Associate",
    "options": "Associate"
   },
   {
-   "fetch_from": "associate.associate_name",
    "fieldname": "associate_name",
    "fieldtype": "Read Only",
-   "in_list_view": 1,
    "label": "Associate Name"
   },
   {
-   "fetch_from": "associate.mobile",
    "fieldname": "contact_no",
    "fieldtype": "Read Only",
-   "in_list_view": 1,
    "label": "Contact No"
   },
   {
    "fieldname": "linedup",
    "fieldtype": "Int",
-   "in_list_view": 1,
-   "label": "#Linedup"
+   "label": "Linedup"
   }
  ],
  "istable": 1,
- "modified": "2019-09-16 23:58:50.384099",
+ "modified": "2020-02-05 15:28:23.380312",
  "modified_by": "Administrator",
  "module": "Recruitment",
  "name": "Associate Info",
  "owner": "Administrator",
  "permissions": [],
+ "quick_entry": 1,
  "sort_field": "modified",
  "sort_order": "DESC",
  "track_changes": 1

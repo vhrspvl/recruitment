@@ -1,10 +1,9 @@
 {
- "allow_import": 1,
  "autoname": "naming_series:",
- "creation": "2016-09-19 11:12:19.534004",
+ "creation": "2020-01-11 11:22:58.530374",
  "doctype": "DocType",
- "document_type": "Document",
  "editable_grid": 1,
+ "engine": "InnoDB",
  "field_order": [
   "csl_status",
   "sales_order_confirmed_date",
@@ -14,28 +13,27 @@
   "status_updated_on",
   "candidate_status",
   "interview_location",
-  "column_break_5",
+  "column_break_9",
   "selection_date",
   "client_reference_no",
   "naming_series",
-  "section_break_5",
-  "capture_fingerprint",
+  "section_break_13",
+  "capture_fingerprint_section",
   "qr_code",
   "capture",
-  "column_break_3",
+  "column_break_17",
   "fp_image",
-  "fingerprint_verification",
+  "fingerprint_verification_section",
   "verify",
   "fp_template",
-  "capture_section",
+  "capture_photo_section",
   "capture_photo",
-  "section_break_3",
+  "section_break_24",
   "customer",
   "project",
   "task",
   "candidate",
-  "column_break_4",
-  "division",
+  "column_break_29",
   "territory",
   "dnd_onboarding_date",
   "payment_terms",
@@ -47,75 +45,75 @@
   "redeputation_cost",
   "candidate_details",
   "name1",
-  "column_break_42",
+  "column_break_41",
   "father_name",
-  "column_break_17",
+  "column_break_43",
   "designation",
-  "column_break_19",
+  "column_break_45",
   "contact_no",
-  "passport_details",
+  "passport_details_section",
   "passport_no",
   "ecr_status",
   "dob",
-  "column_break_21",
+  "column_break_51",
   "date_of_issue",
   "nationality",
-  "column_break_26",
+  "column_break_54",
   "expiry_date",
-  "document_custodian",
-  "column_break_25",
+  "column_break_57",
   "place_of_issue",
   "updated_date",
-  "sb_60",
+  "section_break_60",
   "document_type",
   "custodian_type",
   "custodian",
-  "data_65",
+  "column_break_64",
   "degree_certificate_no",
   "odr_section",
   "dt1",
-  "column_break_56",
+  "column_break_68",
   "pp",
-  "section_break_57",
+  "section_break_70",
   "driving_licence",
   "certificate",
   "cb58",
   "dl",
   "cer",
-  "original_documents_received",
-  "original_documents",
+  "original_documents_received_section",
+  "original_documents_recieved",
   "license_details_section",
   "licence_issued_country",
-  "column_break_73",
+  "column_break_80",
   "licence_expiry_date",
   "qualification_details_section",
   "degree",
-  "column_break_77",
-  "specialization",
-  "column_break_79",
-  "yop",
-  "ctc_details_section",
-  "basic",
   "column_break_84",
-  "food",
+  "specialization",
   "column_break_86",
+  "yop",
+  "offered_salary_section",
+  "basic",
+  "column_break_90",
+  "food",
+  "column_break_92",
   "other_allowances",
-  "collection_details",
+  "collection_details_section",
+  "advance_payment",
   "client_advance",
   "client_pending",
-  "column_break_29",
+  "column_break_97",
   "candidate_advance",
   "candidate_wo",
   "candidate_pending",
   "expected_week",
-  "vhrs_team",
+  "vhrs_team_section",
   "cr_executive",
   "source_executive",
   "tl",
   "dnd_incharge",
   "last_updated_on",
   "current_location",
-  "column_break_12",
+  "column_break_109",
   "associate_name",
   "ca_executive",
   "associate",
@@ -125,65 +123,65 @@
   "irf",
   "passport",
   "photo",
-  "column_break_41",
+  "column_break_119",
   "cv_attached_date",
   "pp_attached_date",
   "degree_attestation_section",
   "hrd",
-  "column_break_97",
+  "column_break_124",
   "hrd_attach",
   "hrd_attached_date",
-  "column_break_99",
+  "column_break_127",
   "embassy",
-  "column_break_101",
+  "column_break_129",
   "embassy_attach",
   "embassy_attached_date",
-  "column_break_103",
+  "column_break_132",
   "university_attestation",
-  "column_break_105",
+  "column_break_134",
   "culture",
-  "documentation_followup",
+  "documentation_section",
   "offer_letter",
   "offer_letter_date",
   "mol",
   "mol_date",
-  "column_break_39",
-  "premedical",
+  "column_break_141",
+  "premedicalpremedical",
   "premedical_date",
-  "column_break_40",
+  "column_break_144",
   "pcc",
   "pcc_attached_date",
   "pcc_date",
-  "section_break_60",
+  "section_break_148",
   "visa",
   "visa_attached_date",
   "visa_wakala_aplication_no",
-  "column_break_146",
+  "column_break_152",
   "entry_visa_date",
   "entry_visa_type",
   "entry_visa_received_date",
-  "column_break_150",
+  "column_break_156",
   "entry_visa_date_of_issue",
   "entry_visa_expiry_date",
-  "documentation_processing",
+  "section_break_159",
   "final_medical",
   "final_attached_date",
   "final_medical_date",
-  "column_break_47",
+  "column_break_163",
   "stamped_visa",
   "stamped_visa_attached_date",
   "stamped_visa_date",
-  "column_break_135",
+  "column_break_167",
   "visa_date",
   "visa_type",
   "visa_received_date",
-  "column_break_138",
+  "column_break_171",
   "visa_date_of_issue",
   "visa_expiry_date",
-  "column_break_58",
+  "section_break_174",
   "vhrs_affidavit",
   "vhrs_affidavit_attached_date",
-  "column_break_60",
+  "column_break_177",
   "safe_arrival",
   "safe_arrival_attached_date",
   "poe",
@@ -193,64 +191,46 @@
   "date_of_journey_requested",
   "return_needed",
   "ticket_request",
-  "column_break_155",
+  "column_break_187",
   "doj_type",
   "boarding_point",
-  "destination",
-  "p3",
+  "destination_point",
+  "section_break_191",
   "airlines",
   "boarding_time",
   "arrival",
   "ticket",
   "ticket_booked",
   "ticket_date",
-  "column_break_68",
+  "column_break_198",
   "travel_instructions",
   "candidate_boarded",
   "boarded_date",
-  "billing_details",
+  "billing_details_section",
   "client_type",
-  "column_break_32",
+  "column_break_204",
   "invoice_no",
-  "additional_remarks",
-  "remarks",
-  "amended_from"
+  "additional_remarks_section",
+  "remarks"
  ],
  "fields": [
   {
    "fieldname": "csl_status",
    "fieldtype": "Select",
    "label": "CSL Status",
-   "options": "Sales Order\nSales Order Confirmed\nSales Invoice Confirmed"
-  },
-  {
-   "fieldname": "sales_order_confirmed_date",
-   "fieldtype": "Date",
-   "hidden": 1,
-   "label": "Sales Order Confirmed Date"
+   "options": "\nSales Order\nSales Order Confirmed\nSales Invoice Confirmed"
   },
   {
    "fieldname": "resales_order_confirmed_date",
-   "fieldtype": "Data",
+   "fieldtype": "Date",
    "hidden": 1,
-   "label": "Resales Order Confirmed Date",
-   "print_hide": 1,
-   "report_hide": 1
+   "label": "Resales Order Confirmed Date"
   },
   {
    "fieldname": "dropped_date",
    "fieldtype": "Date",
    "hidden": 1,
    "label": "Dropped Date"
-  },
-  {
-   "fieldname": "status",
-   "fieldtype": "Link",
-   "hidden": 1,
-   "in_list_view": 1,
-   "in_standard_filter": 1,
-   "label": "Pending For",
-   "options": "Closure Status"
   },
   {
    "fieldname": "status_updated_on",
@@ -272,7 +252,7 @@
    "label": "Interview Location"
   },
   {
-   "fieldname": "column_break_5",
+   "fieldname": "column_break_9",
    "fieldtype": "Column Break"
   },
   {
@@ -294,15 +274,20 @@
    "read_only": 1
   },
   {
-   "fieldname": "section_break_5",
-   "fieldtype": "Section Break",
-   "hidden": 1
+   "fieldname": "section_break_13",
+   "fieldtype": "Section Break"
   },
   {
-   "fieldname": "capture_fingerprint",
+   "fieldname": "capture_fingerprint_section",
    "fieldtype": "Section Break",
    "hidden": 1,
    "label": "Capture Fingerprint"
+  },
+  {
+   "fieldname": "qr_code",
+   "fieldtype": "Attach",
+   "hidden": 1,
+   "label": "QR Code"
   },
   {
    "fieldname": "capture",
@@ -311,7 +296,7 @@
    "label": "Capture"
   },
   {
-   "fieldname": "column_break_3",
+   "fieldname": "column_break_17",
    "fieldtype": "Column Break"
   },
   {
@@ -322,8 +307,9 @@
   },
   {
    "collapsible": 1,
-   "fieldname": "fingerprint_verification",
+   "fieldname": "fingerprint_verification_section",
    "fieldtype": "Section Break",
+   "hidden": 1,
    "label": "Fingerprint Verification"
   },
   {
@@ -339,7 +325,7 @@
    "read_only": 1
   },
   {
-   "fieldname": "capture_section",
+   "fieldname": "capture_photo_section",
    "fieldtype": "Section Break",
    "hidden": 1,
    "label": "CAPTURE PHOTO"
@@ -350,13 +336,12 @@
    "label": "CAPTURE PHOTO"
   },
   {
-   "fieldname": "section_break_3",
+   "fieldname": "section_break_24",
    "fieldtype": "Section Break"
   },
   {
    "fieldname": "customer",
    "fieldtype": "Link",
-   "in_standard_filter": 1,
    "label": "Customer",
    "options": "Customer",
    "reqd": 1
@@ -384,7 +369,7 @@
    "reqd": 1
   },
   {
-   "fieldname": "column_break_4",
+   "fieldname": "column_break_29",
    "fieldtype": "Column Break"
   },
   {
@@ -393,6 +378,11 @@
    "label": "Territory",
    "options": "Territory",
    "reqd": 1
+  },
+  {
+   "fieldname": "dnd_onboarding_date",
+   "fieldtype": "Date",
+   "label": "DnD Onboarding Date"
   },
   {
    "fieldname": "payment_terms",
@@ -407,7 +397,6 @@
    "label": "Client Payment Applicable"
   },
   {
-   "default": "0",
    "depends_on": "client_payment_applicable",
    "fieldname": "client_sc",
    "fieldtype": "Currency",
@@ -424,6 +413,13 @@
    "fieldname": "candidate_sc",
    "fieldtype": "Currency",
    "label": "Service Charge (Candidate)"
+  },
+  {
+   "depends_on": "eval:doc.client_payment_applicable == 1",
+   "fieldname": "currency_type",
+   "fieldtype": "Link",
+   "label": "Currency Type",
+   "options": "Currency"
   },
   {
    "depends_on": "eval:doc.status == 'Onboarded'",
@@ -443,18 +439,26 @@
    "label": "Name"
   },
   {
-   "fieldname": "column_break_17",
+   "fieldname": "column_break_41",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "father_name",
+   "fieldtype": "Data",
+   "label": "Sur Name / Father Name"
+  },
+  {
+   "fieldname": "column_break_43",
    "fieldtype": "Column Break"
   },
   {
    "fetch_from": "task.subject",
    "fieldname": "designation",
    "fieldtype": "Read Only",
-   "in_list_view": 1,
    "label": "Designation"
   },
   {
-   "fieldname": "column_break_19",
+   "fieldname": "column_break_45",
    "fieldtype": "Column Break"
   },
   {
@@ -464,7 +468,7 @@
    "label": "Contact No"
   },
   {
-   "fieldname": "passport_details",
+   "fieldname": "passport_details_section",
    "fieldtype": "Section Break",
    "label": "Passport Details"
   },
@@ -482,7 +486,13 @@
    "options": "ECR\nECNR\nUnknown"
   },
   {
-   "fieldname": "column_break_21",
+   "fieldname": "dob",
+   "fieldtype": "Date",
+   "label": "Date of Birth",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_51",
    "fieldtype": "Column Break"
   },
   {
@@ -498,8 +508,7 @@
    "label": "Nationality"
   },
   {
-   "default": "NA",
-   "fieldname": "column_break_26",
+   "fieldname": "column_break_54",
    "fieldtype": "Column Break"
   },
   {
@@ -509,14 +518,7 @@
    "read_only": 1
   },
   {
-   "bold": 1,
-   "fieldname": "document_custodian",
-   "fieldtype": "Link",
-   "label": "Document Custodian",
-   "options": "Document Custodian"
-  },
-  {
-   "fieldname": "column_break_25",
+   "fieldname": "column_break_57",
    "fieldtype": "Column Break"
   },
   {
@@ -532,23 +534,184 @@
    "label": "Updated Date"
   },
   {
-   "fieldname": "original_documents_received",
+   "fieldname": "section_break_60",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "document_type",
+   "fieldtype": "Select",
+   "label": "Document Type",
+   "options": "\nPassport\nDegree Certificate"
+  },
+  {
+   "fieldname": "custodian_type",
+   "fieldtype": "Select",
+   "label": "Custodian Type",
+   "options": "\nBranch\nAssociate\nCandidate\nSupplier"
+  },
+  {
+   "fieldname": "custodian",
+   "fieldtype": "Dynamic Link",
+   "label": "Document Custodian",
+   "options": "custodian_type"
+  },
+  {
+   "fieldname": "column_break_64",
+   "fieldtype": "Column Break"
+  },
+  {
+   "depends_on": "eval:doc.document_type == 'Degree Certificate'",
+   "fieldname": "degree_certificate_no",
+   "fieldtype": "Data",
+   "label": "Degree Certificate No"
+  },
+  {
+   "fieldname": "odr_section",
+   "fieldtype": "Section Break",
+   "hidden": 1,
+   "label": "ODR"
+  },
+  {
+   "fieldname": "dt1",
+   "fieldtype": "Heading",
+   "label": "Passport"
+  },
+  {
+   "fieldname": "column_break_68",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "pp",
+   "fieldtype": "Attach"
+  },
+  {
+   "fieldname": "section_break_70",
+   "fieldtype": "Section Break",
+   "hidden": 1
+  },
+  {
+   "fieldname": "driving_licence",
+   "fieldtype": "Heading",
+   "label": "Driving Licence"
+  },
+  {
+   "fieldname": "certificate",
+   "fieldtype": "Heading",
+   "label": "Certificate"
+  },
+  {
+   "fieldname": "cb58",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "dl",
+   "fieldtype": "Attach"
+  },
+  {
+   "fieldname": "cer",
+   "fieldtype": "Attach"
+  },
+  {
+   "fieldname": "original_documents_received_section",
    "fieldtype": "Section Break",
    "label": "Original Documents Received"
   },
   {
-   "fieldname": "original_documents",
+   "fieldname": "original_documents_recieved",
    "fieldtype": "Small Text",
    "label": "Original Documents Recieved",
    "read_only": 1
   },
   {
-   "fieldname": "collection_details",
+   "fieldname": "license_details_section",
+   "fieldtype": "Section Break",
+   "label": "License Details"
+  },
+  {
+   "fieldname": "licence_issued_country",
+   "fieldtype": "Link",
+   "label": "Licence Issued Country",
+   "options": "Country"
+  },
+  {
+   "fieldname": "column_break_80",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "licence_expiry_date",
+   "fieldtype": "Date",
+   "label": "Licence Expiry Date"
+  },
+  {
+   "fieldname": "qualification_details_section",
+   "fieldtype": "Section Break",
+   "label": "Qualification Details"
+  },
+  {
+   "fieldname": "degree",
+   "fieldtype": "Data",
+   "label": "degree"
+  },
+  {
+   "fieldname": "column_break_84",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "specialization",
+   "fieldtype": "Link",
+   "label": "Specialization",
+   "options": "Specialization"
+  },
+  {
+   "fieldname": "column_break_86",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "yop",
+   "fieldtype": "Link",
+   "label": "YoP",
+   "options": "Year"
+  },
+  {
+   "fieldname": "offered_salary_section",
+   "fieldtype": "Section Break",
+   "label": "Offered Salary"
+  },
+  {
+   "fieldname": "basic",
+   "fieldtype": "Currency",
+   "label": "Basic"
+  },
+  {
+   "fieldname": "column_break_90",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "food",
+   "fieldtype": "Currency",
+   "label": "Food"
+  },
+  {
+   "fieldname": "column_break_92",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "other_allowances",
+   "fieldtype": "Currency",
+   "label": "Other Allowances"
+  },
+  {
+   "fieldname": "collection_details_section",
    "fieldtype": "Section Break",
    "label": "Collection Details"
   },
   {
-   "default": "0",
+   "fieldname": "advance_payment",
+   "fieldtype": "Table",
+   "label": "Advance Payment",
+   "options": "Advance Payment"
+  },
+  {
    "depends_on": "client_payment_applicable",
    "fieldname": "client_advance",
    "fieldtype": "Currency",
@@ -558,38 +721,40 @@
    "depends_on": "client_payment_applicable",
    "fieldname": "client_pending",
    "fieldtype": "Currency",
-   "label": "Pending Payment (Client)",
-   "read_only": 1
+   "label": "Pending Payment (Client)"
   },
   {
-   "fieldname": "column_break_29",
+   "fieldname": "column_break_97",
    "fieldtype": "Column Break"
   },
   {
    "depends_on": "candidate_payment_applicable",
    "fieldname": "candidate_advance",
    "fieldtype": "Currency",
-   "label": "Advance Paid (Candidate)",
-   "read_only": 1
+   "label": "Advance Paid (Candidate)"
+  },
+  {
+   "fieldname": "candidate_wo",
+   "fieldtype": "Currency",
+   "label": "Write Off (Candidate)"
   },
   {
    "depends_on": "candidate_payment_applicable",
    "fieldname": "candidate_pending",
    "fieldtype": "Currency",
-   "label": "Pending Payment (Candidate)",
-   "read_only": 1
+   "label": "Pending Payment (Candidate)"
   },
   {
    "fieldname": "expected_week",
    "fieldtype": "Select",
    "hidden": 1,
    "label": "Expected Week",
-   "options": "\nWeek 1\nWeek 2\nWeek 3\nWeek 4\nWeek 5\nWeek 6\nWeek 7\nWeek 8\nWeek 9\nWeek 10\nWeek 11\nWeek 12\nWeek 13\nWeek 14\nWeek 15\nWeek 16\nWeek 17\nWeek 18\nWeek 19\nWeek 20\nWeek 21\nWeek 22\nWeek 23\nWeek 24\nWeek 25\nWeek 26\nWeek 27\nWeek 28\nWeek 29\nWeek 30\nWeek 31\nWeek 32\nWeek 33\nWeek 34\nWeek 35\nWeek 36\nWeek 37\nWeek 38\nWeek 39\nWeek 40\nWeek 41\nWeek 42\nWeek 43\nWeek 44\nWeek 45\nWeek 46\nWeek 47\nWeek 48\nWeek 49\nWeek 50\nWeek 51\nWeek 52"
+   "options": "Week 1\nWeek 2\nWeek 3\nWeek 4\nWeek 5\nWeek 6\nWeek 7\nWeek 8\nWeek 9\nWeek 10\nWeek 11\nWeek 12\nWeek 13\nWeek 14\nWeek 15\nWeek 16\nWeek 17\nWeek 18\nWeek 19\nWeek 20\nWeek 21\nWeek 22\nWeek 23\nWeek 24\nWeek 25\nWeek 26\nWeek 27\nWeek 28\nWeek 29\nWeek 30\nWeek 31\nWeek 32\nWeek 33\nWeek 34\nWeek 35\nWeek 36\nWeek 37\nWeek 38\nWeek 39\nWeek 40\nWeek 41\nWeek 42\nWeek 43\nWeek 44\nWeek 45\nWeek 46\nWeek 47\nWeek 48\nWeek 49\nWeek 50\nWeek 51\nWeek 52"
   },
   {
-   "fieldname": "vhrs_team",
+   "fieldname": "vhrs_team_section",
    "fieldtype": "Section Break",
-   "label": "VHRS Team"
+   "label": "TeamPRO Team"
   },
   {
    "fieldname": "cr_executive",
@@ -629,7 +794,7 @@
    "label": "Current Location"
   },
   {
-   "fieldname": "column_break_12",
+   "fieldname": "column_break_109",
    "fieldtype": "Column Break"
   },
   {
@@ -637,8 +802,7 @@
    "fieldtype": "Link",
    "label": "Associate",
    "options": "Associate",
-   "read_only": 1,
-   "report_hide": 1
+   "read_only": 1
   },
   {
    "fieldname": "ca_executive",
@@ -648,13 +812,11 @@
    "read_only": 1
   },
   {
-   "fetch_from": "associate.associate_name",
    "fieldname": "associate",
    "fieldtype": "Read Only",
    "label": "Associate Name"
   },
   {
-   "fetch_from": "associate_name.mobile",
    "fieldname": "associate_contact_no",
    "fieldtype": "Read Only",
    "label": "Associate Contact No"
@@ -683,18 +845,103 @@
    "label": "Passport"
   },
   {
-   "fieldname": "column_break_41",
-   "fieldtype": "Column Break"
-  },
-  {
    "fieldname": "photo",
    "fieldtype": "Attach Image",
    "hidden": 1,
    "label": "Photo"
   },
   {
+   "fieldname": "column_break_119",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "cv_attached_date",
+   "fieldtype": "Date",
+   "label": "IRF Attached Date",
+   "read_only": 1
+  },
+  {
+   "fieldname": "pp_attached_date",
+   "fieldtype": "Date",
+   "label": "Passport Attached Date",
+   "read_only": 1
+  },
+  {
+   "fieldname": "degree_attestation_section",
+   "fieldtype": "Section Break",
+   "label": "Degree Attestation"
+  },
+  {
+   "default": "0",
+   "fieldname": "hrd",
+   "fieldtype": "Check",
+   "label": "HRD"
+  },
+  {
+   "fieldname": "column_break_124",
+   "fieldtype": "Column Break"
+  },
+  {
+   "depends_on": "hrd",
+   "fieldname": "hrd_attach",
+   "fieldtype": "Attach",
+   "label": "HRD Attach"
+  },
+  {
+   "fieldname": "hrd_attached_date",
+   "fieldtype": "Date",
+   "label": "HRD Attached Date",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_127",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "embassy",
+   "fieldtype": "Check",
+   "label": "Embassy"
+  },
+  {
+   "fieldname": "column_break_129",
+   "fieldtype": "Column Break"
+  },
+  {
+   "depends_on": "embassy",
+   "fieldname": "embassy_attach",
+   "fieldtype": "Attach",
+   "label": "Embassy Attach"
+  },
+  {
+   "fieldname": "embassy_attached_date",
+   "fieldtype": "Date",
+   "label": "Embassy Attached Date",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_132",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "university_attestation",
+   "fieldtype": "Check",
+   "label": "University Attestation"
+  },
+  {
+   "fieldname": "column_break_134",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "culture",
+   "fieldtype": "Check",
+   "label": "Culture"
+  },
+  {
    "depends_on": "eval:doc.candidate_status =='Selected' && doc.csl_status != 'Pending for CSL' && doc.irf && doc.passport && doc.photo",
-   "fieldname": "documentation_followup",
+   "fieldname": "documentation_section",
    "fieldtype": "Section Break",
    "label": "Documentation"
   },
@@ -717,17 +964,17 @@
   },
   {
    "fieldname": "mol_date",
-   "fieldtype": "Date",
+   "fieldtype": "Data",
    "label": "MOL Date",
    "read_only": 1
   },
   {
-   "fieldname": "column_break_39",
+   "fieldname": "column_break_141",
    "fieldtype": "Column Break"
   },
   {
    "depends_on": "eval:in_list([\"UAE\",\"Dubai\",\"Kuwait\",\"Qatar\",\"Oman\",\"Bahrain\",\"Maldives\"], doc.territory)",
-   "fieldname": "premedical",
+   "fieldname": "premedicalpremedical",
    "fieldtype": "Attach",
    "label": "Pre-Medical"
   },
@@ -738,39 +985,7 @@
    "read_only": 1
   },
   {
-   "depends_on": "eval:doc.candidate_status =='Selected' && doc.csl_status != 'Pending for CSL' && doc.irf && doc.passport && doc.photo",
-   "fieldname": "section_break_60",
-   "fieldtype": "Section Break"
-  },
-  {
-   "fieldname": "visa",
-   "fieldtype": "Attach",
-   "label": "Entry Visa"
-  },
-  {
-   "fieldname": "visa_date",
-   "fieldtype": "Date",
-   "hidden": 1,
-   "label": "Visa Date"
-  },
-  {
-   "fieldname": "visa_type",
-   "fieldtype": "Select",
-   "label": "Visa Type",
-   "options": "\nBlock Visa\nResident Visa\nVisit Visa"
-  },
-  {
-   "fieldname": "visa_received_date",
-   "fieldtype": "Date",
-   "label": "Visa Received Date"
-  },
-  {
-   "fieldname": "visa_expiry_date",
-   "fieldtype": "Date",
-   "label": "Visa Expiry Date"
-  },
-  {
-   "fieldname": "column_break_40",
+   "fieldname": "column_break_144",
    "fieldtype": "Column Break"
   },
   {
@@ -779,14 +994,76 @@
    "label": "PCC"
   },
   {
+   "fieldname": "pcc_attached_date",
+   "fieldtype": "Date",
+   "label": "PCC Attached Date",
+   "read_only": 1
+  },
+  {
    "fieldname": "pcc_date",
    "fieldtype": "Date",
    "hidden": 1,
    "label": "PCC Date"
   },
   {
-   "fieldname": "column_break_47",
+   "depends_on": "eval:doc.candidate_status =='Selected' && doc.csl_status != 'Pending for CSL' && doc.irf && doc.passport && doc.photo",
+   "fieldname": "section_break_148",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "visa",
+   "fieldtype": "Attach",
+   "label": "Entry Visa"
+  },
+  {
+   "fieldname": "visa_attached_date",
+   "fieldtype": "Date",
+   "label": "Visa Attached Date"
+  },
+  {
+   "fieldname": "visa_wakala_aplication_no",
+   "fieldtype": "Data",
+   "label": "Visa / Wakala / Aplication Number"
+  },
+  {
+   "fieldname": "column_break_152",
    "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "entry_visa_date",
+   "fieldtype": "Date",
+   "label": "Entry Visa Date"
+  },
+  {
+   "fieldname": "entry_visa_type",
+   "fieldtype": "Select",
+   "label": "Entry Visa Type",
+   "options": "Block Visa\nResident Visa\nVisit Visa"
+  },
+  {
+   "fieldname": "entry_visa_received_date",
+   "fieldtype": "Date",
+   "label": "Entry Visa Received Date"
+  },
+  {
+   "fieldname": "column_break_156",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "entry_visa_date_of_issue",
+   "fieldtype": "Date",
+   "label": "Entry Visa Date of Issue"
+  },
+  {
+   "fieldname": "entry_visa_expiry_date",
+   "fieldtype": "Date",
+   "label": "Entry Visa Expiry Date",
+   "options": "\n\n\n\n\n\n\nResident Visa\nVisit Visa\n\n\n\n\n\n"
+  },
+  {
+   "depends_on": "eval:doc.candidate_status =='Selected' && doc.csl_status != 'Pending for CSL' && doc.irf && doc.passport && doc.photo",
+   "fieldname": "section_break_159",
+   "fieldtype": "Section Break"
   },
   {
    "depends_on": "eval:in_list([\"UAE\",\"Kuwait\",\"Riyadh\",\"Jeddah\",\"Dammam\",\"Qatar\",\"KSA\",\"Abudhabi\"], doc.territory)",
@@ -795,20 +1072,31 @@
    "label": "Final Medical"
   },
   {
+   "fieldname": "final_attached_date",
+   "fieldtype": "Date",
+   "label": "Final Medical Attached Date",
+   "read_only": 1
+  },
+  {
    "fieldname": "final_medical_date",
    "fieldtype": "Date",
    "hidden": 1,
    "label": "Final Medical Date"
   },
   {
-   "depends_on": "eval:doc.candidate_status =='Selected' && doc.csl_status != 'Pending for CSL' && doc.irf && doc.passport && doc.photo",
-   "fieldname": "documentation_processing",
-   "fieldtype": "Section Break"
+   "fieldname": "column_break_163",
+   "fieldtype": "Column Break"
   },
   {
    "fieldname": "stamped_visa",
    "fieldtype": "Attach",
    "label": "Final Visa "
+  },
+  {
+   "fieldname": "stamped_visa_attached_date",
+   "fieldtype": "Date",
+   "label": "Final Visa Attached Date",
+   "read_only": 1
   },
   {
    "fieldname": "stamped_visa_date",
@@ -817,7 +1105,41 @@
    "label": "Final Visa Date"
   },
   {
-   "fieldname": "column_break_58",
+   "fieldname": "column_break_167",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "visa_date",
+   "fieldtype": "Date",
+   "label": "Visa Date"
+  },
+  {
+   "fieldname": "visa_type",
+   "fieldtype": "Select",
+   "label": "Visa Type",
+   "options": "Block Visa\nResident Visa\nVisit Visa"
+  },
+  {
+   "fieldname": "visa_received_date",
+   "fieldtype": "Date",
+   "label": "Visa Received Date"
+  },
+  {
+   "fieldname": "column_break_171",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "visa_date_of_issue",
+   "fieldtype": "Date",
+   "label": "Visa Date of Issue"
+  },
+  {
+   "fieldname": "visa_expiry_date",
+   "fieldtype": "Date",
+   "label": "Visa Expiry Date"
+  },
+  {
+   "fieldname": "section_break_174",
    "fieldtype": "Section Break"
   },
   {
@@ -826,7 +1148,13 @@
    "label": "VHRS Affidavit"
   },
   {
-   "fieldname": "column_break_60",
+   "fieldname": "vhrs_affidavit_attached_date",
+   "fieldtype": "Date",
+   "label": "VHRS Affidavit Attached Date",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_177",
    "fieldtype": "Column Break"
   },
   {
@@ -835,9 +1163,21 @@
    "label": "Safe Arrival"
   },
   {
+   "fieldname": "safe_arrival_attached_date",
+   "fieldtype": "Date",
+   "label": "Safe Arrival Attached Date",
+   "read_only": 1
+  },
+  {
    "fieldname": "poe",
    "fieldtype": "Attach",
    "label": "POE"
+  },
+  {
+   "fieldname": "poe_attached_date",
+   "fieldtype": "Date",
+   "label": "POE Attached Date",
+   "read_only": 1
   },
   {
    "fieldname": "poe_date",
@@ -852,8 +1192,44 @@
    "label": "Ticket Request"
   },
   {
+   "fieldname": "date_of_journey_requested",
+   "fieldtype": "Date",
+   "label": "Date of Journey Requested"
+  },
+  {
+   "default": "0",
+   "fieldname": "return_needed",
+   "fieldtype": "Check",
+   "label": "Return Needed "
+  },
+  {
+   "fieldname": "ticket_request",
+   "fieldtype": "Button",
+   "label": "Send Ticket Request"
+  },
+  {
+   "fieldname": "column_break_187",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "doj_type",
+   "fieldtype": "Select",
+   "label": "DOJ Type",
+   "options": "Fixed\nFlexible"
+  },
+  {
+   "fieldname": "boarding_point",
+   "fieldtype": "Data",
+   "label": "Boarding Point"
+  },
+  {
+   "fieldname": "destination_point",
+   "fieldtype": "Data",
+   "label": "Destination Point"
+  },
+  {
    "depends_on": "eval:doc.candidate_status =='Selected' && doc.csl_status != 'Pending for CSL' && doc.irf && doc.passport && doc.photo",
-   "fieldname": "p3",
+   "fieldname": "section_break_191",
    "fieldtype": "Section Break"
   },
   {
@@ -877,13 +1253,18 @@
    "label": "Ticket"
   },
   {
-   "fieldname": "ticket_date",
-   "fieldtype": "Date",
-   "label": "Ticket Date",
-   "read_only": 1
+   "default": "0",
+   "fieldname": "ticket_booked",
+   "fieldtype": "Check",
+   "label": "Ticket Booked"
   },
   {
-   "fieldname": "column_break_68",
+   "fieldname": "ticket_date",
+   "fieldtype": "Date",
+   "label": "Ticket Date"
+  },
+  {
+   "fieldname": "column_break_198",
    "fieldtype": "Column Break"
   },
   {
@@ -892,7 +1273,6 @@
    "label": "Travel Instructions"
   },
   {
-   "depends_on": "eval:doc.status == 'Onboarding'",
    "fieldname": "candidate_boarded",
    "fieldtype": "Button",
    "label": "Candidate Boarded"
@@ -900,11 +1280,10 @@
   {
    "fieldname": "boarded_date",
    "fieldtype": "Date",
-   "hidden": 1,
    "label": "Boarded Date"
   },
   {
-   "fieldname": "billing_details",
+   "fieldname": "billing_details_section",
    "fieldtype": "Section Break",
    "hidden": 1,
    "label": "Billing Details"
@@ -915,7 +1294,7 @@
    "label": "Account Type"
   },
   {
-   "fieldname": "column_break_32",
+   "fieldname": "column_break_204",
    "fieldtype": "Column Break"
   },
   {
@@ -924,7 +1303,7 @@
    "label": "Invoice No"
   },
   {
-   "fieldname": "additional_remarks",
+   "fieldname": "additional_remarks_section",
    "fieldtype": "Section Break",
    "label": "Additional Remarks"
   },
@@ -934,444 +1313,23 @@
    "label": "Remarks"
   },
   {
-   "fieldname": "amended_from",
+   "fieldname": "status",
    "fieldtype": "Link",
-   "label": "Amended From",
-   "no_copy": 1,
-   "options": "Closure",
-   "print_hide": 1,
-   "read_only": 1
-  },
-  {
-   "fieldname": "candidate_wo",
-   "fieldtype": "Currency",
-   "label": "Write Off (Candidate)"
-  },
-  {
-   "fieldname": "odr_section",
-   "fieldtype": "Section Break",
    "hidden": 1,
-   "label": "ODR"
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Pending For",
+   "options": "Closure Status"
   },
   {
-   "fieldname": "dt1",
-   "fieldtype": "Heading",
-   "label": "Passport"
-  },
-  {
-   "fieldname": "driving_licence",
-   "fieldtype": "Heading",
-   "label": "Driving Licence"
-  },
-  {
-   "fieldname": "certificate",
-   "fieldtype": "Heading",
-   "label": "Certificate"
-  },
-  {
-   "fieldname": "cb58",
-   "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "pp",
-   "fieldtype": "Attach"
-  },
-  {
-   "fieldname": "dl",
-   "fieldtype": "Attach"
-  },
-  {
-   "fieldname": "cer",
-   "fieldtype": "Attach"
-  },
-  {
-   "fieldname": "section_break_57",
-   "fieldtype": "Section Break",
-   "hidden": 1
-  },
-  {
-   "fieldname": "column_break_56",
-   "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "qr_code",
-   "fieldtype": "Attach Image",
-   "hidden": 1,
-   "label": "QR Code"
-  },
-  {
-   "fieldname": "visa_date_of_issue",
-   "fieldtype": "Date",
-   "label": "Visa Date of Issue"
-  },
-  {
-   "fieldname": "cv_attached_date",
-   "fieldtype": "Date",
-   "label": "IRF Attached Date",
-   "read_only": 1
-  },
-  {
-   "fieldname": "pp_attached_date",
-   "fieldtype": "Date",
-   "label": "Passport Attached Date",
-   "read_only": 1
-  },
-  {
-   "fieldname": "visa_attached_date",
-   "fieldtype": "Date",
-   "label": "Visa Attached Date",
-   "read_only": 1
-  },
-  {
-   "fieldname": "pcc_attached_date",
-   "fieldtype": "Date",
-   "label": "PCC Attached Date",
-   "read_only": 1
-  },
-  {
-   "fieldname": "final_attached_date",
-   "fieldtype": "Date",
-   "label": "Final Medical Attached Date",
-   "read_only": 1
-  },
-  {
-   "fieldname": "stamped_visa_attached_date",
-   "fieldtype": "Date",
-   "label": "Final Visa Attached Date",
-   "read_only": 1
-  },
-  {
-   "fieldname": "vhrs_affidavit_attached_date",
-   "fieldtype": "Date",
-   "label": "VHRS Affidavit Attached Date",
-   "read_only": 1
-  },
-  {
-   "fieldname": "safe_arrival_attached_date",
-   "fieldtype": "Date",
-   "label": "Safe Arrival Attached Date",
-   "read_only": 1
-  },
-  {
-   "fieldname": "poe_attached_date",
-   "fieldtype": "Date",
-   "label": "POE Attached Date",
-   "read_only": 1
-  },
-  {
-   "collapsible": 1,
-   "fieldname": "degree_attestation_section",
-   "fieldtype": "Section Break",
-   "label": "Degree Attestation"
-  },
-  {
-   "default": "0",
-   "fieldname": "hrd",
-   "fieldtype": "Check",
-   "label": "HRD"
-  },
-  {
-   "depends_on": "hrd",
-   "fieldname": "hrd_attach",
-   "fieldtype": "Attach",
-   "label": "HRD Attach"
-  },
-  {
-   "default": "0",
-   "fieldname": "university_attestation",
-   "fieldtype": "Check",
-   "label": "University Attestation"
-  },
-  {
-   "default": "0",
-   "fieldname": "culture",
-   "fieldtype": "Check",
-   "label": "Culture"
-  },
-  {
-   "default": "0",
-   "fieldname": "embassy",
-   "fieldtype": "Check",
-   "label": "Embassy"
-  },
-  {
-   "depends_on": "embassy",
-   "fieldname": "embassy_attach",
-   "fieldtype": "Attach",
-   "label": "Embassy Attach"
-  },
-  {
-   "fieldname": "column_break_97",
-   "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "column_break_99",
-   "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "column_break_101",
-   "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "column_break_103",
-   "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "column_break_105",
-   "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "dnd_onboarding_date",
-   "fieldtype": "Date",
-   "label": "DnD Onboarding Date"
-  },
-  {
-   "fieldname": "visa_wakala_aplication_no",
-   "fieldtype": "Data",
-   "label": "Visa / Wakala / Aplication Number"
-  },
-  {
-   "fetch_from": "candidate.division",
-   "fieldname": "division",
-   "fieldtype": "Link",
-   "label": "Division",
-   "options": "Division"
-  },
-  {
-   "fieldname": "column_break_135",
-   "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "column_break_138",
-   "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "ticket_request",
-   "fieldtype": "Button",
-   "label": "Send Ticket Request"
-  },
-  {
-   "fieldname": "column_break_42",
-   "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "father_name",
-   "fieldtype": "Data",
-   "label": "Sur Name / Father Name"
-  },
-  {
-   "fieldname": "date_of_journey_requested",
-   "fieldtype": "Date",
-   "label": "Date of Journey Requested"
-  },
-  {
-   "fieldname": "column_break_155",
-   "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "doj_type",
-   "fieldtype": "Select",
-   "label": "DOJ Type",
-   "options": "\nFixed\nFlexible"
-  },
-  {
-   "fieldname": "boarding_point",
-   "fieldtype": "Data",
-   "label": "Boarding Point"
-  },
-  {
-   "default": "0",
-   "fieldname": "ticket_booked",
-   "fieldtype": "Check",
-   "label": "Ticket Booked",
-   "read_only": 1
-  },
-  {
-   "fieldname": "hrd_attached_date",
-   "fieldtype": "Date",
-   "label": "HRD Attached Date",
-   "read_only": 1
-  },
-  {
-   "fieldname": "embassy_attached_date",
-   "fieldtype": "Date",
-   "label": "Embassy Attached Date",
-   "read_only": 1
-  },
-  {
-   "fieldname": "license_details_section",
-   "fieldtype": "Section Break",
-   "label": "License Details"
-  },
-  {
-   "fieldname": "licence_issued_country",
-   "fieldtype": "Link",
-   "label": "Licence Issued Country",
-   "options": "Country"
-  },
-  {
-   "fieldname": "column_break_73",
-   "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "licence_expiry_date",
-   "fieldtype": "Date",
-   "label": "Licence Expiry Date"
-  },
-  {
-   "fieldname": "qualification_details_section",
-   "fieldtype": "Section Break",
-   "label": "Qualification Details"
-  },
-  {
-   "fieldname": "degree",
-   "fieldtype": "Data",
-   "label": "degree"
-  },
-  {
-   "fieldname": "column_break_77",
-   "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "specialization",
-   "fieldtype": "Link",
-   "label": "Specialization",
-   "options": "Specialization"
-  },
-  {
-   "fieldname": "column_break_79",
-   "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "yop",
-   "fieldtype": "Link",
-   "label": "YoP",
-   "options": "Year"
-  },
-  {
-   "fieldname": "ctc_details_section",
-   "fieldtype": "Section Break",
-   "label": "Offered Salary"
-  },
-  {
-   "fieldname": "column_break_84",
-   "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "dob",
-   "fieldtype": "Date",
-   "label": "Date of Birth",
-   "reqd": 1
-  },
-  {
-   "fieldname": "basic",
-   "fieldtype": "Currency",
-   "label": "Basic"
-  },
-  {
-   "fieldname": "food",
-   "fieldtype": "Currency",
-   "label": "Food"
-  },
-  {
-   "fieldname": "column_break_86",
-   "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "other_allowances",
-   "fieldtype": "Currency",
-   "label": "Other Allowances"
-  },
-  {
-   "fieldname": "column_break_146",
-   "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "entry_visa_date",
+   "fieldname": "sales_order_confirmed_date",
    "fieldtype": "Date",
    "hidden": 1,
-   "label": "Entry Visa Date"
-  },
-  {
-   "fieldname": "entry_visa_type",
-   "fieldtype": "Select",
-   "label": "Entry Visa Type",
-   "options": "\nBlock Visa\nResident Visa\nVisit Visa"
-  },
-  {
-   "fieldname": "entry_visa_received_date",
-   "fieldtype": "Date",
-   "label": "Entry Visa Received Date"
-  },
-  {
-   "fieldname": "column_break_150",
-   "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "entry_visa_date_of_issue",
-   "fieldtype": "Date",
-   "label": "Entry Visa Date of Issue"
-  },
-  {
-   "fieldname": "entry_visa_expiry_date",
-   "fieldtype": "Date",
-   "label": "Entry Visa Expiry Date"
-  },
-  {
-   "fieldname": "destination",
-   "fieldtype": "Data",
-   "label": "Destination Point"
-  },
-  {
-   "default": "0",
-   "depends_on": "eval:doc.visa_type == 'Visit Visa'",
-   "fieldname": "return_needed",
-   "fieldtype": "Check",
-   "label": "Return Needed ?"
-  },
-  {
-   "fieldname": "custodian_type",
-   "fieldtype": "Select",
-   "label": "Custodian Type",
-   "options": "\nBranch\nAssociate\nCandidate\nSupplier"
-  },
-  {
-   "fieldname": "custodian",
-   "fieldtype": "Dynamic Link",
-   "label": "Document Custodian",
-   "options": "custodian_type"
-  },
-  {
-   "fieldname": "sb_60",
-   "fieldtype": "Section Break"
-  },
-  {
-   "fieldname": "document_type",
-   "fieldtype": "Select",
-   "label": "Document Type",
-   "options": "\nPassport\nDegree Certificate"
-  },
-  {
-   "fieldname": "data_65",
-   "fieldtype": "Column Break"
-  },
-  {
-   "depends_on": "eval:doc.document_type == 'Degree Certificate'",
-   "fieldname": "degree_certificate_no",
-   "fieldtype": "Data",
-   "label": "Degree Certificate No"
-  },
-  {
-   "depends_on": "eval:doc.client_payment_applicable == 1",
-   "fieldname": "currency_type",
-   "fieldtype": "Link",
-   "label": "Currency Type",
-   "options": "Currency"
+   "label": "Sales Order Confirmed Date"
   }
  ],
- "icon": "fa fa-address-book",
  "image_field": "photo",
- "modified": "2020-01-09 18:30:46.767198",
+ "modified": "2020-02-24 15:14:35.477501",
  "modified_by": "Administrator",
  "module": "Recruitment",
  "name": "Closure",
@@ -1382,63 +1340,15 @@
    "delete": 1,
    "email": 1,
    "export": 1,
-   "import": 1,
    "print": 1,
    "read": 1,
    "report": 1,
    "role": "System Manager",
    "share": 1,
    "write": 1
-  },
-  {
-   "delete": 1,
-   "email": 1,
-   "export": 1,
-   "print": 1,
-   "read": 1,
-   "report": 1,
-   "role": "RCS User",
-   "share": 1,
-   "write": 1
-  },
-  {
-   "delete": 1,
-   "email": 1,
-   "export": 1,
-   "print": 1,
-   "read": 1,
-   "report": 1,
-   "role": "Project Allocater",
-   "share": 1,
-   "write": 1
-  },
-  {
-   "create": 1,
-   "delete": 1,
-   "email": 1,
-   "export": 1,
-   "print": 1,
-   "read": 1,
-   "report": 1,
-   "role": "Projects Master Manager",
-   "share": 1,
-   "write": 1
-  },
-  {
-   "create": 1,
-   "delete": 1,
-   "email": 1,
-   "export": 1,
-   "print": 1,
-   "read": 1,
-   "report": 1,
-   "role": "DnD Executive",
-   "share": 1,
-   "write": 1
   }
  ],
  "sort_field": "modified",
  "sort_order": "DESC",
- "title_field": "name1",
  "track_changes": 1
 }

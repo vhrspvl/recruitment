@@ -1,87 +1,87 @@
 {
  "allow_import": 1,
- "autoname": "CVHRS/.#####",
- "creation": "2016-07-11 16:13:54.320993",
+ "autoname": "C.####",
+ "creation": "2020-01-10 14:38:05.667293",
  "doctype": "DocType",
  "editable_grid": 1,
+ "engine": "InnoDB",
  "field_order": [
   "project",
   "customer",
   "task",
   "qr_code",
-  "column_break_3",
+  "column_break_5",
   "candidate_image",
-  "status",
+  "collection_status",
   "pending_for",
   "position",
   "territory",
-  "division",
   "interview_date",
   "interview_location",
   "offered_salary",
   "basic",
-  "column_break_11",
+  "column_break_14",
   "food",
-  "column_break_13",
+  "column_break_16",
   "other_allowances",
   "candidate_summary",
   "given_name",
   "mobile",
   "current_location",
   "nationality",
-  "column_break_18",
+  "column_break_22",
   "india_experience",
   "gulf_experience",
   "total_experience",
-  "section_break_9",
+  "passport_details_section",
   "applied",
   "not_applicable",
   "ecr",
   "ecr_status",
   "dob",
-  "column_break_28",
+  "column_break_34",
   "passport_no",
   "place_of_issue",
   "boarding_point",
-  "column_break_19",
+  "column_break_33",
   "issued_date",
   "expiry_date",
-  "contact_details",
+  "contact_details_section",
   "landline",
   "alternate_mobile",
   "skype_id",
-  "column_break_52",
+  "column_break_40",
   "alternate_landline",
   "alternate_email",
   "alternate_skype_id",
   "qualification_details",
   "degree",
-  "column_break_48",
+  "column_break_46",
   "specialization",
-  "column_break_50",
+  "column_break_48",
   "state_of_university",
-  "column_break_55",
+  "column_break_50",
   "yop",
   "original_documents_holded",
   "original_documents",
-  "column_break_36",
+  "column_break_54",
   "candidate_payment_applicable",
   "candidate_sc",
-  "section_break_59",
+  "section_break_57",
   "executive",
   "user",
   "team",
-  "column_break_63",
+  "column_break_61",
   "full_name",
-  "column_break_43",
+  "column_break_63",
   "business_unit",
   "candidate_attachment",
   "irf",
-  "column_break_42",
+  "column_break_67",
   "passport",
   "associate_details",
   "associate_name",
-  "column_break_60",
+  "column_break_71",
   "associate",
   "contact_no",
   "personal_details",
@@ -90,66 +90,66 @@
   "gender",
   "married",
   "email",
-  "column_break_7",
+  "column_break_80",
   "sur_name",
   "religion",
   "languages_known",
   "education_details",
   "education",
-  "driving_details_section",
+  "driving_details",
   "experience_details",
   "current_position",
   "current_employer",
-  "column_break_30",
-  "column_break_35",
-  "column_break_34",
-  "ctc_details",
+  "column_break_90",
+  "column_break_91",
+  "column_break_92",
+  "ctc_details_section",
   "notice_period",
   "ctc_mentioned_in",
-  "column_break_38",
+  "column_break_96",
   "current_ctc",
-  "column_break_97",
+  "column_break_98",
   "expected_ctc",
-  "column_break_80",
+  "column_break_100",
   "currency_type1",
-  "add_experience",
+  "experience_details_section",
   "experience",
-  "address_details",
+  "present_address_section",
   "address_line_1",
   "city",
   "state",
   "permanent_address_same_as_above",
-  "column_break_51",
+  "column_break_109",
   "address_line_2",
   "district_perm",
-  "section_break_55",
+  "permanent_address_section",
   "address_line_1_perm",
   "city_perm",
   "state_perm",
-  "column_break_59",
+  "column_break_116",
   "address_line_2_perm",
   "district",
+  "section_break_119",
   "remarks",
-  "small_text_86",
-  "fold_105",
-  "idb",
+  "section_break_126",
+  "idb_section",
   "father_name",
-  "column_break_108",
+  "column_break_123",
   "registration_status",
   "registration_no",
-  "column_break_111",
+  "column_break_126",
   "community",
-  "reference",
+  "reference_section",
   "company",
   "referrer_name",
   "relation",
-  "column_break_114",
+  "column_break_132",
   "referrer_contact_no",
   "referrer_designation",
   "referrer_emp_code",
   "referrer_location",
   "registration_category",
-  "section_break_117",
+  "section_break_138",
   "terms_and_conditions",
   "term2",
   "term3",
@@ -157,14 +157,6 @@
   "term6"
  ],
  "fields": [
-  {
-   "allow_in_quick_entry": 1,
-   "fetch_from": "project.customer",
-   "fieldname": "customer",
-   "fieldtype": "Link",
-   "label": "Customer",
-   "options": "Customer"
-  },
   {
    "allow_in_quick_entry": 1,
    "fieldname": "project",
@@ -175,6 +167,14 @@
   },
   {
    "allow_in_quick_entry": 1,
+   "default": "project.customer",
+   "fieldname": "customer",
+   "fieldtype": "Link",
+   "label": "Customer",
+   "options": "Customer"
+  },
+  {
+   "allow_in_quick_entry": 1,
    "bold": 1,
    "fieldname": "task",
    "fieldtype": "Link",
@@ -182,7 +182,12 @@
    "options": "Task"
   },
   {
-   "fieldname": "column_break_3",
+   "fieldname": "qr_code",
+   "fieldtype": "Attach",
+   "label": "QR Code"
+  },
+  {
+   "fieldname": "column_break_5",
    "fieldtype": "Column Break"
   },
   {
@@ -194,7 +199,7 @@
    "print_hide": 1
   },
   {
-   "fieldname": "status",
+   "fieldname": "collection_status",
    "fieldtype": "Select",
    "hidden": 1,
    "label": "Collection Status",
@@ -203,12 +208,12 @@
   },
   {
    "default": "IDB",
-   "description": "Ensure QC before Changing Status",
    "fieldname": "pending_for",
    "fieldtype": "Select",
+   "in_list_view": 1,
    "in_standard_filter": 1,
    "label": "Candidate Status",
-   "options": "IDB\nSourced\nSubmitted\nShortlisted\nLinedup\nInterviewed\nProposed PSL\nDo Not Disturb"
+   "options": "IDB\nSourced\nSubmitted\nShortlisted\nLinedup\nInterviewed\nProposed PSL"
   },
   {
    "fetch_from": "task.subject",
@@ -219,13 +224,18 @@
    "label": "Position"
   },
   {
+   "fetch_from": "project.territory",
+   "fieldname": "territory",
+   "fieldtype": "Read Only",
+   "label": "Territory"
+  },
+  {
    "depends_on": "eval:doc.pending_for == \"Proposed PSL\"",
    "fieldname": "interview_date",
    "fieldtype": "Date",
    "label": "Interview Date"
   },
   {
-   "depends_on": "eval:doc.pending_for == \"Proposed PSL\"",
    "fieldname": "interview_location",
    "fieldtype": "Link",
    "label": "Interview Location",
@@ -243,7 +253,7 @@
    "label": "Basic"
   },
   {
-   "fieldname": "column_break_11",
+   "fieldname": "column_break_14",
    "fieldtype": "Column Break"
   },
   {
@@ -252,7 +262,7 @@
    "label": "Food"
   },
   {
-   "fieldname": "column_break_13",
+   "fieldname": "column_break_16",
    "fieldtype": "Column Break"
   },
   {
@@ -268,6 +278,7 @@
   {
    "fieldname": "given_name",
    "fieldtype": "Data",
+   "in_list_view": 1,
    "label": "Given Name / Surname",
    "reqd": 1
   },
@@ -280,12 +291,10 @@
    "reqd": 1
   },
   {
-   "allow_in_quick_entry": 1,
    "fieldname": "current_location",
    "fieldtype": "Link",
    "label": "Current Location",
-   "options": "District",
-   "reqd": 1
+   "options": "District"
   },
   {
    "fieldname": "nationality",
@@ -294,28 +303,31 @@
    "options": "Country"
   },
   {
-   "fieldname": "column_break_18",
+   "fieldname": "column_break_22",
    "fieldtype": "Column Break"
   },
   {
-   "fieldname": "date_of_birth",
-   "fieldtype": "Date",
-   "label": "Date of Birth"
+   "default": "0",
+   "fieldname": "india_experience",
+   "fieldtype": "Float",
+   "label": "India Experience"
   },
   {
-   "fieldname": "age",
-   "fieldtype": "Data",
-   "label": "Age"
+   "default": "0",
+   "fieldname": "gulf_experience",
+   "fieldtype": "Float",
+   "label": "nternational Experience"
   },
   {
-   "fieldname": "email",
-   "fieldtype": "Data",
-   "label": "Email",
-   "options": "Email"
+   "default": "0",
+   "fieldname": "total_experience",
+   "fieldtype": "Float",
+   "label": "Total Experience",
+   "read_only": 1
   },
   {
    "collapsible": 1,
-   "fieldname": "section_break_9",
+   "fieldname": "passport_details_section",
    "fieldtype": "Section Break",
    "label": "Passport Details"
   },
@@ -346,7 +358,12 @@
    "options": "\nECR\nECNR"
   },
   {
-   "fieldname": "column_break_28",
+   "fieldname": "dob",
+   "fieldtype": "Date",
+   "label": "Date of Birth"
+  },
+  {
+   "fieldname": "column_break_34",
    "fieldtype": "Column Break"
   },
   {
@@ -362,7 +379,12 @@
    "options": "District"
   },
   {
-   "fieldname": "column_break_19",
+   "fieldname": "boarding_point",
+   "fieldtype": "Data",
+   "label": "Boarding Point"
+  },
+  {
+   "fieldname": "column_break_33",
    "fieldtype": "Column Break"
   },
   {
@@ -377,7 +399,7 @@
   },
   {
    "collapsible": 1,
-   "fieldname": "contact_details",
+   "fieldname": "contact_details_section",
    "fieldtype": "Section Break",
    "label": "Contact Details"
   },
@@ -397,7 +419,7 @@
    "label": "Skype ID"
   },
   {
-   "fieldname": "column_break_52",
+   "fieldname": "column_break_40",
    "fieldtype": "Column Break"
   },
   {
@@ -426,7 +448,7 @@
    "label": "Degree"
   },
   {
-   "fieldname": "column_break_48",
+   "fieldname": "column_break_46",
    "fieldtype": "Column Break"
   },
   {
@@ -434,6 +456,15 @@
    "fieldtype": "Link",
    "label": "Specialization",
    "options": "Specialization"
+  },
+  {
+   "fieldname": "column_break_48",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "state_of_university",
+   "fieldtype": "Data",
+   "label": "State of University"
   },
   {
    "fieldname": "column_break_50",
@@ -457,7 +488,7 @@
    "options": "Original Documents List"
   },
   {
-   "fieldname": "column_break_36",
+   "fieldname": "column_break_54",
    "fieldtype": "Column Break"
   },
   {
@@ -473,17 +504,15 @@
    "label": "Service Charge (Candidate)"
   },
   {
-   "fieldname": "section_break_59",
+   "fieldname": "section_break_57",
    "fieldtype": "Section Break"
   },
   {
    "fieldname": "executive",
    "fieldtype": "Link",
    "hidden": 1,
-   "ignore_user_permissions": 1,
    "label": "Executive",
-   "options": "Employee",
-   "report_hide": 1
+   "options": "Employee"
   },
   {
    "fieldname": "user",
@@ -499,7 +528,7 @@
    "read_only": 1
   },
   {
-   "fieldname": "column_break_63",
+   "fieldname": "column_break_61",
    "fieldtype": "Column Break"
   },
   {
@@ -509,7 +538,7 @@
    "label": "Executive Name"
   },
   {
-   "fieldname": "column_break_43",
+   "fieldname": "column_break_63",
    "fieldtype": "Column Break"
   },
   {
@@ -529,7 +558,7 @@
    "label": "IRF ,CV & Client Forms"
   },
   {
-   "fieldname": "column_break_42",
+   "fieldname": "column_break_67",
    "fieldtype": "Column Break"
   },
   {
@@ -538,7 +567,6 @@
    "label": "Passport"
   },
   {
-   "collapsible": 1,
    "fieldname": "associate_details",
    "fieldtype": "Section Break",
    "label": "Associate Details"
@@ -550,7 +578,7 @@
    "options": "Associate"
   },
   {
-   "fieldname": "column_break_60",
+   "fieldname": "column_break_71",
    "fieldtype": "Column Break"
   },
   {
@@ -566,10 +594,19 @@
    "label": "Associate Contact No"
   },
   {
-   "collapsible": 1,
    "fieldname": "personal_details",
    "fieldtype": "Section Break",
    "label": "Personal Details"
+  },
+  {
+   "fieldname": "date_of_birth",
+   "fieldtype": "Date",
+   "label": "Date of Birth"
+  },
+  {
+   "fieldname": "age",
+   "fieldtype": "Data",
+   "label": "Age"
   },
   {
    "fieldname": "gender",
@@ -584,7 +621,13 @@
    "label": "Married?"
   },
   {
-   "fieldname": "column_break_7",
+   "fieldname": "email",
+   "fieldtype": "Data",
+   "label": "Email",
+   "options": "Email"
+  },
+  {
+   "fieldname": "column_break_80",
    "fieldtype": "Column Break"
   },
   {
@@ -606,7 +649,6 @@
    "options": "Languages Known"
   },
   {
-   "collapsible": 1,
    "fieldname": "education_details",
    "fieldtype": "Section Break",
    "label": "Education Details"
@@ -616,6 +658,11 @@
    "fieldtype": "Table",
    "label": "Education",
    "options": "Education Details"
+  },
+  {
+   "fieldname": "driving_details",
+   "fieldtype": "Section Break",
+   "label": "Driving Details"
   },
   {
    "fieldname": "experience_details",
@@ -635,40 +682,19 @@
    "label": "Current Employer"
   },
   {
-   "fieldname": "column_break_30",
+   "fieldname": "column_break_90",
    "fieldtype": "Column Break"
   },
   {
-   "default": "0",
-   "fieldname": "india_experience",
-   "fieldtype": "Int",
-   "label": "India Experience",
-   "width": "10"
-  },
-  {
-   "fieldname": "column_break_35",
+   "fieldname": "column_break_91",
    "fieldtype": "Column Break"
   },
   {
-   "default": "0",
-   "fieldname": "gulf_experience",
-   "fieldtype": "Int",
-   "label": "International Experience"
-  },
-  {
-   "fieldname": "column_break_34",
+   "fieldname": "column_break_92",
    "fieldtype": "Column Break"
   },
   {
-   "default": "0",
-   "fieldname": "total_experience",
-   "fieldtype": "Int",
-   "label": "Total Experience",
-   "read_only": 1
-  },
-  {
-   "collapsible": 1,
-   "fieldname": "ctc_details",
+   "fieldname": "ctc_details_section",
    "fieldtype": "Section Break",
    "label": "CTC Details"
   },
@@ -681,10 +707,10 @@
    "fieldname": "ctc_mentioned_in",
    "fieldtype": "Select",
    "label": "CTC Mentioned in",
-   "options": "\nMonthly\nYearly"
+   "options": "Monthly\nYearly"
   },
   {
-   "fieldname": "column_break_38",
+   "fieldname": "column_break_96",
    "fieldtype": "Column Break"
   },
   {
@@ -693,7 +719,7 @@
    "label": "Current CTC"
   },
   {
-   "fieldname": "column_break_97",
+   "fieldname": "column_break_98",
    "fieldtype": "Column Break"
   },
   {
@@ -702,7 +728,7 @@
    "label": "Expected CTC"
   },
   {
-   "fieldname": "column_break_80",
+   "fieldname": "column_break_100",
    "fieldtype": "Column Break"
   },
   {
@@ -712,8 +738,7 @@
    "options": "Currency"
   },
   {
-   "collapsible": 1,
-   "fieldname": "add_experience",
+   "fieldname": "experience_details_section",
    "fieldtype": "Section Break",
    "label": "Experience Details"
   },
@@ -724,13 +749,11 @@
    "options": "Experience Details"
   },
   {
-   "collapsible": 1,
-   "fieldname": "address_details",
+   "fieldname": "present_address_section",
    "fieldtype": "Section Break",
    "label": "Present Address"
   },
   {
-   "depends_on": "perme",
    "fieldname": "address_line_1",
    "fieldtype": "Data",
    "label": "Address Line 1"
@@ -752,7 +775,7 @@
    "label": "Permanent Address Same as Above"
   },
   {
-   "fieldname": "column_break_51",
+   "fieldname": "column_break_109",
    "fieldtype": "Column Break"
   },
   {
@@ -767,9 +790,7 @@
    "options": "District"
   },
   {
-   "collapsible": 1,
-   "depends_on": "eval:!doc.permanent_address_same_as_above",
-   "fieldname": "section_break_55",
+   "fieldname": "permanent_address_section",
    "fieldtype": "Section Break",
    "label": "Permanent Address"
   },
@@ -789,7 +810,7 @@
    "label": "State"
   },
   {
-   "fieldname": "column_break_59",
+   "fieldname": "column_break_116",
    "fieldtype": "Column Break"
   },
   {
@@ -804,21 +825,20 @@
    "label": "District"
   },
   {
-   "fieldname": "remarks",
+   "fieldname": "section_break_119",
    "fieldtype": "Section Break"
   },
   {
-   "description": "Keep the most recent comments here and move the old comments to the comment box below",
-   "fieldname": "small_text_86",
+   "fieldname": "remarks",
    "fieldtype": "Small Text",
    "label": "Remarks"
   },
   {
-   "fieldname": "fold_105",
-   "fieldtype": "Fold"
+   "fieldname": "section_break_126",
+   "fieldtype": "Section Break"
   },
   {
-   "fieldname": "idb",
+   "fieldname": "idb_section",
    "fieldtype": "Section Break",
    "label": "IDB"
   },
@@ -828,7 +848,7 @@
    "label": "Father Name"
   },
   {
-   "fieldname": "column_break_108",
+   "fieldname": "column_break_123",
    "fieldtype": "Column Break"
   },
   {
@@ -842,11 +862,10 @@
   {
    "fieldname": "registration_no",
    "fieldtype": "Data",
-   "label": "Registration No",
-   "read_only": 1
+   "label": "Registration No"
   },
   {
-   "fieldname": "column_break_111",
+   "fieldname": "column_break_126",
    "fieldtype": "Column Break"
   },
   {
@@ -856,7 +875,7 @@
    "options": "Community"
   },
   {
-   "fieldname": "reference",
+   "fieldname": "reference_section",
    "fieldtype": "Section Break",
    "label": "Reference"
   },
@@ -876,7 +895,7 @@
    "label": "Relation"
   },
   {
-   "fieldname": "column_break_114",
+   "fieldname": "column_break_132",
    "fieldtype": "Column Break"
   },
   {
@@ -904,10 +923,10 @@
    "fieldname": "registration_category",
    "fieldtype": "Select",
    "label": "Registration Category",
-   "options": "\nDomestic\nInternational"
+   "options": "Domestic\nInternational"
   },
   {
-   "fieldname": "section_break_117",
+   "fieldname": "section_break_138",
    "fieldtype": "Section Break"
   },
   {
@@ -937,108 +956,16 @@
    "default": "0",
    "fieldname": "term6",
    "fieldtype": "Check",
-   "label": "In case of Resignation you need to give us 3 months notice period or pay 6 months salary."
-  },
-  {
-   "fieldname": "driving_details_section",
-   "fieldtype": "Section Break",
-   "label": "Driving Details"
-  },
-  {
-   "fetch_from": "customer.division",
-   "fieldname": "division",
-   "fieldtype": "Link",
-   "label": "Division",
-   "options": "Division"
-  },
-  {
-   "fieldname": "dob",
-   "fieldtype": "Date",
-   "label": "Date of Birth"
-  },
-  {
-   "fieldname": "qr_code",
-   "fieldtype": "Attach",
-   "label": "QR Code"
-  },
-  {
-   "fetch_from": "project.territory",
-   "fieldname": "territory",
-   "fieldtype": "Read Only",
-   "label": "Territory"
-  },
-  {
-   "fieldname": "state_of_university",
-   "fieldtype": "Link",
-   "label": "State of University",
-   "options": "State"
-  },
-  {
-   "fieldname": "column_break_55",
-   "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "boarding_point",
-   "fieldtype": "Data",
-   "label": "Boarding Point"
+   "label": "In case of Resignation you need to give us 3 months notice period or pay 6 months salary"
   }
  ],
  "image_field": "candidate_image",
- "modified": "2019-12-02 11:50:43.832626",
+ "modified": "2020-02-27 15:07:14.241476",
  "modified_by": "Administrator",
  "module": "Recruitment",
  "name": "Candidate",
  "owner": "Administrator",
  "permissions": [
-  {
-   "delete": 1,
-   "email": 1,
-   "export": 1,
-   "permlevel": 1,
-   "print": 1,
-   "read": 1,
-   "report": 1,
-   "role": "Projects User",
-   "share": 1,
-   "write": 1
-  },
-  {
-   "create": 1,
-   "delete": 1,
-   "email": 1,
-   "export": 1,
-   "if_owner": 1,
-   "print": 1,
-   "read": 1,
-   "report": 1,
-   "role": "Vendor",
-   "share": 1,
-   "write": 1
-  },
-  {
-   "create": 1,
-   "delete": 1,
-   "email": 1,
-   "export": 1,
-   "print": 1,
-   "read": 1,
-   "report": 1,
-   "role": "DnD Executive",
-   "share": 1,
-   "write": 1
-  },
-  {
-   "create": 1,
-   "delete": 1,
-   "email": 1,
-   "export": 1,
-   "print": 1,
-   "read": 1,
-   "report": 1,
-   "role": "Projects Manager",
-   "share": 1,
-   "write": 1
-  },
   {
    "create": 1,
    "delete": 1,
@@ -1050,75 +977,10 @@
    "role": "System Manager",
    "share": 1,
    "write": 1
-  },
-  {
-   "create": 1,
-   "delete": 1,
-   "email": 1,
-   "export": 1,
-   "print": 1,
-   "read": 1,
-   "report": 1,
-   "role": "Projects User",
-   "share": 1,
-   "user_permission_doctypes": "[\"Task\"]",
-   "write": 1
-  },
-  {
-   "create": 1,
-   "delete": 1,
-   "email": 1,
-   "export": 1,
-   "print": 1,
-   "read": 1,
-   "report": 1,
-   "role": "Project Leader",
-   "share": 1,
-   "user_permission_doctypes": "[\"Task\"]",
-   "write": 1
-  },
-  {
-   "create": 1,
-   "delete": 1,
-   "email": 1,
-   "export": 1,
-   "print": 1,
-   "read": 1,
-   "report": 1,
-   "role": "RCS User",
-   "share": 1,
-   "write": 1
-  },
-  {
-   "create": 1,
-   "delete": 1,
-   "email": 1,
-   "export": 1,
-   "print": 1,
-   "read": 1,
-   "report": 1,
-   "role": "Projects Master Manager",
-   "share": 1,
-   "write": 1
-  },
-  {
-   "create": 1,
-   "delete": 1,
-   "email": 1,
-   "export": 1,
-   "if_owner": 1,
-   "print": 1,
-   "read": 1,
-   "report": 1,
-   "role": "Team SBMK",
-   "share": 1,
-   "write": 1
   }
  ],
- "route": "candidate-registration",
- "show_name_in_global_search": 1,
+ "search_fields": "associate_name",
  "sort_field": "modified",
  "sort_order": "DESC",
- "title_field": "given_name",
  "track_changes": 1
 }

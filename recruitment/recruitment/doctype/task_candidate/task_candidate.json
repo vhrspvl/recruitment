@@ -1,313 +1,75 @@
 {
- "creation": "2016-08-18 16:15:55.012066",
+ "creation": "2020-02-06 18:03:03.684987",
  "doctype": "DocType",
- "document_type": "Document",
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
   "given_name",
-  "edit_candidate",
-  "column_break_6",
-  "pending_for",
-  "section_break_5",
-  "degree",
-  "column_break_7",
-  "specialization",
-  "experience_details",
-  "india_experience",
-  "column_break_11",
-  "gulf_experience",
-  "column_break_13",
-  "total_experience",
-  "section_break_13",
-  "current_ctc",
-  "column_break_15",
-  "currency_type",
-  "column_break_17",
-  "expected_ctc",
-  "column_break_19",
-  "currency_type1",
-  "section_break_4",
-  "passport_no",
-  "column_break_14",
-  "expiry_date",
-  "ecr_status",
-  "section_break_10",
-  "current_location",
   "mobile",
-  "landline",
-  "column_break_24",
-  "email",
-  "skype_id",
-  "associate_details",
-  "associate_name",
-  "column_break_18",
-  "contact_no",
-  "executive_details",
+  "column_break_3",
+  "candidate_status",
+  "current_location",
+  "executive_details_section",
   "user",
-  "column_break_41",
-  "full_name",
-  "section_break_21",
-  "remarks",
   "candidate_id"
  ],
  "fields": [
   {
-   "columns": 3,
    "fieldname": "given_name",
    "fieldtype": "Data",
    "in_list_view": 1,
    "label": "Given Name"
   },
   {
-   "depends_on": "candidate_id",
-   "fieldname": "edit_candidate",
-   "fieldtype": "Button",
-   "label": "View Candidate"
+   "fieldname": "mobile",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Mobile"
   },
   {
-   "fieldname": "column_break_6",
-   "fieldtype": "Column Break"
-  },
-  {
-   "columns": 2,
-   "default": "IDB",
-   "description": "QC Note: Ensure Quality Check for any submission as applicable to respective stages.",
-   "fieldname": "pending_for",
+   "fieldname": "candidate_status",
    "fieldtype": "Select",
    "in_list_view": 1,
    "label": "Candidate Status",
    "options": "IDB\nSourced\nSubmitted\nShortlisted\nLinedup\nInterviewed\nProposed PSL\nDo Not Disturb"
   },
   {
-   "fieldname": "section_break_5",
-   "fieldtype": "Section Break"
-  },
-  {
-   "fieldname": "degree",
-   "fieldtype": "Link",
-   "label": "Degree",
-   "options": "Qualification"
-  },
-  {
-   "fieldname": "column_break_7",
-   "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "specialization",
-   "fieldtype": "Link",
-   "label": "Specialization",
-   "options": "Specialization"
-  },
-  {
-   "fieldname": "experience_details",
-   "fieldtype": "Section Break",
-   "label": "Experience Details"
-  },
-  {
-   "fieldname": "india_experience",
-   "fieldtype": "Int",
-   "label": "India Experience"
-  },
-  {
-   "fieldname": "column_break_11",
-   "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "gulf_experience",
-   "fieldtype": "Int",
-   "label": "Overseas Experience"
-  },
-  {
-   "fieldname": "column_break_13",
-   "fieldtype": "Column Break"
-  },
-  {
-   "bold": 1,
-   "fieldname": "total_experience",
-   "fieldtype": "Int",
-   "label": "Total Experience",
-   "read_only": 1
-  },
-  {
-   "fieldname": "section_break_13",
-   "fieldtype": "Section Break",
-   "label": "CTC Details"
-  },
-  {
-   "fieldname": "current_ctc",
-   "fieldtype": "Currency",
-   "label": "Current CTC"
-  },
-  {
-   "fieldname": "column_break_15",
-   "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "currency_type",
-   "fieldtype": "Link",
-   "label": "Currency Type",
-   "options": "Currency"
-  },
-  {
-   "fieldname": "column_break_17",
-   "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "expected_ctc",
-   "fieldtype": "Currency",
-   "label": "Expected CTC"
-  },
-  {
-   "fieldname": "column_break_19",
-   "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "currency_type1",
-   "fieldtype": "Link",
-   "label": "Currency Type",
-   "options": "Currency"
-  },
-  {
-   "fieldname": "section_break_4",
-   "fieldtype": "Section Break",
-   "label": "Passport Details"
-  },
-  {
-   "columns": 2,
-   "fieldname": "passport_no",
-   "fieldtype": "Data",
-   "in_list_view": 1,
-   "label": "Passport No"
-  },
-  {
-   "fieldname": "column_break_14",
-   "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "expiry_date",
-   "fieldtype": "Date",
-   "label": "Expiry Date"
-  },
-  {
-   "default": "ECNR",
-   "fieldname": "ecr_status",
-   "fieldtype": "Select",
-   "label": "ECR Status",
-   "options": "\nECR\nECNR"
-  },
-  {
-   "fieldname": "section_break_10",
-   "fieldtype": "Section Break",
-   "label": "Personal Details"
-  },
-  {
    "fieldname": "current_location",
    "fieldtype": "Data",
+   "in_list_view": 1,
    "label": "Current Location"
-  },
-  {
-   "columns": 2,
-   "fieldname": "mobile",
-   "fieldtype": "Data",
-   "in_list_view": 1,
-   "label": "Mobile ",
-   "reqd": 1
-  },
-  {
-   "fieldname": "landline",
-   "fieldtype": "Data",
-   "label": "Landline"
-  },
-  {
-   "fieldname": "column_break_24",
-   "fieldtype": "Column Break"
-  },
-  {
-   "columns": 1,
-   "fieldname": "email",
-   "fieldtype": "Data",
-   "in_list_view": 1,
-   "label": "Email"
-  },
-  {
-   "fieldname": "skype_id",
-   "fieldtype": "Data",
-   "label": "Skype ID"
-  },
-  {
-   "fieldname": "associate_details",
-   "fieldtype": "Section Break",
-   "label": "Associate Details"
-  },
-  {
-   "fieldname": "associate_name",
-   "fieldtype": "Link",
-   "label": "Associate Name",
-   "options": "Associate"
-  },
-  {
-   "fieldname": "column_break_18",
-   "fieldtype": "Column Break"
-  },
-  {
-   "fetch_from": "associate_name.mobile",
-   "fieldname": "contact_no",
-   "fieldtype": "Read Only",
-   "label": "Contact No"
-  },
-  {
-   "fieldname": "executive_details",
-   "fieldtype": "Section Break",
-   "label": "Executive Details"
   },
   {
    "fieldname": "user",
    "fieldtype": "Link",
-   "in_list_view": 1,
-   "label": "User",
+   "label": "Executive",
    "options": "User"
   },
   {
-   "fieldname": "column_break_41",
+   "fieldname": "candidate_id",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Candidate ID"
+  },
+  {
+   "fieldname": "column_break_3",
    "fieldtype": "Column Break"
   },
   {
-   "fetch_from": "user.full_name",
-   "fieldname": "full_name",
-   "fieldtype": "Read Only",
-   "label": "Full Name"
-  },
-  {
-   "fieldname": "section_break_21",
-   "fieldtype": "Section Break"
-  },
-  {
-   "fieldname": "remarks",
-   "fieldtype": "Text",
-   "label": "Remarks"
-  },
-  {
-   "fieldname": "candidate_id",
-   "fieldtype": "Link",
-   "hidden": 1,
-   "label": "Candidate ID",
-   "no_copy": 1,
-   "options": "Candidate",
-   "print_hide": 1,
-   "remember_last_selected_value": 1
+   "fieldname": "executive_details_section",
+   "fieldtype": "Section Break",
+   "label": "Executive Details"
   }
  ],
- "icon": "octicon octicon-user",
  "istable": 1,
- "modified": "2019-10-30 13:57:45.696120",
+ "modified": "2020-02-06 18:46:46.205763",
  "modified_by": "Administrator",
  "module": "Recruitment",
  "name": "Task Candidate",
  "owner": "Administrator",
  "permissions": [],
+ "quick_entry": 1,
  "sort_field": "modified",
  "sort_order": "DESC",
- "title_field": "given_name",
  "track_changes": 1
 }

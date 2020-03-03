@@ -328,19 +328,7 @@ def get_dle(doctype, txt, searchfield, start, page_len, filters):
         """select candidate.user from tabCandidate candidate where candidate.name = %s""", (filters.get("candidate")))
 #    dle_user = frappe.db.sql("""select employee.user_id from tabEmployee employee where employee.name=%s""",dle)
     return dle_user
-
-
-def get_tl(doctype, txt, searchfield, start, page_len, filters):
-    if not filters.get("dle"):
-        frappe.throw(_("Please select Delivery Executive first."))
-
-    tl = frappe.db.sql(
-        """select employee.reports_to from tabEmployee employee where employee.user_id=%s""", (filters.get("dle")))
-    tl_user = frappe.db.sql(
-        """select employee.user_id from tabEmployee employee where employee.name=%s""", tl)
-    return tl_user
-
-
+	
 @frappe.whitelist()
 def update_dnd_incharge(project, dnd):
     if dnd:

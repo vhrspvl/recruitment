@@ -1,6 +1,6 @@
 import frappe
 import json
-import shortuuid
+# import shortuuid
 import qrcode
 import base64
 from PIL import Image
@@ -69,17 +69,17 @@ def send_pdf(doc, method):
     download_pdf(doc.doctype, doc.name, format="Registration Form", doc=doc)
 
 
-@frappe.whitelist()
-def generate_token(token_type, no_of_tokens):
-    tokens = int(no_of_tokens)
-    for token in range(tokens):
-        new_token = frappe.new_doc("Token Summary")
-        new_token.token = shortuuid.ShortUUID().random(length=10)
-        if token_type == 'Domestic':
-            new_token.value = 'Domestic'
-        else:
-            new_token.value = 'International'
-        new_token.save()
+# @frappe.whitelist()
+# def generate_token(token_type, no_of_tokens):
+#     tokens = int(no_of_tokens)
+#     for token in range(tokens):
+#         new_token = frappe.new_doc("Token Summary")
+#         new_token.token = shortuuid.ShortUUID().random(length=10)
+#         if token_type == 'Domestic':
+#             new_token.value = 'Domestic'
+#         else:
+#             new_token.value = 'International'
+#         new_token.save()
 
 
 @frappe.whitelist()
@@ -106,6 +106,7 @@ def fetch_candidate(project, payment_type):
 @frappe.whitelist()
 def create_closure(doc, method):
     if doc.pending_for == 'Proposed PSL':
+        frappe.errprint(doc.name)
         if doc.original_documents:
             for docs in doc.original_documents:
                 docslist = frappe.db.get_value(
@@ -122,14 +123,14 @@ def create_closure(doc, method):
         payment_terms = project.payment_terms
         dle = ca_executive = source_executive = ''
         tl = ''
-        bu = ''
+        # bu = ''
         department = ''
         if doc.user:
             executive = frappe.db.get("Employee", {"user_id": doc.user})
             if executive:
                 source_executive = executive.user_id
                 department = executive.department
-                bu = frappe.get_value("Employee", executive, 'business_unit')
+                # bu = frappe.get_value("Employee", executive, 'business_unit')
                 tl = frappe.db.get_value(
                     "Employee", executive.reports_to, "user_id")
         if closure_id:
@@ -157,9 +158,7 @@ def create_closure(doc, method):
             "place_of_issue": doc.place_of_issue,
             "cr_executive": project.cpc,
             "ca_executive": ca_executive,
-            "business_unit": bu,
             "department": department,
-            "division": doc.division,
             "source_executive": source_executive,
             "selection_date": doc.interview_date,
             "tl": tl,
@@ -200,7 +199,6 @@ def send_anniversary_reminders():
 
             def ordinal(n): return "%d%s" % (
                 n, "tsnrhtdd"[(n/10 % 10 != 1)*(n % 10 < 4)*n % 10::4])
-            print ordinal(exp)
             experience = exp + 1
 
             wish = """We are Proud to have an Employee like you as a part of VHRS Family,

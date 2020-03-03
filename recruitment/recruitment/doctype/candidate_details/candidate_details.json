@@ -1,0 +1,263 @@
+{
+ "autoname": "CN.####",
+ "creation": "2020-02-18 19:06:57.604985",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "candidate_summary",
+  "name_1",
+  "email_id",
+  "ph_no",
+  "alt_ph",
+  "col_1",
+  "reg_date",
+  "dob",
+  "gender",
+  "qual_details",
+  "highest_qual",
+  "col_2",
+  "specialization",
+  "column_break_14",
+  "yop",
+  "passport_details_section",
+  "applied",
+  "not_applicable",
+  "ecr_status",
+  "passport_no",
+  "place_of_issue",
+  "column_break_22",
+  "boarding_point",
+  "issued_date",
+  "expiry_date",
+  "original_documents_holded_section",
+  "original_documents_holded",
+  "column_break_28",
+  "candidate_payment_applicable",
+  "candidate_sc",
+  "experience_details_section",
+  "exp",
+  "experience",
+  "candidate_attachment_section",
+  "resume",
+  "position_applied_section",
+  "position"
+ ],
+ "fields": [
+  {
+   "fieldname": "candidate_summary",
+   "fieldtype": "Section Break",
+   "label": "CANDIDATE SUMMARY"
+  },
+  {
+   "fieldname": "name_1",
+   "fieldtype": "Data",
+   "label": "Name"
+  },
+  {
+   "fieldname": "email_id",
+   "fieldtype": "Data",
+   "label": "Email ID"
+  },
+  {
+   "fieldname": "ph_no",
+   "fieldtype": "Data",
+   "label": "Phone No"
+  },
+  {
+   "fieldname": "alt_ph",
+   "fieldtype": "Data",
+   "label": "Alternate Phone No"
+  },
+  {
+   "fieldname": "col_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "reg_date",
+   "fieldtype": "Date",
+   "label": "Date of Registration"
+  },
+  {
+   "fieldname": "dob",
+   "fieldtype": "Date",
+   "label": "Date of Birth"
+  },
+  {
+   "fieldname": "gender",
+   "fieldtype": "Select",
+   "label": "Gender",
+   "options": "\nMale\nFemale"
+  },
+  {
+   "fieldname": "qual_details",
+   "fieldtype": "Section Break",
+   "label": "Qualification Details"
+  },
+  {
+   "fieldname": "highest_qual",
+   "fieldtype": "Select",
+   "label": "Highest level of qualification",
+   "options": "\nDegree\nDiploma\nHSC\nSSLC"
+  },
+  {
+   "fieldname": "col_2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "yop",
+   "fieldtype": "Int",
+   "label": "Year of Passing"
+  },
+  {
+   "fieldname": "specialization",
+   "fieldtype": "Data",
+   "label": "Specialization"
+  },
+  {
+   "fieldname": "column_break_14",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "passport_details_section",
+   "fieldtype": "Section Break",
+   "label": "Passport Details"
+  },
+  {
+   "default": "0",
+   "fieldname": "applied",
+   "fieldtype": "Check",
+   "label": "Applied"
+  },
+  {
+   "default": "0",
+   "fieldname": "not_applicable",
+   "fieldtype": "Check",
+   "hidden": 1,
+   "label": "Not Applicable"
+  },
+  {
+   "fieldname": "ecr_status",
+   "fieldtype": "Select",
+   "label": "ECR Status",
+   "options": "\nECR\nECNR"
+  },
+  {
+   "fieldname": "passport_no",
+   "fieldtype": "Int",
+   "label": "Passport No"
+  },
+  {
+   "fieldname": "column_break_22",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "place_of_issue",
+   "fieldtype": "Link",
+   "label": "Place of Issue",
+   "options": "District"
+  },
+  {
+   "fieldname": "boarding_point",
+   "fieldtype": "Data",
+   "label": "Boarding Point"
+  },
+  {
+   "fieldname": "issued_date",
+   "fieldtype": "Date",
+   "label": "Issued Date"
+  },
+  {
+   "fieldname": "expiry_date",
+   "fieldtype": "Date",
+   "label": "Expiry Date"
+  },
+  {
+   "fieldname": "original_documents_holded_section",
+   "fieldtype": "Section Break",
+   "label": "Original Documents Holded"
+  },
+  {
+   "fieldname": "original_documents_holded",
+   "fieldtype": "Table",
+   "label": "Original Documents Holded",
+   "options": "Original Documents List"
+  },
+  {
+   "fieldname": "column_break_28",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "candidate_payment_applicable",
+   "fieldtype": "Check",
+   "label": "Candidate Payment Applicable"
+  },
+  {
+   "depends_on": "candidate_payment_applicable",
+   "fieldname": "candidate_sc",
+   "fieldtype": "Currency",
+   "label": "Service Charge (Candidate)"
+  },
+  {
+   "fieldname": "experience_details_section",
+   "fieldtype": "Section Break",
+   "label": "Experience Details"
+  },
+  {
+   "depends_on": "eval:in_list([\"Experience\"], doc.exp)",
+   "fieldname": "experience",
+   "fieldtype": "Table",
+   "label": "Experience",
+   "options": "Experience Details"
+  },
+  {
+   "fieldname": "exp",
+   "fieldtype": "Select",
+   "label": "Experience",
+   "options": "\nFresher\nExperience"
+  },
+  {
+   "fieldname": "candidate_attachment_section",
+   "fieldtype": "Section Break",
+   "label": "Candidate Attachment"
+  },
+  {
+   "fieldname": "resume",
+   "fieldtype": "Attach",
+   "label": "Resume"
+  },
+  {
+   "fieldname": "position_applied_section",
+   "fieldtype": "Section Break",
+   "label": "Position Applied "
+  },
+  {
+   "fieldname": "position",
+   "fieldtype": "Data",
+   "label": "Position"
+  }
+ ],
+ "modified": "2020-02-19 11:47:36.509650",
+ "modified_by": "Administrator",
+ "module": "Recruitment",
+ "name": "Candidate Details",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}
