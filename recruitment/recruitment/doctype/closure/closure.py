@@ -90,7 +90,7 @@ class Closure(Document):
                 if self.irf and self.passport and self.photo:
                     if self.csl_status == 'Sales Order Confirmed' or self.sales_order_confirmed_date:
                         if self.offer_letter:
-                            if self.premedical:
+                            if self.premedicalpremedical:
                                 if self.mol:
                                     if self.visa:
                                         if self.ecr_status != 'ECR' or self.poe:
@@ -179,7 +179,7 @@ class Closure(Document):
                 if self.irf and self.passport and self.photo:
                     if self.csl_status == 'Sales Order Confirmed' or self.sales_order_confirmed_date:
                         if self.offer_letter:
-                            if self.premedical:
+                            if self.premedicalpremedical:
                                 if self.visa:
                                     if self.final_medical:
                                         if self.stamped_visa:
@@ -228,7 +228,7 @@ class Closure(Document):
                 if self.irf and self.passport and self.photo:
                     if self.csl_status == 'Sales Order Confirmed' or self.sales_order_confirmed_date:
                         if self.offer_letter:
-                            if self.premedical:
+                            if self.premedicalpremedical:
                                 if self.stamped_visa:
                                     if self.ecr_status != 'ECR' or self.poe:
                                         # if self.payment_reciept:
@@ -269,7 +269,7 @@ class Closure(Document):
                 if self.irf and self.passport and self.photo:
                     if self.csl_status == 'Sales Order Confirmed' or self.sales_order_confirmed_date:
                         if self.offer_letter:
-                            if self.premedical:
+                            if self.premedicalpremedical:
                                 if self.pcc:
                                     if self.visa:
                                         if self.final_medical:

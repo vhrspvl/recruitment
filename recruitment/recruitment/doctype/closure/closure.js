@@ -87,7 +87,6 @@ frappe.ui.form.on('Closure', {
                                                 "client_sc": frm.doc.client_sc,
                                                 "designation": frm.doc.designation,
                                                 "candidate_sc": frm.doc.candidate_sc,
-                                                "business_unit": frm.doc.business_unit || " ",
                                                 "source_executive": frm.doc.source_executive || " ",
                                                 "ca_executive": frm.doc.ca_executive || " ",
                                                 "is_candidate": frm.doc.candidate_payment_applicable,

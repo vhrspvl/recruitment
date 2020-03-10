@@ -436,6 +436,7 @@
    "fetch_from": "candidate.given_name",
    "fieldname": "name1",
    "fieldtype": "Read Only",
+   "in_list_view": 1,
    "label": "Name"
   },
   {
@@ -973,12 +974,6 @@
    "fieldtype": "Column Break"
   },
   {
-   "depends_on": "eval:in_list([\"UAE\",\"Dubai\",\"Kuwait\",\"Qatar\",\"Oman\",\"Bahrain\",\"Maldives\"], doc.territory)",
-   "fieldname": "premedicalpremedical",
-   "fieldtype": "Attach",
-   "label": "Pre-Medical"
-  },
-  {
    "fieldname": "premedical_date",
    "fieldtype": "Date",
    "label": "Premedical Date",
@@ -1326,10 +1321,16 @@
    "fieldtype": "Date",
    "hidden": 1,
    "label": "Sales Order Confirmed Date"
+  },
+  {
+   "depends_on": "eval:in_list([\"UAE\",\"Dubai\",\"Kuwait\",\"Qatar\",\"Oman\",\"Bahrain\",\"Maldives\"], doc.territory)",
+   "fieldname": "premedicalpremedical",
+   "fieldtype": "Attach",
+   "label": "Pre-Medical"
   }
  ],
  "image_field": "photo",
- "modified": "2020-02-24 15:14:35.477501",
+ "modified": "2020-03-05 11:17:14.974355",
  "modified_by": "Administrator",
  "module": "Recruitment",
  "name": "Closure",
